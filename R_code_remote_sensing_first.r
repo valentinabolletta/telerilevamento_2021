@@ -45,4 +45,13 @@ plot(p224r63_2011$B4_sre, col=cln)
 # dev.off will clean the current graph
 # dev.off()
 
+# plot band 1 with a predefined color ramp palette
+plot(p224r63_2011$B1_sre)
+
+cls <- colorRampPalette(c("red","pink","orange","purple")) (200)
+plot(p224r63_2011$B1_sre, col=cls)
+
+# 1 row, 2 columns
+par(mfrow=c(1,2))
+
 
