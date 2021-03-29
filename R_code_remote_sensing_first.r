@@ -57,4 +57,7 @@ par(mfrow=c(1,2))
 plot(p224r63_2011$B1_sre)
 plot(p224r63_2011$B2_sre)
 
-
+# 2 row, 1 columns
+par(mfrow=c(2,1)) # if you are using columns first: par(mfcol....)
+plot(p224r63_2011$B1_sre)
+plot(p224r63_2011$B2_sre)
