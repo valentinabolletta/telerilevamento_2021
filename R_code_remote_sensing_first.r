@@ -32,3 +32,17 @@ plot(p224r63_2011$B3_sre, col=clr)
 cln <- colorRampPalette(c('red','orange','yellow'))(100) # 
 plot(p224r63_2011$B4_sre, col=cln)
 
+#DAY 3
+# Bande Landsat
+# B1: blu
+# B2: verde
+# B3: rosso
+# B4: infrarosso vicino
+# B5: infrarosso medio
+# B6: infrarosso termico
+# B7: infrarosso medio
+
+# dev.off will clean the current graph
+# dev.off()
+
+
