@@ -61,3 +61,11 @@ plot(p224r63_2011$B2_sre)
 par(mfrow=c(2,1)) # if you are using columns first: par(mfcol....)
 plot(p224r63_2011$B1_sre)
 plot(p224r63_2011$B2_sre)
+
+# plot the first four bands of Landsat
+par(mfrow=c(4,1))
+plot(p224r63_2011$B1_sre)
+plot(p224r63_2011$B2_sre)
+plot(p224r63_2011$B3_sre)
+plot(p224r63_2011$B4_sre)
+
