@@ -98,4 +98,5 @@ plot(p224r63_2011$B4_sre, col=clnir)
 # B6: infrarosso termico
 # B7: infrarosso medio
 
+plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
 
