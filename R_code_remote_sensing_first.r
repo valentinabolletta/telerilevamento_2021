@@ -119,3 +119,6 @@ plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
 # plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
 # dev.off()
 
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
+
