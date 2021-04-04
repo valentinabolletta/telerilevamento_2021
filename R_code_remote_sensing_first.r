@@ -128,5 +128,9 @@ plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
 
+#Multitemporal set
+p224r63_1988 <- brick("p224r63_1988_masked.grd")
+p224r63_1988
+
 
 
