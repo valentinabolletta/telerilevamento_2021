@@ -132,5 +132,6 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
 p224r63_1988 <- brick("p224r63_1988_masked.grd")
 p224r63_1988
 
+plot(p224r63_1988) #visualizzazione delle singole bande (7)
 
 
