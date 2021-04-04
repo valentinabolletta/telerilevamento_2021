@@ -134,4 +134,16 @@ p224r63_1988
 
 plot(p224r63_1988) #visualizzazione delle singole bande (7)
 
+# Bande Landsat
+# B1: blu
+# B2: verde
+# B3: rosso
+# B4: infrarosso vicino
+# B5: infrarosso medio
+# B6: infrarosso termico
+# B7: infrarosso medio
+
+#plot in RGB
+plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin")
+
 
