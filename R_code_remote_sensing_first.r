@@ -143,7 +143,10 @@ plot(p224r63_1988) #visualizzazione delle singole bande (7)
 # B6: infrarosso termico
 # B7: infrarosso medio
 
-#plot in RGB
+#plot in RGB colori naturali
 plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin")
+
+#plot in RGB infrarosso (NIR)
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin")
 
 
