@@ -5,4 +5,4 @@
 #install.packages ("raster")
 library (raster)
 
-setwd("C:/lab/Greenland/")
+setwd("C:/lab/greenland/")
