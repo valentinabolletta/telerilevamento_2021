@@ -34,5 +34,8 @@ plotRGB(TGr, 1, 2, 3, stretch="Lin")
 plotRGB(TGr, 2, 3, 4, stretch="Lin") 
 plotRGB(TGr, 4, 3, 2, stretch="Lin") 
 
+levelplot(TGr)
+
+
 
 
