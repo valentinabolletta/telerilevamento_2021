@@ -23,5 +23,14 @@ plot(lst_2015)
 rlist <- list.files(pattern="lst")
 rlist
 
-import <- lapply(rlist,raster)
+import <- lapply(rlist,raster) #files importati tutti insieme ma separati
 import
+
+TGr <- stack(import)
+plot(TGr)
+
+
+plotRGB(TGr, 1, 2, 3, stretch="Lin") 
+plotRGB(TGr, 2, 3, 4, stretch="Lin") 
+plotRGB(TGr, 4, 3, 2, stretch="Lin") 
+
