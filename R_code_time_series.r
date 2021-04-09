@@ -19,3 +19,7 @@ plot(lst_2005)
 plot(lst_2010)
 plot(lst_2015)
 
+# list of files:
+rlist <- list.files(pattern="lst")
+rlist
+
