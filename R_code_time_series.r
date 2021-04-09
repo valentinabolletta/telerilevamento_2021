@@ -23,3 +23,5 @@ plot(lst_2015)
 rlist <- list.files(pattern="lst")
 rlist
 
+import <- lapply(rlist,raster)
+import
