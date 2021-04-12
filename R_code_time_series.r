@@ -36,6 +36,7 @@ plotRGB(TGr, 4, 3, 2, stretch="Lin")
 
 levelplot(TGr)
 
-
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(TGr,col.regions=cl,
 
 
