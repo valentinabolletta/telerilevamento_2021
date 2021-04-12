@@ -37,6 +37,7 @@ plotRGB(TGr, 4, 3, 2, stretch="Lin")
 levelplot(TGr)
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
-levelplot(TGr,col.regions=cl,
+levelplot(TGr,col.regions=cl,main="Summer land surface temperature",names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))
+
 
 
