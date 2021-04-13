@@ -47,6 +47,10 @@ library(rasterVis)
 rlist <- list.files(pattern="melt")
 rlist
 
-
+# Melt
+meltlist <- list.files(pattern="melt")
+melt_import <- lapply(meltlist,raster)
+melt <- stack(melt_import)
+melt
 
 
