@@ -6,5 +6,5 @@ library(knitr)
 
 # starting from the code folder where framed.sty is put!
 
-stitch("codice time series greenland", template=system.file("misc", "knitr-template.Rnw", package="knitr"))
+stitch("R_Code_greenland.r.txt", template=system.file("misc", "knitr-template.Rnw", package="knitr"))
 
