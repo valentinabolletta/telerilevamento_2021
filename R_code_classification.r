@@ -13,7 +13,10 @@ plotRGB(so, 1, 2, 3, stretch="lin")
 library (RStoolbox)
 
 #unsupervised classification
+set.seed(42)
 soc <- unsuperClass(so, nClasses=3)
+
+plot(soe$map,col=cl)
 
 
 
