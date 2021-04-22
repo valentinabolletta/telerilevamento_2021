@@ -27,3 +27,5 @@ plot(soc20$map)
 sun<-brick("sun.png")
 
 #unsupervised classification
+sunc <- unsuperClass(sun, nClasses=3)
+plot(sunc$map)
