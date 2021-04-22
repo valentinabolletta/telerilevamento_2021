@@ -16,8 +16,10 @@ library (RStoolbox)
 set.seed(42)
 soc <- unsuperClass(so, nClasses=3)
 cl <- colorRampPalette(c('yellow','red','black'))(100)
-
 plot(soe$map,col=cl)
 
+#unsupervised classification with 20 classes
+soc20 <- unsuperClass(so, nClasses=20)
+plot(soc20$map)
 
 
