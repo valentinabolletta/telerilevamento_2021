@@ -13,7 +13,7 @@ plotRGB(so, 1, 2, 3, stretch="lin")
 library (RStoolbox)
 
 #unsupervised classification
-soe <- unsuperClass(so, nClasses=3)
+soc <- unsuperClass(so, nClasses=3)
 
 
 
