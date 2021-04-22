@@ -22,4 +22,8 @@ plot(soe$map,col=cl)
 soc20 <- unsuperClass(so, nClasses=20)
 plot(soc20$map)
 
+#download an image from:
+#link immagine ESA
+sun<-brick("sun.png")
 
+#unsupervised classification
