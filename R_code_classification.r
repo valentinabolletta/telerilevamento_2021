@@ -29,3 +29,7 @@ sun<-brick("sun.png")
 #unsupervised classification
 sunc <- unsuperClass(sun, nClasses=3)
 plot(sunc$map)
+
+#Grand Canyon
+#https://landsat.visibleearth.nasa.gov/view.php?id=80948
+#When John Wesley Powell led an expedition down the Colorado River and through the Grand Canyon in 1869, he was confronted with a daunting landscape.
