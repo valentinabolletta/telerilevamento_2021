@@ -10,3 +10,5 @@ plot(p224r63)
 p224r63
 
 plot(p224r63$B1_sre,p224r63$B2_sre, col="red", pch=19, cex=2)
+
+pairs(p224r63)
