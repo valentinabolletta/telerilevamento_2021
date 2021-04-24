@@ -35,7 +35,7 @@ plot(sunc$map)
 #https://landsat.visibleearth.nasa.gov/view.php?id=80948
 #When John Wesley Powell led an expedition down the Colorado River and through the Grand Canyon in 1869, he was confronted with a daunting landscape.
 
-gc<-brick("dolansprings_oli_2013088_canyon_lrg")
+gc<-brick("dolansprings_oli_2013088_canyon_lrg.jpg")
 plotRGB(gc, r=1, g=2, b=3, stretch="lin")
 plotRGB(gc, r=1, g=2, b=3, stretch="hist")
 
