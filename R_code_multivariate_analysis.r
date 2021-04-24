@@ -4,3 +4,5 @@ library(raster)
 library(RStoolbox)
 
 setwd("c:/lab/")
+
+p224r63<-brick("p224r63_2011_masked.grd")
