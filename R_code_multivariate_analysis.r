@@ -20,3 +20,9 @@ p224r63res
 par(mfrow=c(2,1))
 plotRGB(p224r63, r=4,g=3,b=2, stretch="Lin")
 plotRGB(p224r63res, r=4,g=3,b=2, stretch="Lin")
+
+p224r63_PCA<-rasterPCA(p224r63res)
+
+summary(p224r63_PCA$model)
+
+plot(p224r63_PCA$map)
