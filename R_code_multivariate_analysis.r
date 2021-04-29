@@ -13,5 +13,10 @@ plot(p224r63$B1_sre,p224r63$B2_sre, col="red", pch=19, cex=2)
 
 pairs(p224r63)
 
-#aggregate cells
+#aggregate cells: resampling (ricampionamento)
 p224r63res <- aggregate(p224r63, fact=10, fun=mean)
+p224r63res
+
+par(mfrow=c(2,1))
+plotRGB(p224r63, r=4,g=3,b=2, stretch="Lin")
+plotRGB(p224r63res, r=4,g=3,b=2, stretch="Lin")
