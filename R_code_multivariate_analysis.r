@@ -26,3 +26,4 @@ p224r63_PCA<-rasterPCA(p224r63res)
 summary(p224r63_PCA$model)
 
 plot(p224r63_PCA$map)
+p224r63_PCA
