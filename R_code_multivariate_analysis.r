@@ -27,3 +27,5 @@ summary(p224r63_PCA$model)
 
 plot(p224r63_PCA$map)
 p224r63_PCA
+
+plotRGB(p224r63_PCA$map, r=1, g=2, b=3, stretch="Lin")
