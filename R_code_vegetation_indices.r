@@ -1,10 +1,10 @@
 #R_code_vegetation_indices.r
 
-library(raster)
+library(raster) #require (raster)
 setwd("c:/lab/")
 
-defor1 <- brick("defor1_.jpg") 
-defor2 <- brick("defor2_.jpg") 
+defor1 <- brick("defor1.jpg") 
+defor2 <- brick("defor2.jpg") 
 
 # band1: NIR, defor1_.1
 # band2: red, defor1_.2
