@@ -28,5 +28,5 @@ plot(dvi1)
 
 cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme
 par(mfrow=c(1,2))
-plot(dvi1, col=cl)
+plot(dvi1, col=cl,main="DVI1 at time 1)
 plot(dvi2, col=cl)
