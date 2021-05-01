@@ -32,7 +32,6 @@ plot(dvi1)
 cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme
 plot(dvi1, col=cl,main="DVI1 at time 1)
 
-
 #time 2
 
 dvi2 <- defor2$defor2.1 - defor2$defor2.2 
@@ -56,5 +55,9 @@ ndvi2 <- (defor2$defor2.1-defor1$defor2.2) / (defor$defor2.1+defor1$defor2.2)
 plot(ndvi2, col=cl)
 
 #RStoolbox: spectralIndices
-vi <-spectralIndices(defor1, green=3, red=2, nir=1)
-plot(vi, col=cl)
+vi1 <-spectralIndices(defor1, green=3, red=2, nir=1)
+plot(vi1, col=cl)
+
+vi2 <-spectralIndices(defor2, green=3, red=2, nir=1)
+plot(vi2, col=cl)
+
