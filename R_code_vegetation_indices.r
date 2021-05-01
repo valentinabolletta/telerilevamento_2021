@@ -45,4 +45,6 @@ difdvi <- dvi1 - dvi2
 cld <- colorRampPalette(c('blue','white','red'))(100) 
 plot(difdvi, col=cld)
 
+#ndvi
+#(NIR-RED)/(NIR+RED)
 hist(difdvi)
