@@ -47,4 +47,10 @@ plot(difdvi, col=cld)
 
 #ndvi
 #(NIR-RED)/(NIR+RED)
-hist(difdvi)
+
+ndvi1 <- (defor1$defor1.1-defor1$defor1.2) / (defor$defor1.1+defor1$defor1.2) 
+plot(ndvi1, col=cl)
+
+ndvi2 <- (defor2$defor2.1-defor1$defor2.2) / (defor$defor2.1+defor1$defor2.2) 
+plot(ndvi2, col=cl)
+
