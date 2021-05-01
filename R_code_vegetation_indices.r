@@ -1,6 +1,7 @@
 #R_code_vegetation_indices.r
 
 library(raster) #require (raster)
+library(RStoolbox) #for vegetation indices calculation
 setwd("c:/lab/")
 
 defor1 <- brick("defor1.jpg") 
@@ -54,3 +55,6 @@ plot(ndvi1, col=cl)
 ndvi2 <- (defor2$defor2.1-defor1$defor2.2) / (defor$defor2.1+defor1$defor2.2) 
 plot(ndvi2, col=cl)
 
+#RStoolbox: spectralIndices
+vi <-spectralIndices(defor1, green=3, red=2, nir=1)
+plot(vi, col=cl)
