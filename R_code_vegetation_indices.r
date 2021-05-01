@@ -37,6 +37,8 @@ plot(dvi1, col=cl,main="DVI1 at time 1)
 dvi2 <- defor2$defor2.1 - defor2$defor2.2 
 plot(dvi2, col=cl, main="DVI1 at time 2)
 
-par(mfrow=c(1,2))
+par(mfrow=c(2,1))
 plot(dvi1, col=cl)
 plot(dvi2, col=cl)
+
+difdvi <- dvi1 - dvi2
