@@ -21,5 +21,12 @@ defor1 #per vedere quali sono i nomi delle bande da inserire
 
 #difference vegetation index
 dvi1 <- defor1$defor1.1 - defor1$defor1.2 
+plot(dvi1)
 
+#dev.off()
+plot(dvi1)
 
+cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme
+par(mfrow=c(1,2))
+plot(dvi1, col=cl)
+plot(dvi2, col=cl)
