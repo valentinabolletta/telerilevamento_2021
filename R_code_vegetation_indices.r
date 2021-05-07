@@ -3,7 +3,7 @@
 library(raster) #require (raster)
 library(RStoolbox) #for vegetation indices calculation
 
-#install.packages("rasterdiv")
+install.packages("rasterdiv")
 library(rasterdiv) #for the worldwide NDVI
 setwd("c:/lab/")
 
@@ -67,3 +67,7 @@ plot(vi2, col=cl)
 difndvi <- ndvi1 - ndvi2
 cld <- colorRampPalette(c('blue','white','red'))(100) 
 plot(difndvi, col=cld)
+
+#worldwide NDVI
+plot(copNDVI)
+
