@@ -1,5 +1,5 @@
 #R_code_land_cover.r
-ù
+
 library(raster)
 library(RStoolbox)
 #install.packages("ggplot2")
@@ -17,3 +17,7 @@ defor1
 # defor1_.3 = green
 
 plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+ggRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+ggRGB(defor2, r=1, g=2, b=3, stretch="Lin")
