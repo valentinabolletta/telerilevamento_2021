@@ -2,6 +2,9 @@
 
 library(raster) #require (raster)
 library(RStoolbox) #for vegetation indices calculation
+
+#install.packages("rasterdiv")
+library(rasterdiv) #for the worldwide NDVI
 setwd("c:/lab/")
 
 defor1 <- brick("defor1.jpg") 
