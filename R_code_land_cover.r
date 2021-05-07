@@ -32,4 +32,4 @@ plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 p1 <- ggRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 p2 <- ggRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 
-rid.arrange(p1, p2, nrow = 2) # this needs gridExtra
+grid.arrange(p1, p2, nrow = 2) # this needs gridExtra
