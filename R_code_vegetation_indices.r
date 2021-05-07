@@ -77,3 +77,5 @@ plot(copNDVI)
 copNDVI <- reclassify(copNDVI, cbind(253:255, NA))
 plot(copNDVI)
 
+# rasterVis package needed:
+levelplot(copNDVI)
