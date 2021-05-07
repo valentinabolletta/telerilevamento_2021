@@ -4,6 +4,8 @@ library(raster)
 library(RStoolbox)
 #install.packages("ggplot2")
 library(ggplot2)
+#install.packages("gridExtra")
+library(gridExtra)
 
 setwd("c:/lab/")
 
@@ -21,3 +23,7 @@ ggRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 
 plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 ggRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+
+par(mfrow=c(2,1))
+plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
