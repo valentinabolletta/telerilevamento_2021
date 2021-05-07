@@ -71,3 +71,7 @@ plot(difndvi, col=cld)
 #worldwide NDVI
 plot(copNDVI)
 
+# Pixels with values 253, 254 and 255 (water) will be set as NA’s.
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA))
+plot(copNDVI)
+
