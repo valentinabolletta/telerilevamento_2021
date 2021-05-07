@@ -27,3 +27,9 @@ ggRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 par(mfrow=c(2,1))
 plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+
+#multiframe with ggplot2 and gridExtra
+p1 <- ggRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+p2 <- ggRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+
+rid.arrange(p1, p2, nrow = 2) # this needs gridExtra
