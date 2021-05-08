@@ -46,3 +46,4 @@ plot(d1c$map)
 #set.seed() would allow you to attain the same results
 
 d2c <- unsuperClass(defor2, nClasses=2)
+plot(d2c$map)
