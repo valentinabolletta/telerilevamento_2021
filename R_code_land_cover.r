@@ -48,3 +48,6 @@ d2c <- unsuperClass(defor2, nClasses=2)
 plot(d2c$map)
 #class1:forest
 #class2:agriculture
+
+d2c3 <- unsuperClass(defor2, nClasses=3)
+
