@@ -33,3 +33,10 @@ p1 <- ggRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 p2 <- ggRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 
 grid.arrange(p1, p2, nrow = 2) # this needs gridExtra
+
+
+#unsupervised classification
+d1c <- unsuperClass(defor1, nClasses=2)
+d1c
+plot(d1c$map)
+#set.seed() would allow you to attain the same results
