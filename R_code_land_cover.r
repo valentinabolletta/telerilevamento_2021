@@ -39,4 +39,10 @@ grid.arrange(p1, p2, nrow = 2) # this needs gridExtra
 d1c <- unsuperClass(defor1, nClasses=2)
 d1c
 plot(d1c$map)
+
+#class1:forest
+#class2:agriculture
+
 #set.seed() would allow you to attain the same results
+
+d2c <- unsuperClass(defor2, nClasses=2)
