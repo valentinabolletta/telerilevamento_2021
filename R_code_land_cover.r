@@ -50,4 +50,5 @@ plot(d2c$map)
 #class2:agriculture
 
 d2c3 <- unsuperClass(defor2, nClasses=3)
+plot(d2c3$map)
 
