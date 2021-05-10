@@ -82,4 +82,6 @@ percentages
 p1<-ggplot(percentages, aes(x=cover, y=percent_1992, color=cover)) + geom_bar(stat="identity", fill="white")   
 p1<-ggplot(percentages, aes(x=cover, y=percent_2006, color=cover)) + geom_bar(stat="identity", fill="white")   
           
+grid.arrange(p1, p2, nrow = 1) # this needs griExtra        
+          
           
