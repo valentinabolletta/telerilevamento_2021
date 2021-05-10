@@ -78,3 +78,5 @@ percent_2006<- c(52.06, 47.93)
 percentages<-data.frame(cover, percent_1992, percent_2006)
 percentages          
 
+#let's plot them
+p1<-ggplot(percentages, aes(x=cover, y=percente_1992, color=cover)) + geom_bar(stat="identity", fill="white")        
