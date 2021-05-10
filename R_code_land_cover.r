@@ -52,3 +52,9 @@ plot(d2c$map)
 d2c3 <- unsuperClass(defor2, nClasses=3)
 plot(d2c3$map)
 
+#frequencies
+freq(d1c$map)
+# aree aperte = 37039
+# foresta = 304253
+
+
