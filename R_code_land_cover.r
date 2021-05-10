@@ -75,7 +75,7 @@ cover<- c(forest ("forest", "agriculture")
 percent_1992<- c(89.83,10.16)
 percent_2006<- c(52.06, 47.93)
           
-percentages<-data.frame(cover, percent_1992, percent_2006)
+percentages<- data.frame (cover, percent_1992, percent_2006)
 percentages          
 
 #let's plot them
