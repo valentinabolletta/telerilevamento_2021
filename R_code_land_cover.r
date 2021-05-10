@@ -54,7 +54,14 @@ plot(d2c3$map)
 
 #frequencies
 freq(d1c$map)
-# aree aperte = 37039
+# aree aperte = 37039 (pixel)
 # foresta = 304253
 
+#calcoliamo la proporzione di pixel
+s1<- 306583+34709
+s1
+
+prop1<- freq(d1c$map)/s1
+#proporzione foresta = 0.898
+#proporzione agricolo= 0.101
 
