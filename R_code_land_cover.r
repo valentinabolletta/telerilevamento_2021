@@ -65,3 +65,10 @@ prop1<- freq(d1c$map)/s1
 #proporzione foresta = 0.898
 #proporzione agricolo= 0.101
 
+s2<- 342726
+prop2<- freq(d2c$map)/s2
+#proporzione foresta = 0.520
+#proporzione agricolo= 0.479
+
+
+
