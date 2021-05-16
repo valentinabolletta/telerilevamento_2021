@@ -8,7 +8,7 @@ setwd ("C:/lab/") #Windows, Set or Change R Working Directory
 p224r63_2011 <- brick("p224r63_2011_masked.grd") #function of raster packages to Create a RasterBrick object(multi-layer raster object)
 p224r63_2011
 
-plot(p224r63_2011)
+plot(p224r63_2011) #Generic function for plotting of R objects.
 
 # B1: blue
 # B2: green
