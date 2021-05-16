@@ -1,7 +1,7 @@
 # il mio primo codice in R per il telerilevamento!
 
-# install.packages("raster")
-library(raster)
+install.packages("raster") #Download and install packages from CRAN-like repositories or from local files.
+library(raster) # Loading/Attaching and Listing of Packages
 
 setwd ("C:/lab/") #Windows
 
