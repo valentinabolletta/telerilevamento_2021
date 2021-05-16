@@ -3,9 +3,9 @@
 install.packages("raster") #Download and install packages from CRAN-like repositories or from local files.
 library(raster) # Loading/Attaching and Listing of Packages
 
-setwd ("C:/lab/") #Windows
+setwd ("C:/lab/") #Windows, Set or Change R Working Directory
 
-p224r63_2011 <- brick("p224r63_2011_masked.grd")
+p224r63_2011 <- brick("p224r63_2011_masked.grd") #function of raster packages to Create a RasterBrick object(multi-layer raster object)
 p224r63_2011
 
 plot(p224r63_2011)
