@@ -13,5 +13,11 @@ sent
 
 plotRGB(sent) 
 
+plotRGB(sent, stretch="lin")
+ 
+plotRGB(sent, r=2, g=1, b=3, stretch="lin")
+ 
+
+
 
 
