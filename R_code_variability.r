@@ -41,6 +41,10 @@ ndvisd5 <- focal(ndvi, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
 plot(ndvisd5, col=clsd)
 
+#PCA
+sentpca<- rasterPCA(sent)
+plot(sentpca$map)
+
 
 
 
