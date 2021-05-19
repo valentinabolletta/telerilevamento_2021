@@ -22,6 +22,9 @@ red <- sent$sentinel.2
 ndvi <- (nir-red) / (nir+red)
 plot(ndvi)
 
+cl <- colorRampPalette(c('black','white','red','magenta','green'))(100) # 
+plot(ndvi,col=cl)
+
 
 
 
