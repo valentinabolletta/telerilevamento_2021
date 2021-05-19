@@ -45,9 +45,7 @@ plot(ndvisd5, col=clsd)
 sentpca<- rasterPCA(sent)
 plot(sentpca$map)
 
-
-
-
-
+summary(sentpca$model)
+ 
 
 
