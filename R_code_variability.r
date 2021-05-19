@@ -14,9 +14,13 @@ sent
 plotRGB(sent) 
 
 plotRGB(sent, stretch="lin")
- 
 plotRGB(sent, r=2, g=1, b=3, stretch="lin")
- 
+
+nir <- sent$sentinel.1
+red <- sent$sentinel.2
+
+ndvi <- (nir-red) / (nir+red)
+plot(ndvi)
 
 
 
