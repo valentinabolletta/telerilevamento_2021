@@ -46,7 +46,7 @@ sentpca<- rasterPCA(sent)
 plot(sentpca$map)
 
 summary(sentpca$model)
-#the first PC contains 0.6736804 
+#the first PC contains 0.6736804 of the original information
  
 
 
