@@ -2,6 +2,9 @@
 
 library(raster)
 library(RStoolbox)
+library(ggplot2)
+library(gridExtra)
+library(viridis)
 
 setwd("c:/lab/")
 
