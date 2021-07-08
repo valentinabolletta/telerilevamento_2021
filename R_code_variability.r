@@ -59,4 +59,7 @@ plot(pc1sd5, col=clsd)
 # pc1sd7 <- focal(pc1, w=matrix(1/49, nrow=7, ncol=7), fun=sd)
 # plot(pc1sd7)
 
+# With the source function you can upload code from outside!
+source("source_test_lezione.r")
+source("source_ggplot.r")
 
