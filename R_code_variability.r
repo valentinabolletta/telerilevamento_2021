@@ -49,4 +49,14 @@ summary(sentpca$model)
 #the first PC contains 0.6736804 of the original information
  
 
+pc1 <- sentpca$map$PC1
+
+pc1sd5 <- focal(pc1, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
+clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
+plot(pc1sd5, col=clsd)
+
+# pc1 <- sentpca$map$PC1
+# pc1sd7 <- focal(pc1, w=matrix(1/49, nrow=7, ncol=7), fun=sd)
+# plot(pc1sd7)
+
 
