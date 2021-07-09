@@ -66,6 +66,9 @@ plot(pc1sd5, col=clsd)
 source("source_test_lezione.r")
 source("source_ggplot.r")
 
+# https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+# The package contains eight color scales: “viridis”, the primary choice, and five alternatives with similar properties - “magma”, “plasma”, “inferno”, “civids”, “mako”, and “rocket” -, and a rainbow color map - “turbo”.
+
 p1 <- ggplot() +
 geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
 scale_fill_viridis()  +
