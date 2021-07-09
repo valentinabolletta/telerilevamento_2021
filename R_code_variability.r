@@ -66,3 +66,21 @@ plot(pc1sd5, col=clsd)
 source("source_test_lezione.r")
 source("source_ggplot.r")
 
+p1 <- ggplot() +
+geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
+scale_fill_viridis()  +
+ggtitle("Standard deviation of PC1 by viridis colour scale")
+
+p2 <- ggplot() +
+geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
+scale_fill_viridis(option = "magma")  +
+ggtitle("Standard deviation of PC1 by magma colour scale")
+
+p3 <- ggplot() +
+geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
+scale_fill_viridis(option = "turbo")  +
+ggtitle("Standard deviation of PC1 by turbo colour scale")
+
+grid.arrange(p1, p2, p3, nrow = 1)
+
+
