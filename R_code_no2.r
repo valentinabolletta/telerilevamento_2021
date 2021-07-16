@@ -12,3 +12,6 @@ library(raster)
 EN01 <- raster("EN_0001.png")
 
 # 3. Plot the first imported image with your preferred ColorRampPalette
+
+cls <- colorRampPalette(c("red","pink","orange","yellow")) (200)
+plot(EN01, col=cls)
