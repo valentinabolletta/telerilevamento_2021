@@ -34,3 +34,17 @@ plot(EN13, col=cls, main="NO2 in March")
 plot(ENdif, col=cls, main="Difference (January - March)")
 
 # 7. Import the whole set
+
+# list of files:
+rlist <- list.files(pattern="EN")
+rlist
+
+import <- lapply(rlist,raster)
+import
+
+EN <- stack(import)
+plot(EN, col=cls)
+
+
+
+
