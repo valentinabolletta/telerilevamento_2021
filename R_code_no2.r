@@ -45,6 +45,10 @@ import
 EN <- stack(import)
 plot(EN, col=cls)
 
+# 8. Replicate the plot of images 1 and 13 using the stack
+
+
+
 
 
 
