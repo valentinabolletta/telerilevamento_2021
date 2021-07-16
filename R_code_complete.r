@@ -5,6 +5,7 @@
 #1. Remote sensing-first code
 #2. Time series (Greenland)
 #3. R code Copernicus
+#4. R code knitr
 
 #.........................................
 
@@ -258,6 +259,20 @@ plot (albedo,col=cl)    #posso fare la stessa operazione con un altro dato scari
 albedores<- aggregate(albedo,fact=100)
 plot(albedores,col=cl)
 
+#.........................................
+
+#4. R code knitr
+# R_code_knitr.r
+
+setwd("C:/lab/")
+
+library(knitr)
+
+# starting from the code folder where framed.sty is put!
+
+stitch("R_Code_greenland.r.txt.txt", template=system.file("misc", "knitr-template.Rnw", package="knitr"))
+
+#.........................................
 
                       
 
