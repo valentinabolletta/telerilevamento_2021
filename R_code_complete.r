@@ -3,6 +3,7 @@
 #Summary:
 
 #1. Remote sensing-first code
+#2. Time series (Greenland)
 
 #.........................................
 
@@ -165,6 +166,74 @@ plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
 plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="hist")
 plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="hist")
 dev.off()
+
+#.........................................
+
+#2. Time series (Greenland)
+
+#Time series analysis 
+#Greenland increase of temperature
+#Data and code from Emanuela Cosma
+
+#install.packages ("raster")
+library (raster)
+
+setwd("C:/lab/greenland/")
+
+lst_2000 <- raster("lst_2000.tif")
+lst_2005 <- raster("lst_2005.tif")
+lst_2010 <- raster("lst_2010.tif")
+lst_2015 <- raster("lst_2015.tif")
+
+# par
+par(mfrow=c(2,2))
+plot(lst_2000)
+plot(lst_2005)
+plot(lst_2010)
+plot(lst_2015)
+
+# list of files:
+rlist <- list.files(pattern="lst")
+rlist
+
+import <- lapply(rlist,raster) #files importati tutti insieme ma separati
+import
+
+TGr <- stack(import)
+plot(TGr)
+TGr
+
+plotRGB(TGr, 1, 2, 3, stretch="Lin") 
+plotRGB(TGr, 2, 3, 4, stretch="Lin") 
+plotRGB(TGr, 4, 3, 2, stretch="Lin") 
+
+levelplot(TGr)
+
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(TGr,col.regions=cl,main="Summer land surface temperature",names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))
+
+#Ice sheet melt extent
+setwd("C:/lab/Greenland/")
+library(raster)
+library(rasterVis)
+
+rlist <- list.files(pattern="melt")
+rlist
+
+# Melt
+meltlist <- list.files(pattern="melt")
+melt_import <- lapply(meltlist,raster)
+melt <- stack(melt_import)
+melt
+
+levelplot(melt)
+
+melt_amount <- melt$X2007annual_melt - melt$X1979annual_melt
+clb <- colorRampPalette(c("blue","white","red"))(100)
+plot(melt_amount, col=clb)
+
+levelplot(melt_amount, col.regions=clb)
+
 
 
 
