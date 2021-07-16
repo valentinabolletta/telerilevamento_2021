@@ -23,5 +23,7 @@ plot(EN13, col=cls)
 
 # 5. Make the difference between the two images and plot it
 
-ENdif<- EN13-EN01
+ENdif<- EN13-EN01 #march-january or january-march
 plot(ENdif, col=cls)
+
+# 6. Plot everything, altogether
