@@ -1,5 +1,6 @@
 #R_code_no2.r
 
+# 1. set the working directory EN
 setwd("C:/lab/EN") # Windows
 library(raster)
 
@@ -10,3 +11,4 @@ library(raster)
 
 EN01 <- raster("EN_0001.png")
 
+# 3. Plot the first imported image with your preferred ColorRampPalette
