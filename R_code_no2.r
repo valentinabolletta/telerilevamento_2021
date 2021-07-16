@@ -32,3 +32,5 @@ par(mfrow=c(3,1))
 plot(EN01, col=cls, main="NO2 in January")
 plot(EN13, col=cls, main="NO2 in March")
 plot(ENdif, col=cls, main="Difference (January - March)")
+
+# 7. Import the whole set
