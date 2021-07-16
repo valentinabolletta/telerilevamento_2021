@@ -58,6 +58,7 @@ ENpca <- rasterPCA (EN)
 summary (ENpca$model)
 plotRGB (ENpca$map, r=1, g=2, b=3, stretch="lin")
 
+# 10. Compute the local variability (local standard deviation) of the first image(?)
 
 
 
