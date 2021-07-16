@@ -24,3 +24,4 @@ plot(EN13, col=cls)
 # 5. Make the difference between the two images and plot it
 
 ENdif<- EN13-EN01
+plot(ENdif, col=cls)
