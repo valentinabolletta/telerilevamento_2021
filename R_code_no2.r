@@ -27,3 +27,8 @@ ENdif<- EN13-EN01 #march-january or january-march
 plot(ENdif, col=cls)
 
 # 6. Plot everything, altogether
+
+par(mfrow=c(3,1))
+plot(EN01, col=cls, main="NO2 in January")
+plot(EN13, col=cls, main="NO2 in March")
+plot(ENdif, col=cls, main="Difference (January - March)")
