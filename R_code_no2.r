@@ -47,7 +47,10 @@ plot(EN, col=cls)
 
 # 8. Replicate the plot of images 1 and 13 using the stack
 
-
+par(mfrow=c(2,1))
+plot(EN$EN_0001, col=cls)
+plot(EN$EN_0013, col=cls)
+ 
 
 
 
