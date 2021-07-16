@@ -3,6 +3,7 @@
 # 1. set the working directory EN
 setwd("C:/lab/EN") # Windows
 library(raster)
+library (RStoolbox) #here used for raster based multivariate analysis
 
 # 2. Import the first image (single band)
 # we will select band 1, but the raster function enables to select other single-bands
@@ -51,6 +52,8 @@ par(mfrow=c(2,1))
 plot(EN$EN_0001, col=cls)
 plot(EN$EN_0013, col=cls)
  
+# 9. Compute a PCA over the 13 images
+
 
 
 
