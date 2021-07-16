@@ -16,7 +16,9 @@ EN01 <- raster("EN_0001.png")
 cls <- colorRampPalette(c("red","pink","orange","yellow")) (200)
 plot(EN01, col=cls)
 
-#Import the last image (13th) and plot it with the previous colorRampPalette
+# 4. Import the last image (13th) and plot it with the previous colorRampPalette
 EN13 <- raster("EN_0013.png")
 cls <- colorRampPalette(c("red","pink","orange","yellow")) (200)
 plot(EN13, col=cls)
+
+# 5. Make the difference between the two images and plot it
