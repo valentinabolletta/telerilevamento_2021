@@ -1,6 +1,8 @@
 #R_code_spectral_signatures.r
 
 library(raster)
+library(rgdal)
+library(ggplot2)
 
 setwd ("C:/lab/")
 
