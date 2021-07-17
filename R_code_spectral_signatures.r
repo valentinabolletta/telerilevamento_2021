@@ -14,5 +14,6 @@ defor2 <- brick("defor2.jpg")
 plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
 #or
 plotRGB(defor2, r=1, g=2, b=3, stretch="hist")
- 
+
+click(defor2, id=T, xy=T, cell=T, type="p", pch=16, col="magenta")
 
