@@ -28,3 +28,5 @@ spectrals <- data.frame(band,forest,water)
 
 #Plot the spectral signatures
 ggplot(aes(x=band)) +geom_line(aes(y=forest), color="green")+geom_line(aes(y=water), color="blue") 
+
+labs(x="band", y="reflectance")
