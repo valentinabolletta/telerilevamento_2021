@@ -16,4 +16,15 @@ plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
 plotRGB(defor2, r=1, g=2, b=3, stretch="hist")
 
 click(defor2, id=T, xy=T, cell=T, type="p", pch=16, col="magenta")
+click(defor2, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
 
+#Define colors of the dataset:
+band<- c(1,2,3)
+forest <- c(187,23,34)
+water <- c(39,87,125)  #i dati sono diversi a seconda dei risultati del click
+
+#Create the dataframe
+spectrals <- data.frame(band,forest,water)
+
+#Plot the spectral signatures
+ggplot(aes(x=band)) +geom_line(aes(y=forest), color="green")+geom_line(aes(y=water), color="blue") 
