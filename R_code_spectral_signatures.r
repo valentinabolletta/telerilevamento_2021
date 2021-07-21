@@ -75,4 +75,4 @@ ggplot(spectralst, aes(x=band)) +
  geom_line(aes(y=time2p2), color="gray") +
  labs(x="band",y="reflectance")
 
-
+#Image from Earth Observatory
