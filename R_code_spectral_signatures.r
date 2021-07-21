@@ -41,3 +41,10 @@ click(defor1, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
 #time t2
 plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
 click(defor2, id=T, xy=T, cell=T, type="p", pch=16, col="yellow")
+
+# define the columns of the dataset:
+band <- c(1,2,3)
+time1 <- c(223,11,33)
+time2 <- c(197,163,151)
+ 
+spectralst <- data.frame(band, time1, time2)
