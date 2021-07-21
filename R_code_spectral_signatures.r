@@ -76,3 +76,13 @@ ggplot(spectralst, aes(x=band)) +
  labs(x="band",y="reflectance")
 
 #Image from Earth Observatory
+
+# define the columns of the dataset:
+band <- c(1,2,3)
+stratum1 <- c(187,163,11)
+stratum2 <- c(11,140,0)
+stratum3 <- c(41,40,20)
+
+ 
+
+spectralsg <- data.frame(band, stratum1, stratum2, stratum3)
