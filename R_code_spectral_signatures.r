@@ -30,3 +30,14 @@ spectrals <- data.frame(band,forest,water)
 ggplot(aes(x=band)) +geom_line(aes(y=forest), color="green")+geom_line(aes(y=water), color="blue") 
 
 labs(x="band", y="reflectance")
+
+#Multitemporal
+defor1 <- brick("defor1.jpg")
+plotRGB(defor1, r=1, g=2, b=3, stretch="lin")
+
+#spectral signatures defor1
+click(defor1, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
+
+
+
+plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
