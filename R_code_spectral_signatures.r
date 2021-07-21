@@ -48,3 +48,31 @@ time1 <- c(223,11,33)
 time2 <- c(197,163,151)
  
 spectralst <- data.frame(band, time1, time2)
+
+# plot the sepctral signatures
+ggplot(spectrals, aes(x=band)) +
+ geom_line(aes(y=time1), color="red") +
+ geom_line(aes(y=time2), color="gray") +
+ labs(x="band",y="reflectance")
+    
+
+# define the columns of the dataset:
+band <- c(1,2,3)
+time1 <- c(223,11,33)
+time1p2 <- c(218,16,38)
+time2 <- c(197,163,151)
+time2p2 <- c(149,157,133)
+
+
+spectralst <- data.frame(band, time1, time2, time1p2, time2p2)
+
+
+# plot the sepctral signatures
+ggplot(spectralst, aes(x=band)) +
+ geom_line(aes(y=time1), color="red") +
+ geom_line(aes(y=time1p2), color="red") +
+ geom_line(aes(y=time2), color="gray") +
+ geom_line(aes(y=time2p2), color="gray") +
+ labs(x="band",y="reflectance")
+
+
