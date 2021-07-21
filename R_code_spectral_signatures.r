@@ -38,6 +38,6 @@ plotRGB(defor1, r=1, g=2, b=3, stretch="lin")
 #spectral signatures defor1
 click(defor1, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
 
-
-
+#time t2
 plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
+click(defor2, id=T, xy=T, cell=T, type="p", pch=16, col="yellow")
