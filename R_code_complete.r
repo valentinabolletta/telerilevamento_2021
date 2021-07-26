@@ -33,7 +33,7 @@ plot(p224r63_2011) #Generic function for plotting of R objects/visualizing data.
 # B4: NIR
 
 #colorRampPalette a function to extend a color palette
-cl <- colorRampPalette(c('black','grey','light grey'))(100) # 
+cl <- colorRampPalette(c('black','grey','light grey'))(100) # "c" means single argument containing a series of elements
 plot(p224r63_2011, col=cl)
 
 
