@@ -105,7 +105,7 @@ plot(p224r63_2011$B3_sre, col=clr)
 clnir <- colorRampPalette(c("red","orange","yellow")) (100)
 plot(p224r63_2011$B4_sre, col=clnir)
 
-#Visualizing data by RGB plotting
+#Visualizing data by RGB plotting (Red-Green-Blue plot of a multi-layered Raster object)
 
 # Bande Landsat
 # B1: blu
