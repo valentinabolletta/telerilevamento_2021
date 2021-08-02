@@ -4,4 +4,4 @@ install.packages("raster")
 library(raster)
 
 setwd ("C:/lab/")
-p224r63_2011 <- brick("p224r63_2011_masked.grd")
+yellow_1989 <- brick("yellowriverwoc_1989")
