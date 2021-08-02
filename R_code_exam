@@ -3,5 +3,7 @@
 install.packages("raster")
 library(raster)
 
-setwd ("C:/lab/")
-yellow_1989 <- brick("yellowriverwoc_1989")
+setwd ("C:/lab/yellowriver/")
+yellow_1989<-brick("yellowriverwoc_1989.jpg")
+
+
