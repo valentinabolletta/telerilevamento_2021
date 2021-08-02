@@ -6,4 +6,7 @@ library(raster)
 setwd ("C:/lab/yellowriver/")
 yellow_1989<-brick("yellowriverwoc_1989.jpg")
 
+plot(yellow_1989)
+
+
 
