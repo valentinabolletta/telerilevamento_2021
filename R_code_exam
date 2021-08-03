@@ -35,8 +35,7 @@ plot(riverdelta_2015)
 riverdelta_2020 <- raster("yellowriverwoc_2020.jpg")
 plot(riverdelta_2020)
 
-
-
+#par
 par(mfrow=c(3,2))
 plot(riverdelta_1989)
 plot(riverdelta_1995)
@@ -46,6 +45,12 @@ plot(riverdelta_2009)
 plot(riverdelta_2015)
 plot(riverdelta_2020)
 
+#list of files
+rlist <- list.files(pattern="riverdelta")
+rlist
+
+import <- lapply(rlist,raster)
+import
 
 
 
