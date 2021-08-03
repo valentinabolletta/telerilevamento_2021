@@ -45,6 +45,8 @@ plot(riverdelta_2009)
 plot(riverdelta_2015)
 plot(riverdelta_2020)
 
+
+
 #list of files
 rlist <- list.files(pattern="yellowriverwoc_")
 rlist
@@ -52,5 +54,7 @@ rlist
 import <- lapply(rlist,raster)
 import
 
+Tyellowriver<-stack(import)
+plot(Tyellowriver)
 
 
