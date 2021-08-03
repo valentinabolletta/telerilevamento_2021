@@ -28,15 +28,23 @@ riverdelta_1999 <- raster("yellowriverwoc_1999.jpg")
 plot(riverdelta_1999)
 riverdelta_2004 <- raster("yellowriverwoc_2004.jpg")
 plot(riverdelta_2004)
+riverdelta_2009 <- raster("yellowriverwoc_2009.jpg")
+plot(riverdelta_2009)
+riverdelta_2015 <- raster("yellowriverwoc_2015.jpg")
+plot(riverdelta_2015)
+riverdelta_2020 <- raster("yellowriverwoc_2020.jpg")
+plot(riverdelta_2020)
+
+
 
 par(mfrow=c(2,2))
 plot(riverdelta_1989)
 plot(riverdelta_1995)
 plot(riverdelta_1999)
 plot(riverdelta_2004)
-
-
-
+plot(riverdelta_2009)
+plot(riverdelta_2015)
+plot(riverdelta_2020)
 
 
 
