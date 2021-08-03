@@ -205,7 +205,8 @@ plot(lst_2015)
 rlist <- list.files(pattern="lst")
 rlist
 
-import <- lapply(rlist,raster) #files importati tutti insieme ma separati
+# lapply apply a raster function over a list-like or vector-like object
+import <- lapply(rlist,raster) #files importati tutti insieme ma separati 
 import
 
 TGr <- stack(import)
