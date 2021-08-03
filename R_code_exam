@@ -11,6 +11,7 @@ plot(yellow_1989)
 
 plotRGB(yellow_1989, r=2, g=1, b=3, stretch="Lin")
 plotRGB(yellow_1989, r=1, g=3, b=2, stretch="Lin")
+plotRGB(yellow_1989, r=1, g=2, b=3, stretch="Lin")
 
 
 
