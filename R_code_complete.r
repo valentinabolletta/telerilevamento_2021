@@ -70,7 +70,7 @@ cls <- colorRampPalette(c("red","pink","orange","purple")) (200)
 plot(p224r63_2011$B1_sre, col=cls)
 
 
-# 1 row, 2 columns
+# 1 row, 2 columns      # par is used to set or query graphical parameters
 par(mfrow=c(1,2))
 plot(p224r63_2011$B1_sre)
 plot(p224r63_2011$B2_sre)
