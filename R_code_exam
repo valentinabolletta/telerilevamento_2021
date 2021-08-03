@@ -57,4 +57,5 @@ import
 Tyellowriver<-stack(import)
 plot(Tyellowriver)
 
+plotRGB(Tyellowriver,1,2,3,stretch = "Lin")
 
