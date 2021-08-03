@@ -26,6 +26,14 @@ riverdelta_1995 <- raster("yellowriverwoc_1995.jpg")
 plot(riverdelta_1995)
 riverdelta_1999 <- raster("yellowriverwoc_1999.jpg")
 plot(riverdelta_1999)
+riverdelta_2004 <- raster("yellowriverwoc_2004.jpg")
+plot(riverdelta_2004)
+
+par(mfrow=c(2,2))
+plot(riverdelta_1989)
+plot(riverdelta_1995)
+plot(riverdelta_1999)
+plot(riverdelta_2004)
 
 
 
