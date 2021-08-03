@@ -46,7 +46,7 @@ plot(riverdelta_2015)
 plot(riverdelta_2020)
 
 #list of files
-rlist <- list.files(pattern="riverdelta")
+rlist <- list.files(pattern="yellowriverwoc_")
 rlist
 
 import <- lapply(rlist,raster)
