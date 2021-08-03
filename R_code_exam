@@ -37,7 +37,7 @@ plot(riverdelta_2020)
 
 
 
-par(mfrow=c(2,2))
+par(mfrow=c(3,2))
 plot(riverdelta_1989)
 plot(riverdelta_1995)
 plot(riverdelta_1999)
