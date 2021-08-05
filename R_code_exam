@@ -60,6 +60,8 @@ plot(Tyellowriver)
 
 plotRGB(Tyellowriver,1,2,3,stretch = "Lin")
 levelplot(Tyellowriver)  #ok! #library rasterVis
-#levelplot considerando ogni singolo file interno
-levelplot(Tyellowriver$riverdelta_1989)
+
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(Tyellowriver,col.regions=cl,main="YellowRiver's Delta Changes",names.attr=c("1989","1995", "1999", "2004", "2009", "2015", "2020")) #ok!
+
 
