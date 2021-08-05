@@ -276,8 +276,7 @@ setwd("C:/lab/")
 
 library(knitr)
 
-# starting from the code folder where framed.sty is put!
-
+#stitch automatically create a report based on a R script and a template
 stitch("R_Code_greenland.r.txt.txt", template=system.file("misc", "knitr-template.Rnw", package="knitr"))
 
 #.........................................
