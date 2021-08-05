@@ -209,7 +209,7 @@ rlist
 import <- lapply(rlist,raster) #files importati tutti insieme ma separati 
 import
 
-TGr <- stack(import)
+TGr <- stack(import) #Stack or Unstack Vectors from a Data Frame or List, Stacking vectors concatenates multiple vectors into a single vector along with a factor indicating where each observation originated. Unstacking reverses this operation.
 plot(TGr)
 TGr
 
@@ -217,7 +217,7 @@ plotRGB(TGr, 1, 2, 3, stretch="Lin")
 plotRGB(TGr, 2, 3, 4, stretch="Lin") 
 plotRGB(TGr, 4, 3, 2, stretch="Lin") 
 
-levelplot(TGr)
+levelplot(TGr) 
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(TGr,col.regions=cl,main="Summer land surface temperature",names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))
