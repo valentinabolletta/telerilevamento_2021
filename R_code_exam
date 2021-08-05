@@ -3,6 +3,7 @@
 install.packages("raster")
 library(raster)
 library(rgdal)
+library(rasterVis)
 
 setwd ("C:/lab/yellowriver/")
 yellow_1989<-brick("yellowriverwoc_1989.jpg")
@@ -58,6 +59,7 @@ Tyellowriver<-stack(import)
 plot(Tyellowriver)
 
 plotRGB(Tyellowriver,1,2,3,stretch = "Lin")
-levelplot(Tyellowriver)  #ok!
-
+levelplot(Tyellowriver)  #ok! #library rasterVis
+#levelplot considerando ogni singolo file interno
+levelplot(Tyellowriver$riverdelta_1989)
 
