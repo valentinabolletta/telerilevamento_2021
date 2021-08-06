@@ -65,7 +65,7 @@ levelplot(Tyellowriver)  #ok! #library rasterVis
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(Tyellowriver,col.regions=cl,main="YellowRiver's Delta Changes",names.attr=c("1989","1995", "1999", "2004", "2009", "2015", "2020")) #ok!
 
-#multivariate analysis
+#multivariate analysis #vedi punto#5 del codice completo
 yellow_1989<-brick("yellowriverwoc_1989.jpg")
 plot(yellow_1989)
 yellow_1989
