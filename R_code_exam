@@ -7,11 +7,12 @@ library(rasterVis)
 library(RStoolbox)
 
 setwd ("C:/lab/yellowriver/")
-yellow_1989<-brick("yellowriverwoc_1989.jpg")
 
+yellow_1989<-brick("yellowriverwoc_1989.jpg")
 plot(yellow_1989)
 
 par(mfrow=c(1,2))
+#visualize RGB levels
 plotRGB(yellow_1989, r=1, g=2, b=3, stretch="Lin")
 plotRGB(yellow_1989, r=1, g=2, b=3, stretch="hist")
 
