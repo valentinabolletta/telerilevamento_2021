@@ -77,6 +77,6 @@ pairs(yellow_1989)
 #unsupervised classification
 yellow_1989<-brick("yellowriverwoc_1989.jpg")
 set.seed(42)
-yellow_1989c <- unsuperClass(yellow_1989, nClasses=3)
-cl <- colorRampPalette(c('yellow','red','black'))(100)
+yellow_1989c <- unsuperClass(yellow_1989, nClasses=4)
+cl <- colorRampPalette(c('blue','yellow','green','grey'))(100)
 plot(yellow_1989c$map,col=cl)
