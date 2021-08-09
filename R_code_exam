@@ -103,8 +103,8 @@ yellow_1989_PCA
 
 plotRGB(yellow_1989_PCA$map, r=1, g=2, b=3, stretch="Lin") #immagine top! ma probabilmente non va ricampionata perchè sgrana
 
-#R_code_vegetation_indices.r
 
+#R_code_vegetation_indices.r
 library(raster) #require (raster)
 library(RStoolbox) #for vegetation indices calculation
 
