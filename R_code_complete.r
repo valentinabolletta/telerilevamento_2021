@@ -6,8 +6,8 @@
 #2. Time series (Greenland)
 #3. R code Copernicus
 #4. R code knitr
-#5. R code multivariate analysis
-#6. R code classification
+#5. R code classification
+#6. R code multivariate analysis
 #7. R code ggplot2
 #8. R code vegetation indices
 #9. R code land cover
@@ -279,44 +279,9 @@ library(knitr)
 #stitch automatically create a report based on a R script and a template
 stitch("R_Code_greenland.r.txt.txt", template=system.file("misc", "knitr-template.Rnw", package="knitr"))
 
-#.........................................
-
-#5. R code multivariate analysis
-#R_code_multivariate_analysis.r
-
-library(raster)
-library(RStoolbox)
-
-setwd("c:/lab/")
-
-p224r63<-brick("p224r63_2011_masked.grd")
-plot(p224r63)
-p224r63
-
-plot(p224r63$B1_sre,p224r63$B2_sre, col="red", pch=19, cex=2)
-
-pairs(p224r63)
-
-#aggregate cells: resampling (ricampionamento)
-p224r63res <- aggregate(p224r63, fact=10, fun=mean)
-p224r63res
-
-par(mfrow=c(2,1))
-plotRGB(p224r63, r=4,g=3,b=2, stretch="Lin")
-plotRGB(p224r63res, r=4,g=3,b=2, stretch="Lin")
-
-p224r63_PCA<-rasterPCA(p224r63res)
-
-summary(p224r63_PCA$model)
-
-plot(p224r63_PCA$map)
-p224r63_PCA
-
-plotRGB(p224r63_PCA$map, r=1, g=2, b=3, stretch="Lin")
-
 #.........................................................
 
-#6. R code classification
+#5. R code classification
 #R_code_classification.r
 
 library(raster)
@@ -366,6 +331,38 @@ gcc4 <- unsuperClass(gc, nClasses=4)
 plot(gcc4$map)
 
 #......................................................
+#6. R code multivariate analysis
+#R_code_multivariate_analysis.r
+
+library(raster)
+library(RStoolbox)
+
+setwd("c:/lab/")
+
+p224r63<-brick("p224r63_2011_masked.grd")
+plot(p224r63)
+p224r63
+
+plot(p224r63$B1_sre,p224r63$B2_sre, col="red", pch=19, cex=2)
+
+pairs(p224r63)
+
+#aggregate cells: resampling (ricampionamento)
+p224r63res <- aggregate(p224r63, fact=10, fun=mean)
+p224r63res
+
+par(mfrow=c(2,1))
+plotRGB(p224r63, r=4,g=3,b=2, stretch="Lin")
+plotRGB(p224r63res, r=4,g=3,b=2, stretch="Lin")
+
+p224r63_PCA<-rasterPCA(p224r63res)
+
+summary(p224r63_PCA$model)
+
+plot(p224r63_PCA$map)
+p224r63_PCA
+
+plotRGB(p224r63_PCA$map, r=1, g=2, b=3, stretch="Lin")
 
 #7. R code ggplot2
 library(raster)
