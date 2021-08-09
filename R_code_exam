@@ -92,4 +92,9 @@ plotRGB(yellow_1989, r=1,g=3,b=2, stretch="Lin")
 plotRGB(yellow_1989res, r=1,g=3,b=2, stretch="Lin") #immagine ricampionata con risoluzione minore
 
 yellow_1989_PCA<-rasterPCA(yellow_1989res)
+summary(yellow_1989_PCA$model)
 
+plot(yellow_1989_PCA$map)
+yellow_1989_PCA
+
+plotRGB(yellow_1989_PCA$map, r=1, g=2, b=3, stretch="Lin") #immagine top! ma probabilmente non va ricampionata perchè sgrana
