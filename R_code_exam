@@ -81,3 +81,4 @@ yellow_1989
 
 plot(yellow_1989$yellowriverwoc_1989.1,yellow_1989$yellowriverwoc_1989.2,col="red", pch=19, cex=2)
 pairs(yellow_1989)
+# correlazione dell' 87% tra le due bande
