@@ -345,7 +345,7 @@ p224r63
 
 plot(p224r63$B1_sre,p224r63$B2_sre, col="red", pch=19, cex=2)
 
-pairs(p224r63)
+pairs(p224r63) # a function to plot all possible correlations between the variables of a daset
 
 #aggregate cells: resampling (ricampionamento)
 p224r63res <- aggregate(p224r63, fact=10, fun=mean)
