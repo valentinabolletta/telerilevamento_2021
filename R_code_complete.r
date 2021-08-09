@@ -402,9 +402,9 @@ plot(dvi1)
 
 #dev.off()
 plot(dvi1)
-
 cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme
 plot(dvi1, col=cl,main="DVI1 at time 1)
+
 #time 2
 dvi2 <- defor2$defor2.1 - defor2$defor2.2 
 plot(dvi2, col=cl, main="DVI1 at time 2)
