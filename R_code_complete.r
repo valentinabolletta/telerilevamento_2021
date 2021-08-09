@@ -381,9 +381,9 @@ setwd("c:/lab/")
 defor1 <- brick("defor1.jpg") 
 defor2 <- brick("defor2.jpg") 
 
-# band1: NIR, defor1_.1
-# band2: red, defor1_.2
-# band3: green
+# band1: NIR, defor1.1
+# band2: red, defor1.2
+# band3: green, defor1.3
 
 plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
