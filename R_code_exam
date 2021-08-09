@@ -97,4 +97,8 @@ summary(yellow_1989_PCA$model)
 plot(yellow_1989_PCA$map)
 yellow_1989_PCA
 
+#Standard deviations:
+   Comp.1    Comp.2    Comp.3 
+72.965342 23.783858  7.622533 
+
 plotRGB(yellow_1989_PCA$map, r=1, g=2, b=3, stretch="Lin") #immagine top! ma probabilmente non va ricampionata perchè sgrana
