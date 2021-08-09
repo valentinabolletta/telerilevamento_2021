@@ -103,4 +103,28 @@ yellow_1989_PCA
 
 plotRGB(yellow_1989_PCA$map, r=1, g=2, b=3, stretch="Lin") #immagine top! ma probabilmente non va ricampionata perchè sgrana
 
+#R_code_vegetation_indices.r
+
+library(raster) #require (raster)
+library(RStoolbox) #for vegetation indices calculation
+
+install.packages("rasterdiv")
+library(rasterdiv) #for the worldwide NDVI
+library(rasterVis)
+
+setwd("c:/lab/")
+
+defor1 <- brick("defor1.jpg") 
+defor2 <- brick("defor2.jpg") 
+
+# band1: NIR, defor1.1
+# band2: red, defor1.2
+# band3: green, defor1.3
+
+plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+
+par(mfrow=c(1,2))
+plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 
