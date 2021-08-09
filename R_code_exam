@@ -66,13 +66,6 @@ levelplot(Tyellowriver)  #ok! #library rasterVis
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(Tyellowriver,col.regions=cl,main="YellowRiver's Delta Changes",names.attr=c("1989","1995", "1999", "2004", "2009", "2015", "2020")) #ok!
 
-#multivariate analysis #vedi punto#5 del codice completo
-yellow_1989<-brick("yellowriverwoc_1989.jpg")
-plot(yellow_1989)
-yellow_1989
-
-plot(yellow_1989$yellowriverwoc_1989.1,yellow_1989$yellowriverwoc_1989.2, yellow_1989$yellowriverwoc_1989.3,col="red", pch=19, cex=2) #non va!
-pairs(yellow_1989)
 
 #unsupervised classification
 yellow_1989<-brick("yellowriverwoc_1989.jpg")
@@ -80,3 +73,11 @@ set.seed(42)
 yellow_1989c <- unsuperClass(yellow_1989, nClasses=5)
 cl <- colorRampPalette(c('light green','light blue','yellow','white',"blue"))(100)
 plot(yellow_1989c$map,col=cl)
+
+#multivariate analysis
+yellow_1989<-brick("yellowriverwoc_1989.jpg")
+plot(yellow_1989)
+yellow_1989
+
+plot(yellow_1989$yellowriverwoc_1989.1,yellow_1989$yellowriverwoc_1989.2, yellow_1989$yellowriverwoc_1989.3,col="red", pch=19, cex=2) #non va!
+pairs(yellow_1989)
