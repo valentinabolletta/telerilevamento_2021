@@ -121,6 +121,6 @@ plotRGB(yellow_1989, r=1, g=2, b=3, stretch="Lin")
 plotRGB(yellow_2020, r=1, g=2, b=3, stretch="Lin")
 
 par(mfrow=c(1,2))
-plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
-plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+plotRGB(yellow_1989, r=1, g=2, b=3, stretch="Lin")
+plotRGB(yellow_2020, r=1, g=2, b=3, stretch="Lin")
 
