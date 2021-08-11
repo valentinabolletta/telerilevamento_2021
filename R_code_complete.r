@@ -459,7 +459,7 @@ setwd("~/lab/")
 
 p224r63 <- brick("p224r63_2011_masked.grd")
 
-ggRGB(p224r63,3,2,1, stretch="lin")
+ggRGB(p224r63,3,2,1, stretch="lin") #ggRGB create ggplot2 raster plots with RGB from 3 raster layers #plottiamo in questo modo anche le coordinate spaziali x,y del nostro oggetto
 ggRGB(p224r63,4,3,2, stretch="lin")
 
 p1 <- ggRGB(p224r63,3,2,1, stretch="lin")
