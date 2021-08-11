@@ -591,8 +591,6 @@ plot(ndvi,col=cl)
 #calcolo la variabilità di questa immagine con la funzione focal
 ndvisd3 <- focal(ndvi, w=matrix(1/9,nrow=3,ncol=3), fun=sd)
 plot(ndvisd3)
-
-
 clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) #
 plot(ndvisd3, col=clsd)
  
@@ -612,8 +610,8 @@ plot(sentpca$map)
 summary(sentpca$model)
 #the first PC contains 0.6736804 of the original information
  
-
 pc1 <- sentpca$map$PC1
+plot(pc1)
 
 pc1sd5 <- focal(pc1, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
