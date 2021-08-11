@@ -543,7 +543,7 @@ prop2<- freq(d2c$map)/s2
 #proporzione agricolo= 0.479
 
 #build  a a dataframe
-cover<- c(forest ("forest", "agriculture")
+cover<- c("forest", "agriculture")
 percent_1992<- c(89.83,10.16)
 percent_2006<- c(52.06, 47.93)
           
@@ -552,7 +552,7 @@ percentages
 
 #let's plot them
 p1<-ggplot(percentages, aes(x=cover, y=percent_1992, color=cover)) + geom_bar(stat="identity", fill="white")   
-p1<-ggplot(percentages, aes(x=cover, y=percent_2006, color=cover)) + geom_bar(stat="identity", fill="white")   
+p2<-ggplot(percentages, aes(x=cover, y=percent_2006, color=cover)) + geom_bar(stat="identity", fill="white")   
           
 grid.arrange(p1, p2, nrow = 1) # this needs griExtra       
           
@@ -585,10 +585,10 @@ red <- sent$sentinel.2
 
 ndvi <- (nir-red) / (nir+red)
 plot(ndvi)
-
-cl <- colorRampPalette(c('black','white','red','magenta','green'))(100) # 
+cl <- colorRampPalette(c('black','white','red','magenta','green'))(100) 
 plot(ndvi,col=cl)
 
+#calcolo la variabilità di questa immagine con la funzione focal
 ndvisd3 <- focal(ndvi, w=matrix(1/9,nrow=3,ncol=3), fun=sd)
 plot(ndvisd3)
 
