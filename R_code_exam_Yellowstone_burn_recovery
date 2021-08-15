@@ -7,5 +7,5 @@
 #- valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
 
 
-install.packages("raster")
-library(raster)
+install.packages("raster") #scarica e installa dal CRAN o da files locali
+library(raster) #richiamo questa libreria che carica\allega i files su R
