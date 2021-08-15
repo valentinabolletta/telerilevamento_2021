@@ -1,2 +1,9 @@
 #R_code_exam_Yellowstone_burn_recovery
 
+#In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
+-confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
+-verrà poi calcolato NDVI
+
+
+install.packages("raster")
+library(raster)
