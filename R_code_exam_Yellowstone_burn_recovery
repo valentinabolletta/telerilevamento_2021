@@ -9,7 +9,7 @@
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
-setwd ("C:/lab/yellowriver/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
+setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
@@ -23,3 +23,12 @@ Ys_1998<-brick("Yellowstone_19980718.jpg")
 Ys_2008<-brick("Yellowstone_20080915.jpg")
 Ys_2018<-brick("yellowstone_20180222.jpg")
 
+par(mfrow=c(2,4))
+plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1993,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1996,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1998,1, 2, 3, stretch="Lin")
+plotRGB(Ys_2008,1, 2, 3, stretch="Lin")
+plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
