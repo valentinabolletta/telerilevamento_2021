@@ -14,3 +14,12 @@ setwd ("C:/lab/yellowriver/") #Windows  #setto la R Working Directory per spiega
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
 
+Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
+Ys_1988fire<-brick("Yellowstone_19880823.jpg")
+Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
+Ys_1993<-brick("Yellowstone_19930922.jpg")
+Ys_1996<-brick("Yellowstone_19960712.jpg")
+Ys_1998<-brick("Yellowstone_19980718.jpg")
+Ys_2008<-brick("Yellowstone_20080915.jpg")
+Ys_2018<-brick("yellowstone_20180222.jpg")
+
