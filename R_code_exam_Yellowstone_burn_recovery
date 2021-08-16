@@ -37,5 +37,8 @@ plotRGB(Ys_1998,1, 2, 3, stretch="Lin")
 plotRGB(Ys_2008,1, 2, 3, stretch="Lin")
 plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
-# cambio bande
-plotRGB(Ys_1988fire,4, 5, 1, stretch="Lin")
+# colorRampPalette
+cl <- colorRampPalette(c('dark red','red','orange','yellow'))(100)
+plot(Ys_1988fire, col=cl)
+
+
