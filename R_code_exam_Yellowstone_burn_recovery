@@ -23,7 +23,7 @@ Ys_1998<-brick("Yellowstone_19980718.jpg")
 Ys_2008<-brick("Yellowstone_20080915.jpg")
 Ys_2018<-brick("yellowstone_20180222.jpg")
 
-par(mfrow=c(2,4))  #funzione generica che permette il settaggio dei parametri grafici, in questo caso plottiamo le immagini in RGB(schema red,green,blue)per visualizzare un oggetto raster multi-layer
+par(mfrow=c(2,4))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe, in questo caso plottiamo le immagini in RGB(schema red,green,blue)per visualizzare un oggetto raster multi-layer
 
 #le immagini scaricate e processate dal sito Earth Observatory NASA avevano già le bande sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte(SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
 #se l'immagine fosse stata fatta con luce visibile, il fumo sarebbe così denso nell'immagine del 1988 denso da non permettere di vedere quasi nulla. Nell'immagine in infrarosso il fumo diventa invece una patina blu.
@@ -38,7 +38,7 @@ plotRGB(Ys_2008,1, 2, 3, stretch="Lin")
 plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
 # colorRampPalette estende la palette dei colori, i numeri che vediamo a lato dell'immagine sono i valori di riflettanza e ad ogni valore è stato associato un colore
-cl <- colorRampPalette(c('dark red','red','orange','yellow'))(100)  #c
+cl <- colorRampPalette(c('dark red','red','orange','yellow'))(100)  #c creazione di un vettore o array(argomento) che racchiude i nuovi colori scelti (elementi)
 plot(Ys_1988fire, col=cl)
 
 
