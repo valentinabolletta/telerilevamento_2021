@@ -24,7 +24,9 @@ Ys_2008<-brick("Yellowstone_20080915.jpg")
 Ys_2018<-brick("yellowstone_20180222.jpg")
 
 par(mfrow=c(2,4))    #funzione generica che permette il settaggio dei parametri grafici, in questo caso plottiamo le immagini in RGB(schema red,green,blue)per visualizzare un oggetto raster multi-layer
-plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #le immagini scaricate e processate dal sito Earth Observatory NASA avevano già le bande
+#le immagini scaricate e processate dal sito Earth Observatory NASA avevano già le bande sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte(SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
+#Se l'immagine fosse stata fatta con luce visibile, il fumo sarebbe così denso nell'immagine del 1988 denso da non permettere di vedere quasi nulla. Nell'immagine in infrarosso il fumo diventa invece una patina blu.
+plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") 
 plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1993,1, 2, 3, stretch="Lin")
