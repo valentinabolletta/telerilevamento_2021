@@ -70,3 +70,14 @@ plot(Ys_1996,col=cts)
 plot(Ys_1998,col=cts)
 plot(Ys_2008,col=cts)
 plot(Ys_2018,col=cts)
+
+#Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
+rlist <- list.files(pattern="Yellowstone_")
+rlist
+
+import <- lapply(rlist,raster) #alla funzione "lapply" viene applicata la funzione "raster"
+import
+
+timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una lista o un dataframe a cui associamo un nome
+levelplot(timesYs)
+
