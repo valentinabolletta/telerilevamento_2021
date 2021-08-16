@@ -23,8 +23,8 @@ Ys_1998<-brick("Yellowstone_19980718.jpg")
 Ys_2008<-brick("Yellowstone_20080915.jpg")
 Ys_2018<-brick("yellowstone_20180222.jpg")
 
-par(mfrow=c(2,4))
-plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
+par(mfrow=c(2,4))    #funzione generica che permette il settaggio dei parametri grafici, in questo caso plottiamo le immagini in RGB(schema red,green,blue)per visualizzare un oggetto raster multi-layer
+plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #le immagini scaricate e processate dal sito Earth Observatory NASA avevano già le bande
 plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1993,1, 2, 3, stretch="Lin")
