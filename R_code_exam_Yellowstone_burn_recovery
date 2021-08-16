@@ -10,6 +10,7 @@
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
 setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
+library(rgdal) #importa file raster e TIF
 
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
@@ -41,4 +42,22 @@ plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 cl <- colorRampPalette(c('dark red','red','orange','yellow'))(100)  #c creazione di un vettore o array(argomento) che racchiude i nuovi colori scelti (elementi)
 plot(Ys_1988fire, col=cl)
 
+#Utilizzando la funzione "raster" carico le singole immagini e le plotto
+Ys_1987beforefire <- raster("Yellowstone_19870805.jpg") 
+cts <- colorRampPalette(c("blue","dark green","light green","orange","white")) (100)
+plot(Ys_1987beforefire, col=cts)
+Ys_1988fire<-raster("Yellowstone_19880823.jpg")
+plot(Ys_1988fire,col=cts)
+Ys_1989afterfire<-raster("Yellowstone_19890802.jpg")
+plot(Ys_1989afterfire,col=cts)
+Ys_1993<-raster("Yellowstone_19930922.jpg")
+plot(Ys_1993,col=cts)
+Ys_1996<-raster("Yellowstone_19960712.jpg")
+plot(Ys_1996,col=cts)
+Ys_1998<-raster("Yellowstone_19980718.jpg")
+plot(Ys_1998,col=cts)
+Ys_2008<-raster("Yellowstone_20080915.jpg")
+plot(Ys_2008,col=cts)
+Ys_2018<-raster("Yellowstone_20180222.jpg")
+plot(Ys_2018,col=cts)
 
