@@ -85,3 +85,5 @@ levelplot(timesYs)
 #Possiamo anche applicare la funzione "levelplot" considerando ogni singolo file interno a "timesYs"
 levelplot(timesYs$Ys_1987beforefire)
 
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008","2018"))
