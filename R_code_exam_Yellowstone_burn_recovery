@@ -79,5 +79,8 @@ import <- lapply(rlist,raster) #alla funzione "lapply" viene applicata la funzio
 import
 
 timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una lista o un dataframe a cui associamo un nome
-levelplot(timesYs)
+levelplot(timesYs) 
+
+#Possiamo anche applicare la funzione "levelplot" considerando ogni singolo file interno a "timesYs"
+levelplot(timesYs$Ys_1987beforefire)
 
