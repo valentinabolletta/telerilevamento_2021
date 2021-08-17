@@ -11,6 +11,7 @@ install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
 setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 library(rgdal) #importa file raster e TIF
+library(rasterVis)
 
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
