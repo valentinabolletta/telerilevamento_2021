@@ -45,33 +45,33 @@ cl <- colorRampPalette(c('dark red','red','orange','yellow'))(100)  #c creazione
 plot(Ys_1988fire, col=cl)
 
 #Utilizzando la funzione "raster" carico le singole immagini e le plotto
-Ys_1987beforefire <- raster("Yellowstone_19870805.jpg") 
+Ys_1987beforefireR <- raster("Yellowstone_19870805.jpg") 
 cts <- colorRampPalette(c("blue","dark green","light green","orange","white")) (100)
 plot(Ys_1987beforefire, col=cts)
-Ys_1988fire<-raster("Yellowstone_19880823.jpg")
+Ys_1988fireR<-raster("Yellowstone_19880823.jpg")
 plot(Ys_1988fire,col=cts)
-Ys_1989afterfire<-raster("Yellowstone_19890802.jpg")
+Ys_1989afterfireR<-raster("Yellowstone_19890802.jpg")
 plot(Ys_1989afterfire,col=cts)
-Ys_1993<-raster("Yellowstone_19930922.jpg")
+Ys_1993R<-raster("Yellowstone_19930922.jpg")
 plot(Ys_1993,col=cts)
-Ys_1996<-raster("Yellowstone_19960712.jpg")
+Ys_1996R<-raster("Yellowstone_19960712.jpg")
 plot(Ys_1996,col=cts)
-Ys_1998<-raster("Yellowstone_19980718.jpg")
+Ys_1998R<-raster("Yellowstone_19980718.jpg")
 plot(Ys_1998,col=cts)
-Ys_2008<-raster("Yellowstone_20080915.jpg")
+Ys_2008R<-raster("Yellowstone_20080915.jpg")
 plot(Ys_2008,col=cts)
-Ys_2018<-raster("Yellowstone_20180222.jpg")
+Ys_2018R<-raster("Yellowstone_20180222.jpg")
 plot(Ys_2018,col=cts)
 
 par(mfrow=c(2,4))
-plot(Ys_1987beforefire, col=cts)
+plot(Ys_1987beforefireR, col=cts)
 plot(Ys_1988fire,col=cts)
-plot(Ys_1989afterfire,col=cts)
-plot(Ys_1993,col=cts)
-plot(Ys_1996,col=cts)
-plot(Ys_1998,col=cts)
-plot(Ys_2008,col=cts)
-plot(Ys_2018,col=cts)
+plot(Ys_1989afterfireR,col=cts)
+plot(Ys_1993R,col=cts)
+plot(Ys_1996R,col=cts)
+plot(Ys_1998R,col=cts)
+plot(Ys_2008R,col=cts)
+plot(Ys_2018R,col=cts)
 
 #Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
 rlist <- list.files(pattern="Yellowstone_")
@@ -84,10 +84,15 @@ timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una l
 levelplot(timesYs) 
 
 #Possiamo anche applicare la funzione "levelplot" considerando ogni singolo file interno a "timesYs"
-levelplot(timesYs$Ys_1987beforefire)
+levelplot(timesYs$Ys_1987beforefireR)
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008","2018"))
 
 #2. Unsupervised classification
-#in questo processo vengono accorpati pixel di un immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
+#in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
+
+set.seed(42)  #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
+class1987<- unsuperClass(Ys_1987beforefire, nClasses=3)
+cl <- colorRampPalette(c('yellow','red','black'))(100)
+plot(class1987$map,col=cl)
