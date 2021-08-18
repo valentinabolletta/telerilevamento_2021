@@ -129,3 +129,11 @@ plot(ndvi2, col=clndvi)
 
 difndvi<-ndvi1-ndvi2
 plot(difndvi,col=clndvi, main="NDVI time1-time2") #o senza la colorramppalette
+
+#Indici spettrali
+vi1 <-spectralIndices(Ys_1989afterfire, green=3, red=2, nir=1)
+plot(vi1, col=cl)
+
+vi2 <-spectralIndices(Ys_2018, green=3, red=2, nir=1)
+plot(vi2, col=cl)
+
