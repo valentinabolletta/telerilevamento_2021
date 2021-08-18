@@ -137,3 +137,22 @@ plot(vi1, col=cl)
 si2 <-spectralIndices(Ys_2018, green=3, red=2, nir=1)
 plot(vi2, col=cl)
 
+#4.Variabilità multitemporale (controllare!!!!!!)
+#sull'asse x viene messo l'anno, sull'asse y il valore del pixel e viene misurata la varianza dello stesso pixel sulla stessa banda nel corso degli anni.
+#Nel caso dell'incendio e della vegetazione si crea un'alta variabilità sull'omogeneità della distribuzione delle essenze vegetali. Ci sarà maggiore variazione di pixel
+
+#worldwide NDVI
+plot(copNDVI)
+
+# Pixels with values 253, 254 and 255 (water) will be set as NA’s.
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA))
+plot(copNDVI)
+
+# rasterVis package needed:
+levelplot(copNDVI)
+
+#5. Land cover
+
+
+
+
