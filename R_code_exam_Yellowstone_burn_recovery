@@ -109,3 +109,18 @@ plot(class1987$map,col=cl)
 plot(class1988$map,col=cl)
 plot(class1989$map,col=cl)
 plot(class2018$map,col=cl)
+
+#3. NDVI (indice di vegetazione normalizzato)
+#ndvi
+#(NIR-RED)/(NIR+RED)
+
+clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
+ndvi1 <- (Ys_1989afterfire$Yellowstone_19890802.1-Ys_1989afterfire$Yellowstone_19890802.2) / (Ys_1989afterfire$Yellowstone_19890802.1+Ys_1989afterfire$Yellowstone_19890802.2) 
+plot(ndvi1, col=clndvi)
+
+ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
+plot(ndvi2, col=clndvi)
+
+par(mfrow=c(1,2)
+plot(ndvi1, col=clndvi)
+plot(ndvi2, col=clndvi)
