@@ -121,6 +121,9 @@ plot(ndvi1, col=clndvi)
 ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
 plot(ndvi2, col=clndvi)
 
-par(mfrow=c(1,2)
+par(mfrow=c(1,2))
 plot(ndvi1, col=clndvi)
 plot(ndvi2, col=clndvi)
+
+difndvi<-ndvi1-ndvi2
+plot(difndvi) #o con la stessa colorramppalette, quindi aggiungendo col=clndvi
