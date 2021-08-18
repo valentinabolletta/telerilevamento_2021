@@ -12,6 +12,7 @@ library(raster) #richiamo questa libreria che carica\allega i files su R
 setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 library(rgdal) #importa file raster e TIF
 library(rasterVis)
+library(RStoolbox)
 
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
@@ -88,4 +89,5 @@ levelplot(timesYs$Ys_1987beforefire)
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008","2018"))
 
-#2. unsupervised classification
+#2. Unsupervised classification
+#in questo processo vengono accorpati pixel di un immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
