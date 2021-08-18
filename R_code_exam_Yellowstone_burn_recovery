@@ -2,9 +2,9 @@
 
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
 #-confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
-#-verrà poi calcolato NDVI e variabilità multitemporale  #library(raster) #library(rasterVis) per levelplot
-#-verrà operata una CLASSTIFICAZIONE delle immagini #library(RStoolbox)
-#- valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
+#-verrà poi calcolato variabilità multitemporale e NDVI  #library(raster) #library(rasterVis) per levelplot
+#-verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
+#-valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
 
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
@@ -93,6 +93,11 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
 
 set.seed(42)  #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
-class1987<- unsuperClass(Ys_1987beforefire, nClasses=3)
-cl <- colorRampPalette(c('yellow','red','black'))(100)
+class1987<- unsuperClass(Ys_1987beforefire, nClasses=5)
+cl <- colorRampPalette(c('black','purple','red','orange','yellow'))(100)
 plot(class1987$map,col=cl)
+class2018<- unsuperClass(Ys_2018, nClasses=5)
+plot(class2018$map,col=cl)
+par(mfrow=c(1,1))
+plot(class1987$map,col=cl)
+plot(class2018$map,col=cl)
