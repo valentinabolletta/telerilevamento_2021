@@ -128,4 +128,4 @@ plot(ndvi1, col=clndvi)
 plot(ndvi2, col=clndvi)
 
 difndvi<-ndvi1-ndvi2
-plot(difndvi,col=clndvi, main=NDVI) #o senza la colorramppalette
+plot(difndvi,col=clndvi, main="NDVI time1-time2") #o senza la colorramppalette
