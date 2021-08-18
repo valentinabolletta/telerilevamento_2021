@@ -114,16 +114,18 @@ plot(class2018$map,col=cl)
 #ndvi
 #(NIR-RED)/(NIR+RED)
 
+#time 1
 clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
 ndvi1 <- (Ys_1989afterfire$Yellowstone_19890802.1-Ys_1989afterfire$Yellowstone_19890802.2) / (Ys_1989afterfire$Yellowstone_19890802.1+Ys_1989afterfire$Yellowstone_19890802.2) 
-plot(ndvi1, col=clndvi)
+plot(ndvi1, col=clndvi, main="NDVI time 1")
 
+#time 2
 ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
-plot(ndvi2, col=clndvi)
+plot(ndvi2, col=clndvi, main="NDVI time 2")
 
 par(mfrow=c(1,2))
 plot(ndvi1, col=clndvi)
 plot(ndvi2, col=clndvi)
 
 difndvi<-ndvi1-ndvi2
-plot(difndvi,col=clndvi) #o senza la colorramppalette
+plot(difndvi,col=clndvi, main=NDVI) #o senza la colorramppalette
