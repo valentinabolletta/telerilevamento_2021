@@ -176,20 +176,21 @@ p4<-ggRGB(Ys_2018,1, 2, 3, stretch="Lin")
 grid.arrange(p1, p2, p3, p4, nrow = 2)
 
 #ora classifichiamo le immagini in 2 CLASSI
-1a CLASSE = foresta (verde)
-2a CLASSE = parte bruciata dall'incendio (bianco)
+1a CLASSE = prateria (bianco)
+2a CLASSE = nuvole (giallo)
+3a CLASSE = foresta (verde)
 
 #set.seed() would allow you to attain the same results
-Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=2)
+Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3)
 Ys1c
 plot(Ys1c$map)
 
-Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=2)
+Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
 plot(Ys2c$map)
 
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Andiamo a calcolare la frequenza dei pixel di una certa classe
 #frequencies
-freq(d1c$map)
+freq(Ys1c$map)
 # aree aperte = 37039 (pixel)
 # foresta = 304253
 
