@@ -221,10 +221,14 @@ percent_1987<- c(40.83,06.35,52.80)
 percent_1989<- c(43.71,20.03,36.24)
           
 percentages<- data.frame (cover, percent_1987, percent_1989)
-percentages          
+percentages  
+       cover percent_1987 percent_1989
+1         prateria        40.83        43.71
+2 parte incendiata         6.35        20.03
+3          foresta        52.80        36.24
 
-#let's plot them
-p1<-ggplot(percentages, aes(x=cover, y=percent_1992, color=cover)) + geom_bar(stat="identity", fill="white")   
-p2<-ggplot(percentages, aes(x=cover, y=percent_2006, color=cover)) + geom_bar(stat="identity", fill="white")   
+#Usando ggplot2 generiamo un dataframe
+cover1<-ggplot(percentages, aes(x=cover, y=percent_1987, color=cover)) + geom_bar(stat="identity", fill="white")   
+cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   
           
-grid.arrange(p1, p2, nrow = 1) # this needs griExtra       
+grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra       
