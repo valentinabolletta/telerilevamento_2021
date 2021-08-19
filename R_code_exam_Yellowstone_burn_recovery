@@ -13,6 +13,8 @@ setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiega
 library(rgdal) #importa file raster e TIF
 library(rasterVis)
 library(RStoolbox)
+library(ggplot2)
+library(gridExtra)
 
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
@@ -152,7 +154,21 @@ plot(copNDVI)
 levelplot(copNDVI)
 
 #5. Land cover
+#per plottare in modo migliore le immagini richiamo la library ggplot2 e gridExtra
 
+Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
+Ys_1988fire<-brick("Yellowstone_19880823.jpg")
+Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
+Ys_2018<-brick("yellowstone_20180222.jpg")
 
+plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
+plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
+plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
+ggRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #con questa funzione vengono visualizzate anche le coordinate spaziali del nostro oggetto
+ggRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
+ggRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
+ggRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
+#per unire i plot generati in questo caso utiliazziamo la funzione "grid.arrange" dalla library gridExtra. Questa funzione compone il nostro multiframe unendo varie parti in un grafico.
