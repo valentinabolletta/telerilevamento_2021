@@ -179,19 +179,13 @@ grid.arrange(p1, p2, p3, p4, nrow = 2)
 1a CLASSE = foresta (verde)
 2a CLASSE = parte bruciata dall'incendio (bianco)
 
-d1c <- unsuperClass(defor1, nClasses=2)
-d1c
-plot(d1c$map)
-
 #set.seed() would allow you to attain the same results
+Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=2)
+Ys1c
+plot(Ys1c$map)
 
-d2c <- unsuperClass(defor2, nClasses=2)
-plot(d2c$map)
-#class1:forest
-#class2:agriculture
-
-d2c3 <- unsuperClass(defor2, nClasses=3)
-plot(d2c3$map)
+Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=2)
+plot(Ys2c$map)
 
 #frequencies
 freq(d1c$map)
