@@ -197,15 +197,16 @@ freq(Ys1c$map)
 [3,]     3 5660423
 
 
-#calcoliamo la proporzione di pixel
-s1<- 306583+34709
+#calcoliamo la proporzione di pixel e sommiamo i valori
+s1<-4377087+681566+5660423
 s1
+[1] 10719076
 
-prop1<- freq(d1c$map)/s1
+prop1<- freq(Ys1c$map)/s1
 #proporzione foresta = 0.898
 #proporzione agricolo= 0.101
 
-s2<- 342726
+s2<- 10719076
 prop2<- freq(d2c$map)/s2
 #proporzione foresta = 0.520
 #proporzione agricolo= 0.479
