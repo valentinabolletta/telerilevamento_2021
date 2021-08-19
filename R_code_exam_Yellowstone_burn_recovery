@@ -166,7 +166,7 @@ plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
-p1<-ggRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #con questa funzione vengono visualizzate anche le coordinate spaziali del nostro oggetto
+p1<-ggRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #con questa funzione vengono visualizzate anche le coordinate spaziali del nostro oggetto(conta dei pixel sulla x e sulla y, non è un vero S.R.!)
 p2<-ggRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 p3<-ggRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
 p4<-ggRGB(Ys_2018,1, 2, 3, stretch="Lin")
@@ -174,3 +174,4 @@ p4<-ggRGB(Ys_2018,1, 2, 3, stretch="Lin")
 #per unire i plot generati in questo caso utiliazziamo la funzione "grid.arrange" dalla library gridExtra. Questa funzione compone il nostro multiframe unendo varie parti in un grafico.
 
 grid.arrange(p1, p2, p3, p4, nrow = 2)
+
