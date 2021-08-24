@@ -259,9 +259,9 @@ ndvimean <- focal(ndvi2, w=matrix(1/9, nrow=3, ncol=3), fun=mean)
 clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
 plot(ndvimean, col=clsd) #valori molto alti nelle praterie d'alta quota, boschi latifoglie e arbusti. Valori più alti per la roccia nuda.
 
-#PCA
-sentpca<- rasterPCA(sent)
-plot(sentpca$map)
+#PCA #la moving window passa sulla PC1 fino a creare una mappa di dev.standard derivante dalla 1a componente principale. Prendendo un sistema multibande ne calcoliamo una PCA e utilizziamo solo la 1a componente principale
+Ys_2018_pca<- rasterPCA(Ys_2018)
+plot(Ys_2018_pca$map) #la prima componente principale è quella che mantiene l'info originale, man mano che passiamo alle altre bande l'info si perde.
 
 summary(sentpca$model)
 #the first PC contains 0.6736804 of the original information
