@@ -10,7 +10,7 @@
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
-library(rgdal) #importa file raster e TIF
+library(rgdal) #importa file raster e TIF e firme spettrali
 library(rasterVis)
 library(RStoolbox)
 library(ggplot2)
@@ -275,12 +275,16 @@ plot(pc1)
 # The package contains eight color scales: “viridis”, the primary choice, and five alternatives with similar properties - “magma”, “plasma”, “inferno”, “civids”, “mako”, and “rocket” -, and a rainbow color map - “turbo”.
 
 #proviamo a plottare i nostri dati con ggplot
-p1 <- ggplot() + geom_raster(pc1, mapping = aes(x = x, y = y)) + scale_fill_viridis()  +ggtitle("Standard deviation of PC1 by viridis colour scale")
+p1 <- ggplot() + geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) + scale_fill_viridis()  +ggtitle("Standard deviation of PC1 by viridis colour scale")
  
-p2 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y)) +scale_fill_viridis(option = "magma")  +ggtitle("Standard deviation of PC1 by magma colour scale")
+p2 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) +scale_fill_viridis(option = "magma")  +ggtitle("Standard deviation of PC1 by magma colour scale")
 
-p3 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y)) +scale_fill_viridis(option = "turbo")  +ggtitle("Standard deviation of PC1 by turbo colour scale")
+p3 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) +scale_fill_viridis(option = "turbo")  +ggtitle("Standard deviation of PC1 by turbo colour scale")
 
 grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuare a livello geografico qualsiasi tipo di discontinuità, a livello ecologico gli ecotoni(passaggio da un paesaggio all'altro)
 
 #7. Firme spettrali
+#Le firme spettrali del pixel di una pianta ci permettono di distinguere piante diverse che riflettono la luce in modo diverso. Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
+
+Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
+click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="magenta")
