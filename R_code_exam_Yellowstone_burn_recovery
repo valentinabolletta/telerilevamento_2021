@@ -249,19 +249,15 @@ plot(ndvi2, col=clndvi, main="NDVI time 2")
 
 #calcolo la variabilità di questa immagine con la funzione focal. La moving window, in questo caso, è una finestra mobile di 3x3 pixel che si muove nei primi 9 pixel dell'immagine e così via.
 #Il pixel centrale raccoglie la dev.standard dei 9 pixel. Alla fine otterrò una nuova mappa con pixel colorati diversamente a seconda della dev.standard calcolata in una certa finestra(più la finestra è grande più mi aspetto una certa variabilità).
-ndvisd3 <- focal(ndvi, w=matrix(1/9,nrow=3,ncol=3), fun=sd)
-plot(ndvisd3)
-clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) #
-plot(ndvisd3, col=clsd)
+ndvi2_focal <- focal(ndvi2, w=matrix(1/9,nrow=3,ncol=3), fun=sd)
+plot(ndvi2_focal)
+clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100)
+plot(ndvi2_focal, col=clsd) #il blu dà una copertura omogenea di quelle che sono le rocce e le bruciature degli incendi. In blu anche i laghi. La dev. standard aumenta, quindi diventa più verde nelle zone di confine. Veg. e roccia nuda hanno una diversità più alta a livello spettrale, poi ridiminuisce nelle zone di prateria d'alta quota
  
 #mean ndvi with focal
-ndvimean3 <- focal(ndvi, w=matrix(1/9, nrow=3, ncol=3), fun=mean)
+ndvimean <- focal(ndvi2, w=matrix(1/9, nrow=3, ncol=3), fun=mean)
 clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
-plot(ndvimean3, col=clsd)
-
-ndvisd5 <- focal(ndvi, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
-clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
-plot(ndvisd5, col=clsd)
+plot(ndvimean, col=clsd) #valori molto alti nelle praterie d'alta quota, boschi latifoglie e arbusti. Valori più alti per la roccia nuda.
 
 #PCA
 sentpca<- rasterPCA(sent)
