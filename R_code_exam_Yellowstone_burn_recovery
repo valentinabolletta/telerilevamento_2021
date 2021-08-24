@@ -6,7 +6,7 @@
 #-verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
 #-valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
 #-variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
-
+#firme spettrali
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
@@ -243,10 +243,6 @@ ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2
 plot(ndvi2, col=clndvi, main="NDVI time 2")
 
 
-
-
-
-
 #calcolo la variabilità di questa immagine con la funzione focal. La moving window, in questo caso, è una finestra mobile di 3x3 pixel che si muove nei primi 9 pixel dell'immagine e così via.
 #Il pixel centrale raccoglie la dev.standard dei 9 pixel. Alla fine otterrò una nuova mappa con pixel colorati diversamente a seconda della dev.standard calcolata in una certa finestra(più la finestra è grande più mi aspetto una certa variabilità).
 ndvi2_focal <- focal(ndvi2, w=matrix(1/9,nrow=3,ncol=3), fun=sd)
@@ -275,28 +271,16 @@ pc1 <- Ys_2018_pca$map$PC1
 plot(pc1)
 
 
-# With the source function you can upload code from outside!
-source("source_test_lezione.r")
-source("source_ggplot.r")
-
 # https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
 # The package contains eight color scales: “viridis”, the primary choice, and five alternatives with similar properties - “magma”, “plasma”, “inferno”, “civids”, “mako”, and “rocket” -, and a rainbow color map - “turbo”.
 
-p1 <- ggplot() +
-geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
-scale_fill_viridis()  +
-ggtitle("Standard deviation of PC1 by viridis colour scale")
+#proviamo a plottare i nostri dati con ggplot
+p1 <- ggplot() + geom_raster(pc1, mapping = aes(x = x, y = y)) + scale_fill_viridis()  +ggtitle("Standard deviation of PC1 by viridis colour scale")
+ 
+p2 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y)) +scale_fill_viridis(option = "magma")  +ggtitle("Standard deviation of PC1 by magma colour scale")
 
-p2 <- ggplot() +
-geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
-scale_fill_viridis(option = "magma")  +
-ggtitle("Standard deviation of PC1 by magma colour scale")
+p3 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y)) +scale_fill_viridis(option = "turbo")  +ggtitle("Standard deviation of PC1 by turbo colour scale")
 
-p3 <- ggplot() +
-geom_raster(pc1sd5, mapping = aes(x = x, y = y, fill = layer)) +
-scale_fill_viridis(option = "turbo")  +
-ggtitle("Standard deviation of PC1 by turbo colour scale")
+grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuare a livello geografico qualsiasi tipo di discontinuità, a livello ecologico gli ecotoni(passaggio da un paesaggio all'altro)
 
-grid.arrange(p1, p2, p3, nrow = 1)
-
-#.....................................
+#7. Firme spettrali
