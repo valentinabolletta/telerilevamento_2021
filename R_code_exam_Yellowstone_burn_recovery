@@ -322,3 +322,56 @@ click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="green")
 band<- c(1,2,3)
 forest <- c(73,119,57)
 grassland <- c(117,205,101)  #i dati sono diversi a seconda dei risultati del click
+
+#Create the dataframe
+spectrals <- data.frame(band,forest,grassland)
+
+#Plot the spectral signatures
+ggplot(spectrals,aes(x=band)) +geom_line(aes(y=forest), color="dark green")+geom_line(aes(y=grassland), color="light green") 
+labs(x="band", y="reflectance")
+
+#......................................
+#Multitemporal
+defor1 <- brick("defor1.jpg")
+plotRGB(defor1, r=1, g=2, b=3, stretch="lin")
+
+#spectral signatures defor1
+click(defor1, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
+
+#time t2
+plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
+click(defor2, id=T, xy=T, cell=T, type="p", pch=16, col="yellow")
+
+# define the columns of the dataset:
+band <- c(1,2,3)
+time1 <- c(223,11,33)
+time2 <- c(197,163,151)
+ 
+spectralst <- data.frame(band, time1, time2)
+
+# plot the sepctral signatures
+ggplot(spectrals, aes(x=band)) +
+ geom_line(aes(y=time1), color="red") +
+ geom_line(aes(y=time2), color="gray") +
+ labs(x="band",y="reflectance")
+    
+
+# define the columns of the dataset:
+band <- c(1,2,3)
+time1 <- c(223,11,33)
+time1p2 <- c(218,16,38)
+time2 <- c(197,163,151)
+time2p2 <- c(149,157,133)
+
+
+spectralst <- data.frame(band, time1, time2, time1p2, time2p2)
+
+
+# plot the sepctral signatures
+ggplot(spectralst, aes(x=band)) +
+ geom_line(aes(y=time1), color="red") +
+ geom_line(aes(y=time1p2), color="red") +
+ geom_line(aes(y=time2), color="gray") +
+ geom_line(aes(y=time2p2), color="gray") +
+ labs(x="band",y="reflectance")
+
