@@ -287,4 +287,38 @@ grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuar
 #Le firme spettrali del pixel di una pianta ci permettono di distinguere piante diverse che riflettono la luce in modo diverso. Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
+plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
 click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="magenta")
+#x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
+1 304.5 2300.5 3185907                    117                    205
+  Yellowstone_19870805.3
+1                    101
+       x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
+1 1572.5 1524.5 5727799                    102                    111
+  Yellowstone_19870805.3
+1                     66
+
+       x     y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
+1 1464.5 647.5 8598989                    172                    193
+  Yellowstone_19870805.3
+1                    124
+       x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
+1 1291.5 2236.5 3396430                     95                    111
+  Yellowstone_19870805.3
+1                     66
+       x     y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
+1 3020.5 839.5 7971937                     76                    106
+  Yellowstone_19870805.3
+1                     72
+
+click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="green")
+ x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
+1 1662.5 1505.5 5790095                     73                    119
+  Yellowstone_19870805.3
+1                     57
+
+
+#Define colors of the dataset:
+band<- c(1,2,3)
+forest <- c(73,119,57)
+grassland <- c(117,205,101)  #i dati sono diversi a seconda dei risultati del click
