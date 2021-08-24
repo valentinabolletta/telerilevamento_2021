@@ -5,16 +5,17 @@
 #-verrà poi calcolato variabilità multitemporale e NDVI  #library(raster) #library(rasterVis) per levelplot
 #-verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
 #-valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
+#-variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
 
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
-setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 library(rgdal) #importa file raster e TIF
 library(rasterVis)
 library(RStoolbox)
 library(ggplot2)
 library(gridExtra)
+setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 
 #1. Times series 1987-2018
 #importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
@@ -231,4 +232,13 @@ percentages
 cover1<-ggplot(percentages, aes(x=cover, y=percent_1987, color=cover)) + geom_bar(stat="identity", fill="white")   
 cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   
           
-grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra       
+grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra     
+
+#6. Moving window
+Ys_2018<-brick("yellowstone_20180222.jpg")
+plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
+clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
+
+ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
+plot(ndvi2, col=clndvi, main="NDVI time 2")
+
