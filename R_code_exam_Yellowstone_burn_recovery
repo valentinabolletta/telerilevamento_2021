@@ -133,8 +133,9 @@ plot(class1989$map,col=cl)
 plot(class2018$map,col=cl)
 
 #3. NDVI (indice di vegetazione normalizzato)
-#ndvi
-#(NIR-RED)/(NIR+RED)
+#(NIR-RED)/(NIR+RED) #il range dell'NDVI è [-1 , 1]
+#in questo modo è possibile riconoscere la presenza di vegetazione sana e quella non sana
+
 
 #time 1
 clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
@@ -149,7 +150,7 @@ par(mfrow=c(1,2))
 plot(ndvi1, col=clndvi)
 plot(ndvi2, col=clndvi)
 
-difndvi<-ndvi1-ndvi2
+difndvi<-ndvi1-ndvi2 ##è stata effettuata la differenza tra gli NDVI per valutare se ci sia stato un aumento dell'indice o una diminuzione a causa degli incendi
 plot(difndvi,col=clndvi, main="NDVI time1-time2") #o senza la colorramppalette
 
 #Indici spettrali
