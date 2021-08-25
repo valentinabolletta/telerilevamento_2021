@@ -115,14 +115,40 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 
 #NBR (normalized burn ratio)
 #Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
+#(NIR-SWIR)/(NIR+SWIR)
 
 #La vegetazione sana mostra una riflettanza molto alta nel NIR e una riflettanza bassa nella porzione SWIR dello spettro
 #Le aree recentemente bruciate mostrano una bassa riflettanza nel NIR e un'alta riflettanza nello SWIR.
 
 #In questo modo le aree bruciate sono individuate da indici NBR negativi, le aree sane indici positivi
 
+#Seleziono in questo caso le 4 immagini 1987,1988,1989 e 2008 e calcolo l'indice per ognuna
+#bande 
+#1 =verde
+#2 =SWIR
+#3 =NIR
 
 
+Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
+Ys_1987beforefire
+class      : RasterBrick 
+dimensions : 3274, 3274, 10719076, 3  (nrow, ncol, ncell, nlayers)
+resolution : 1, 1  (x, y)
+extent     : 0, 3274, 0, 3274  (xmin, xmax, ymin, ymax)
+crs        : NA 
+source     : Yellowstone_19870805.jpg 
+names      : Yellowstone_19870805.1, Yellowstone_19870805.2, Yellowstone_19870805.3 
+min values :                      0,                      0,                      0 
+max values :                    255,                    255,                    255
+
+Ys_1988fire<-brick("Yellowstone_19880823.jpg")
+Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
+Ys_2008<-brick("Yellowstone_20080915.jpg")
+
+#NBR 1987
+nbr_1987<-(Ys_1987beforefire$Yellowstone_19870805.3 - Ys_1987beforefire$Yellowstone_19870805.2)/(Ys_1987beforefire$Yellowstone_19870805.3 +Ys_1987beforefire$Yellowstone_19870805.2) # si esegue il calcolo per ricavare il valore di NBR
+cl <- colorRampPalette(c('red','orange','green','yellow'))(100)# specifico la palette di colori desiderata
+plot(nbr_1987, col=cl, main="NBR 1987") # si plotta il tutto
 
 
 
