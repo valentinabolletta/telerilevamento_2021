@@ -1,12 +1,22 @@
 #R_code_exam_Yellowstone_burn_recovery
 
-#Nell'estate del 1988, i fulmini e gli incendi provocati dall'uomo consumarono vaste aree del Parco Nazionale di Yellowstone. La primavera era stata umida di conseguenza l'erba era abbondante, l'estate calda e secca. Quando gli inevitabili temporali senza pioggia attraversarono il parco, i fulmini incendiarono la vegetazione secca. 
-#Uno dei più grandi incendi attraversò la parte occidentale di Yellowstone, minacciando le strutture storiche intorno al bacino del geyser Old Faithful. 
-#Quando la prima nevicata spense le ultime fiamme a settembre, erano stati bruciati 793.000 dei 2.221.800 acri del parco da circa 50 incendi.
+#Nell'estate del 1988, i fulmini e gli incendi provocati dall'uomo consumarono vaste aree del Parco Nazionale di Yellowstone, soprattutto la parte occidentale, minacciando le strutture storiche intorno al bacino del geyser Old Faithful.
+#La primavera era stata umida, e l'erba era abbondante. L'estate era calda e secca. Quando gli inevitabili temporali senza pioggia attraversarono il parco, i fulmini incendiarono la vegetazione secca. Entro la fine dell'estate, 50 incendi (alcuni iniziati da persone) avevano bruciato 793.000 dei 2.221.800 acri del parco.
 
-#Questa serie di immagini mostra le cicatrici lasciate sulla scia degli incendi di Yellowstone occidentale e la lenta ripresa nei 32 anni successivi. Scattate da Landsat 5 e Landsat 8
-#le immagini sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte e vicino all'infrarosso) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
+#Queste quattro immagini(1987,1988,1989,2008) tracciano un incendio nella parte occidentale di Yellowstone e il graduale recupero del paesaggio per un periodo di vent'anni.
+I#l satellite Landsat-5 ha acquisito questa serie di immagini tra il 1987 e il 2008. 
+#Le immagini sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte (SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
 
+#L'immagine del 1987 mostra il parco com'era stato per molti anni. Fitti alberi di pino alti e diritti ricoprivano l'altopiano vulcanico. La vecchia foresta è verde scuro, la foresta estiva è spezzata da verde brillante, prati erbosi ripari e boscaglia occasionale e erba di pianura, verde chiaro e marrone chiaro. 
+#I campi di geyser ricchi di minerali sono blu pallido e bianco, e i laghi sono blu scuro. Sotto la vegetazione verde, una tinta rosata emerge in luoghi, che possono indicare vecchie cicatrici bruciate o semplicemente estate erbe dormienti e piante.
+
+#L'incendio stava ancora bruciando quando l'immagine del 1988 è stata acquisita il 23 agosto. I fuochi brillano rosa brillante, e una pallida coltre di fumo incombe sulla scena. Se l'immagine fosse stata fatta con luce visibile, per assomigliare a ciò che una persona vedrebbe dall'aria, il fumo sarebbe più denso di quanto lo sia in questa immagine infrarossa. Il fumo è blu nella luce infrarossa.
+
+#1989 Solo un anno dopo, alberi carbonizzati e erbe sono stati sostituiti da foreste e prati. La terra appena bruciata è di colore rosso scuro. La terra appena bruciata è di colore rosso scuro. Nell'immagine del 1989, viene rivelata la piena estensione dell'incendio. La terra bruciata circonda l'Old Faithful e si estende in tutta la parte occidentale di Yellowstone. Questa vista satellitare rivela che il fuoco non ha bruciato tutto in una fascia distruttiva. L'area bruciata è irregolare, e la gravità della bruciatura varia da luogo a luogo. Le aree rosse più scure sono gravi ustioni, e le aree rosse più chiare sono meno gravi.
+
+Negli anni che seguono, la cicatrice si affievolisce progressivamente. A terra, erbe e fiori selvatici spuntano dalle ceneri. Nel corso del tempo, piccoli alberi di pino ha messo radici e ha cominciato a crescere. I nuovi alberi crescono più rapidamente (fotosintetizzare ad un tasso più veloce) rispetto a vecchi, foreste mature. Poiché usano e riflettono la luce del sole in modo diverso rispetto alle foreste più antiche, i nuovi alberi sono di colore più chiaro in queste immagini. 
+
+#2008 Vent'anni dopo l'incendio, la cicatrice da bruciatura era ancora evidente, anche se sbiadita fino ad un'abbronzatura pallida e rosata. A questo punto, nuovi pini avevano messo radici, e la foresta aveva iniziato a tornare. I nuovi alberi crescono più rapidamente (fotosintesi ad un tasso più veloce) rispetto alle foreste più vecchie e mature. Poiché usano e riflettono la luce del sole in modo diverso rispetto alle foreste più vecchie, i nuovi alberi sono di colore più chiaro nell'immagine del 2008. Dita di nuova foresta sono più evidente intrusione nella stretta striscia di terra bruciata sul bordo destro dell'immagine. Le foreste stanno probabilmente tornando altrove ma i piccoli alberi non producono una tettoia abbastanza densa da apparire bene nell'immagine. Alcuni degli altri cambiamenti osservati di anno in anno sono differenze stagionali; le immagini vanno da luglio a ottobre.
 
 
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
