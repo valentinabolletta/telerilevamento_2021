@@ -4,7 +4,7 @@
 #La primavera era stata umida, e l'erba era abbondante. L'estate era calda e secca. Quando gli inevitabili temporali senza pioggia attraversarono il parco, i fulmini incendiarono la vegetazione secca. Entro la fine dell'estate, 50 incendi (alcuni iniziati da persone) avevano bruciato 793.000 dei 2.221.800 acri del parco.
 
 #Queste quattro immagini(1987,1988,1989,2008) tracciano un incendio nella parte occidentale di Yellowstone e il graduale recupero del paesaggio per un periodo di vent'anni.
-I#l satellite Landsat-5 ha acquisito questa serie di immagini tra il 1987 e il 2008. 
+#Il satellite Landsat-5 ha acquisito questa serie di immagini tra il 1987 e il 2008. 
 #Le immagini sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte (SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
 
 #L'immagine del 1987 mostra il parco com'era stato per molti anni. Fitti alberi di pino alti e diritti ricoprivano l'altopiano vulcanico. La vecchia foresta è verde scuro, la foresta estiva è spezzata da verde brillante, prati erbosi ripari e boscaglia occasionale e erba di pianura, verde chiaro e marrone chiaro. 
@@ -20,12 +20,12 @@ Negli anni che seguono, la cicatrice si affievolisce progressivamente. A terra, 
 
 
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
-#-confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
-#-verrà poi calcolato variabilità multitemporale e NDVI  #library(raster) #library(rasterVis) per levelplot
-#-verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
-#-valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
-#-variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
-#firme spettrali
+#1. confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
+#2. verrà poi calcolato l'indice NBR  #library(raster) #library(rasterVis) per levelplot
+#3. verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
+#4. valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
+#5. variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
+#6. firme spettrali
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
@@ -110,6 +110,33 @@ levelplot(timesYs$Ys_1987beforefireR)
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008","2018"))
+
+#.................................................................................
+
+#NBR (normalized burn ratio)
+#Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
+
+#La vegetazione sana mostra una riflettanza molto alta nel NIR e una riflettanza bassa nella porzione SWIR dello spettro
+#Le aree recentemente bruciate mostrano una bassa riflettanza nel NIR e un'alta riflettanza nello SWIR.
+
+#In questo modo le aree bruciate sono individuate da indici NBR negativi, le aree sane indici positivi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #2. Unsupervised classification
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
