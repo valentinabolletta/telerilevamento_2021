@@ -154,6 +154,7 @@ plot(nbr_1987, col=cl, main="NBR 1987")
 #NBR 1988
 nbr_1988<-(Ys_1988fire$Yellowstone_19880823.3  - Ys_1988fire$Yellowstone_19880823.1)/(Ys_1988fire$Yellowstone_19880823.3 +Ys_1988fire$Yellowstone_19880823.1) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_1988, col=cl, main="NBR 1988") 
+
 #NBR 1989
 nbr_1989<-(Ys_1989afterfire$Yellowstone_19890802.3  - Ys_1989afterfire$Yellowstone_19890802.1)/(Ys_1989afterfire$Yellowstone_19890802.3 +Ys_1989afterfire$Yellowstone_19890802.1) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_1989, col=cl, main="NBR 1989") 
@@ -167,15 +168,23 @@ plot(nbr_1987, col=cl, main="NBR 1987")
 plot(nbr_1988, col=cl, main="NBR 1988")
 plot(nbr_1989, col=cl, main="NBR 1989") 
 plot(nbr_2008, col=cl, main="NBR 2008")
+#oppure
+
+levelplot(nbr_1987,col.regions=cl,main="NBR 1987")
+levelplot(nbr_1988,col.regions=cl,main="NBR 1988")
+levelplot(nbr_1989,col.regions=cl,main="NBR 1989")
+levelplot(nbr_2008,col.regions=cl,main="NBR 2008")
 
 #.................................................................
+
 #2. Unsupervised classification
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
+#in questo modo siamo in grado di capire qual'è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
 
 set.seed(42)  #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
 class1987<- unsuperClass(Ys_1987beforefire, nClasses=5)
 cl <- colorRampPalette(c('black','purple','red','orange','yellow'))(100)
-plot(class1987$map,col=cl)
+plot(class1987$map,col=cl)  #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
 class1988<- unsuperClass(Ys_1988fire, nClasses=5)
 plot(class1988$map,col=cl)
 class1989<- unsuperClass(Ys_1989afterfire, nClasses=5)
