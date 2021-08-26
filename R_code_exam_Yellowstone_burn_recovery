@@ -114,8 +114,9 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 #.................................................................................
 
 #NBR (normalized burn ratio)
-#Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
+#Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate e quelle risparmiate dall'incendio in cui la veg. è ancora sana. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
 #(NIR-SWIR)/(NIR+SWIR)
+#il range dell'NBR è [-1 , 1]
 
 #La vegetazione sana mostra una riflettanza molto alta nel NIR e una riflettanza bassa nella porzione SWIR dello spettro
 #Le aree recentemente bruciate mostrano una bassa riflettanza nel NIR e un'alta riflettanza nello SWIR.
@@ -148,19 +149,18 @@ Ys_2008<-brick("Yellowstone_20080915.jpg")
 #NBR 1987
 nbr_1987<-(Ys_1987beforefire$Yellowstone_19870805.3 - Ys_1987beforefire$Yellowstone_19870805.1)/(Ys_1987beforefire$Yellowstone_19870805.3 +Ys_1987beforefire$Yellowstone_19870805.1) # si esegue il calcolo per ricavare il valore di NBR
 cl <- colorRampPalette(c('red','orange','green','yellow'))(100)# specifico la palette di colori desiderata
-plot(nbr_1987, col=cl, main="NBR 1987") # si plotta il tutto
+plot(nbr_1987, col=cl, main="NBR 1987")
 
 #NBR 1988
 nbr_1988<-(Ys_1988fire$Yellowstone_19880823.3  - Ys_1988fire$Yellowstone_19880823.1)/(Ys_1988fire$Yellowstone_19880823.3 +Ys_1988fire$Yellowstone_19880823.1) # si esegue il calcolo per ricavare il valore di NBR
-plot(nbr_1988, col=cl, main="NBR 1988") # si plotta il tutto
-
+plot(nbr_1988, col=cl, main="NBR 1988") 
 #NBR 1989
 nbr_1989<-(Ys_1989afterfire$Yellowstone_19890802.3  - Ys_1989afterfire$Yellowstone_19890802.1)/(Ys_1989afterfire$Yellowstone_19890802.3 +Ys_1989afterfire$Yellowstone_19890802.1) # si esegue il calcolo per ricavare il valore di NBR
-plot(nbr_1989, col=cl, main="NBR 1989") # si plotta il tutto
+plot(nbr_1989, col=cl, main="NBR 1989") 
 
 #NBR 2008
 nbr_2008<-(Ys_2008$Yellowstone_20080915.3  - Ys_2008$Yellowstone_20080915.1)/(Ys_2008$Yellowstone_20080915.3+Ys_2008$Yellowstone_20080915.1) # si esegue il calcolo per ricavare il valore di NBR
-plot(nbr_2008, col=cl, main="NBR 2008") # si plotta il tutto
+plot(nbr_2008, col=cl, main="NBR 2008")
 
 par(mfrow=c(2,2))
 plot(nbr_1987, col=cl, main="NBR 1987")
@@ -168,14 +168,7 @@ plot(nbr_1988, col=cl, main="NBR 1988")
 plot(nbr_1989, col=cl, main="NBR 1989") 
 plot(nbr_2008, col=cl, main="NBR 2008")
 
-
-
-
-
-
-
-
-
+#.................................................................
 #2. Unsupervised classification
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
 
@@ -197,26 +190,7 @@ plot(class1988$map,col=cl)
 plot(class1989$map,col=cl)
 plot(class2018$map,col=cl)
 
-#3. NDVI (indice di vegetazione normalizzato)
-#(NIR-RED)/(NIR+RED) #il range dell'NDVI è [-1 , 1]
-#in questo modo è possibile riconoscere la presenza di vegetazione sana e quella non sana
-
-
-#time 1
-clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
-ndvi1 <- (Ys_1989afterfire$Yellowstone_19890802.1-Ys_1989afterfire$Yellowstone_19890802.2) / (Ys_1989afterfire$Yellowstone_19890802.1+Ys_1989afterfire$Yellowstone_19890802.2) 
-plot(ndvi1, col=clndvi, main="NDVI time 1")
-
-#time 2
-ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
-plot(ndvi2, col=clndvi, main="NDVI time 2")
-
-par(mfrow=c(1,2))
-plot(ndvi1, col=clndvi)
-plot(ndvi2, col=clndvi)
-
-difndvi<-ndvi1-ndvi2 ##è stata effettuata la differenza tra gli NDVI per valutare se ci sia stato un aumento dell'indice o una diminuzione a causa degli incendi
-plot(difndvi,col=clndvi, main="NDVI time1-time2") #o senza la colorramppalette
+#...........................................................
 
 #Indici spettrali
 si1 <-spectralIndices(Ys_1989afterfire, green=3, red=2, nir=1)
