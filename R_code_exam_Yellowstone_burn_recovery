@@ -332,8 +332,14 @@ p3 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) +scale_f
 
 grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuare a livello geografico qualsiasi tipo di discontinuità, a livello ecologico gli ecotoni(passaggio da un paesaggio all'altro)
 
+#.........................................
+
 #6. Firme spettrali multitemporali
 #Le firme spettrali del pixel di una pianta ci permettono di distinguere piante diverse che riflettono la luce in modo diverso. Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
+# La firma spettrale è la riflettanza in funzione della lunghezza d'onda e ogni materiale è caratterizzato da una risposta univoca.
+#è stata effettuata la firma spettrale su due porzioni di area boschiva in ciascuna immagine per determinare se gli incendi abbiano provocato un cambiamento da parte della vegetazione
+#per ogni immagine sono stati presi due punti: uno su una porzione bruciata e uno su una porzione che è rimasta illesa dal fuoco
+
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
 plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
