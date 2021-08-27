@@ -179,7 +179,7 @@ levelplot(nbr_2008,col.regions=cl,main="NBR 2008")
 
 #2. Unsupervised classification
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
-#in questo modo siamo in grado di capire qual'è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
+#siamo così in grado di capire qual è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
 
 set.seed(42)  #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
 class1987<- unsuperClass(Ys_1987beforefire, nClasses=5)
