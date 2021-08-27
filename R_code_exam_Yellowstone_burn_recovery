@@ -343,7 +343,8 @@ grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuar
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
 plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
-click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="magenta")
+click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="magenta") # con la funzione "click" si selezionano i punti sull'immagine di cui ricaverà il valore di risposta spettrale per ogni immagine
+
 #x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
 1 304.5 2300.5 3185907                    117                    205
   Yellowstone_19870805.3
@@ -373,16 +374,17 @@ click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="green")
 1                     57
 
 
-#Define colors of the dataset:
+# inseriamo i valori in un vettore e li salviamo in una variabile:
 band<- c(1,2,3)
 forest <- c(73,119,57)
 grassland <- c(117,205,101)  #i dati sono diversi a seconda dei risultati del click
 
-#Create the dataframe
+#Creiamo una tabella con i valori ricavati
 spectrals <- data.frame(band,forest,grassland)
 
-#Plot the spectral signatures
+#plottiamo tutto in un grafico in cui le firme spettrali sono identificate da due linee di diverso colore
 ggplot(spectrals,aes(x=band)) +geom_line(aes(y=forest), color="dark green")+geom_line(aes(y=grassland), color="light green") 
 labs(x="band", y="reflectance")
 
+#per fare una valutazione corretta è necessario che i punti, presi nei due anni per la stessa sezione, siano gli stessi
 #......................................
