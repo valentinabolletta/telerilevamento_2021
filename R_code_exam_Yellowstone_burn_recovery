@@ -22,8 +22,8 @@ Negli anni che seguono, la cicatrice si affievolisce progressivamente. A terra, 
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
 #1. confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
 #2. verrà poi calcolato l'indice NBR  #library(raster) #library(rasterVis) per levelplot
-#3. verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
-#4. valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio 
+#3. valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio
+#4. verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
 #5. variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
 #6. firme spettrali
 
@@ -113,7 +113,7 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 
 #.................................................................................
 
-#NBR (normalized burn ratio)
+#2. NBR (normalized burn ratio)
 #Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate e quelle risparmiate dall'incendio in cui la veg. è ancora sana. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
 #(NIR-SWIR)/(NIR+SWIR)
 #il range dell'NBR è [-1 , 1]
@@ -186,7 +186,7 @@ plot(vi2, col=cl)
 
 #.................................................................
 
-#2. Land cover
+#3. Land cover
 #per plottare in modo migliore le immagini richiamo la library ggplot2 e gridExtra
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
@@ -210,7 +210,7 @@ grid.arrange(p1, p2, p3, p4, nrow = 2)
 
 #.......................................................................
 
-#2. Unsupervised classification
+#4. Unsupervised classification
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
 #siamo così in grado di capire qual è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
 
@@ -278,11 +278,12 @@ percentages
 
 #Usando ggplot2 generiamo un dataframe
 cover1<-ggplot(percentages, aes(x=cover, y=percent_1987, color=cover)) + geom_bar(stat="identity", fill="white")   
-cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   
+cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   + #creiamo il grafico a istogramma con le etichette delle percentuali in alto
+  geom_text(aes(label = Percent01),position=position_dodge(width=0.7), vjust=-0.25, size = 6)
           
 grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra     
 
-#6. Moving window
+#5. Moving window
 Ys_2018<-brick("yellowstone_20180222.jpg")
 plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
@@ -331,7 +332,7 @@ p3 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) +scale_f
 
 grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuare a livello geografico qualsiasi tipo di discontinuità, a livello ecologico gli ecotoni(passaggio da un paesaggio all'altro)
 
-#7. Firme spettrali
+#6. Firme spettrali multitemporali
 #Le firme spettrali del pixel di una pianta ci permettono di distinguere piante diverse che riflettono la luce in modo diverso. Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
@@ -379,46 +380,3 @@ ggplot(spectrals,aes(x=band)) +geom_line(aes(y=forest), color="dark green")+geom
 labs(x="band", y="reflectance")
 
 #......................................
-#Multitemporal
-defor1 <- brick("defor1.jpg")
-plotRGB(defor1, r=1, g=2, b=3, stretch="lin")
-
-#spectral signatures defor1
-click(defor1, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
-
-#time t2
-plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
-click(defor2, id=T, xy=T, cell=T, type="p", pch=16, col="yellow")
-
-# define the columns of the dataset:
-band <- c(1,2,3)
-time1 <- c(223,11,33)
-time2 <- c(197,163,151)
- 
-spectralst <- data.frame(band, time1, time2)
-
-# plot the sepctral signatures
-ggplot(spectrals, aes(x=band)) +
- geom_line(aes(y=time1), color="red") +
- geom_line(aes(y=time2), color="gray") +
- labs(x="band",y="reflectance")
-    
-
-# define the columns of the dataset:
-band <- c(1,2,3)
-time1 <- c(223,11,33)
-time1p2 <- c(218,16,38)
-time2 <- c(197,163,151)
-time2p2 <- c(149,157,133)
-
-
-spectralst <- data.frame(band, time1, time2, time1p2, time2p2)
-
-
-# plot the sepctral signatures
-ggplot(spectralst, aes(x=band)) +
- geom_line(aes(y=time1), color="red") +
- geom_line(aes(y=time1p2), color="red") +
- geom_line(aes(y=time2), color="gray") +
- geom_line(aes(y=time2p2), color="gray") +
- labs(x="band",y="reflectance")
