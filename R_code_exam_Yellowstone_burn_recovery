@@ -175,30 +175,6 @@ levelplot(nbr_1988,col.regions=cl,main="NBR 1988")
 levelplot(nbr_1989,col.regions=cl,main="NBR 1989")
 levelplot(nbr_2008,col.regions=cl,main="NBR 2008")
 
-#.................................................................
-
-#2. Unsupervised classification
-#in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
-#siamo così in grado di capire qual è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
-
-set.seed(42)  #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
-class1987<- unsuperClass(Ys_1987beforefire, nClasses=5)
-cl <- colorRampPalette(c('black','purple','red','orange','yellow'))(100)
-plot(class1987$map,col=cl)  #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
-class1988<- unsuperClass(Ys_1988fire, nClasses=5)
-plot(class1988$map,col=cl)
-class1989<- unsuperClass(Ys_1989afterfire, nClasses=5)
-plot(class1989$map,col=cl)
-class2018<- unsuperClass(Ys_2018, nClasses=5)
-plot(class2018$map,col=cl)
-
-set.seed(1)
-par(mfrow=c(2,2))
-plot(class1987$map,col=cl)
-plot(class1988$map,col=cl)
-plot(class1989$map,col=cl)
-plot(class2018$map,col=cl)
-
 #...........................................................
 
 #Indici spettrali
@@ -208,7 +184,9 @@ plot(vi1, col=cl)
 si2 <-spectralIndices(Ys_2018, green=3, red=2, nir=1)
 plot(vi2, col=cl)
 
-#5. Land cover
+#.................................................................
+
+#2. Land cover
 #per plottare in modo migliore le immagini richiamo la library ggplot2 e gridExtra
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
@@ -230,15 +208,31 @@ p4<-ggRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
 grid.arrange(p1, p2, p3, p4, nrow = 2)
 
-#ora classifichiamo le immagini in 2 CLASSI
+#.......................................................................
+
+#2. Unsupervised classification
+#in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
+#siamo così in grado di capire qual è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
+
+#ora classifichiamo le immagini in 3 CLASSI
 1a CLASSE = prateria (bianco)
 2a CLASSE = nuvole/parte incencendiata (giallo)
 3a CLASSE = foresta (verde)
 
-#set.seed() would allow you to attain the same results
+#set.seed(42) #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
 Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3)
 Ys1c
-plot(Ys1c$map)
+
+#??????mettere una colorRamp, e fare il plot(class2018$map,col=cl)??
+
+#set.seed(1)
+#par(mfrow=c(2,2))
+#plot(class1987$map,col=cl)
+#plot(class1988$map,col=cl)
+#plot(class1989$map,col=cl)
+#plot(class2018$map,col=cl)??????
+
+plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
 
 Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
 plot(Ys2c$map)
