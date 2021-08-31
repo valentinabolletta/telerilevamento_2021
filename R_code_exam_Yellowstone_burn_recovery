@@ -31,6 +31,7 @@ Poiché usano e riflettono la luce del sole in modo diverso rispetto alle forest
 #6. firme spettrali
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
+#richiamo le librerie necessarie per le analisi
 library(raster) #richiamo questa libreria che carica\allega i files su R
 library(rgdal) #importa file raster e TIF e firme spettrali
 library(rasterVis)
