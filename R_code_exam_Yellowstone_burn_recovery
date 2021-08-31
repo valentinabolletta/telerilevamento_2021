@@ -179,15 +179,6 @@ levelplot(nbr_1988,col.regions=cl,main="NBR 1988")
 levelplot(nbr_1989,col.regions=cl,main="NBR 1989")
 levelplot(nbr_2008,col.regions=cl,main="NBR 2008")
 
-#...........................................................
-
-#Indici spettrali
-si1 <-spectralIndices(Ys_1989afterfire, green=3, red=2, nir=1)
-plot(vi1, col=cl)
-
-si2 <-spectralIndices(Ys_2018, green=3, red=2, nir=1)
-plot(vi2, col=cl)
-
 #.................................................................
 
 #3. Land cover
@@ -323,9 +314,6 @@ Cumulative Proportion   0.8228578  0.9828551 1.00000000
 pc1 <- Ys_2018_pca$map$PC1
 plot(pc1)
 
-
-# https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
-# The package contains eight color scales: “viridis”, the primary choice, and five alternatives with similar properties - “magma”, “plasma”, “inferno”, “civids”, “mako”, and “rocket” -, and a rainbow color map - “turbo”.
 
 #proviamo a plottare i nostri dati con ggplot
 p1 <- ggplot() + geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) + scale_fill_viridis()  +ggtitle("Standard deviation of PC1 by viridis colour scale")
