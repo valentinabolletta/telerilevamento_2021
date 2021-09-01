@@ -50,7 +50,7 @@ plot(Ys_2008R,col=cts)
 Ys_2018R<-raster("Yellowstone_20180222.jpg")
 plot(Ys_2018R,col=cts)
 
-par(mfrow=c(2,4))  ))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe
+par(mfrow=c(2,4))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe
 plot(Ys_1987beforefireR, col=cts)
 plot(Ys_1988fireR,col=cts)
 plot(Ys_1989afterfireR,col=cts)
