@@ -50,7 +50,7 @@ plot(Ys_2008R,col=cts)
 Ys_2018R<-raster("Yellowstone_20180222.jpg")
 plot(Ys_2018R,col=cts)
 
-par(mfrow=c(2,4))
+par(mfrow=c(2,4))  ))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe
 plot(Ys_1987beforefireR, col=cts)
 plot(Ys_1988fireR,col=cts)
 plot(Ys_1989afterfireR,col=cts)
@@ -61,19 +61,15 @@ plot(Ys_2008R,col=cts)
 plot(Ys_2018R,col=cts)
 
 #Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
-rlist <- list.files(pattern="Yellowstone_")
+rlist <- list.files(pattern="ellowstone_")
 #rlist
 
 import <- lapply(rlist,raster) #alla funzione "lapply" viene applicata la funzione "raster"
 #import
 
 timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una lista o un dataframe a cui associamo un nome
-levelplot(timesYs) 
 
-#Possiamo anche applicare la funzione "levelplot" considerando ogni singolo file interno a "timesYs"
-levelplot(timesYs$Ys_1987beforefireR)
-
-
+par(mfrow=c(2,4))
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008","2018"))
 
