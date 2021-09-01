@@ -21,41 +21,19 @@ library(rasterVis)
 library(RStoolbox)
 library(ggplot2)
 library(gridExtra)
+library(viridis)
 setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 
 #1. Times series 1987-2018
-#importo le immagini usando la funzione "brick" all'interno del pacchetto raster che crear un oggetto rasterbrick (oggetto raster multi-layer)
-
-Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
-Ys_1988fire<-brick("Yellowstone_19880823.jpg")
-Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
-Ys_1993<-brick("Yellowstone_19930922.jpg")
-Ys_1996<-brick("Yellowstone_19960712.jpg")
-Ys_1998<-brick("Yellowstone_19980718.jpg")
-Ys_2008<-brick("Yellowstone_20080915.jpg")
-Ys_2018<-brick("yellowstone_20180222.jpg")
-
-par(mfrow=c(2,4))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe, in questo caso plottiamo le immagini in RGB(schema red,green,blue)per visualizzare un oggetto raster multi-layer
 
 #le immagini scaricate e processate dal sito Earth Observatory NASA sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte(SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
 #se l'immagine fosse stata fatta con luce visibile, il fumo sarebbe così denso nell'immagine del 1988 denso da non permettere di vedere quasi nulla. Nell'immagine in infrarosso il fumo diventa invece una patina blu.
 
-plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")  #l'argomento "stretch"(lin o hist) fa si che la riflettanza delle singole bande venga "stirata" in modo che non ci siano schiacciamenti di colori e vengano tutti mostrati.
-plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
-plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
-plotRGB(Ys_1993,1, 2, 3, stretch="Lin")
-plotRGB(Ys_1996,1, 2, 3, stretch="Lin")
-plotRGB(Ys_1998,1, 2, 3, stretch="Lin")
-plotRGB(Ys_2008,1, 2, 3, stretch="Lin")
-plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
-
-# colorRampPalette estende la palette dei colori, i numeri che vediamo a lato dell'immagine sono i valori di riflettanza e ad ogni valore è stato associato un colore
-cl <- colorRampPalette(c('dark red','red','orange','yellow'))(100)  #c creazione di un vettore o array(argomento) che racchiude i nuovi colori scelti (elementi)
-plot(Ys_1988fire, col=cl)
-
 #Utilizzando la funzione "raster" carico le singole immagini e le plotto
 Ys_1987beforefireR <- raster("Yellowstone_19870805.jpg") 
-cts <- colorRampPalette(c("blue","dark green","light green","orange","white")) (100)
+
+# colorRampPalette estende la palette dei colori, i numeri che vediamo a lato dell'immagine sono i valori di riflettanza e ad ogni valore è stato associato un colore
+cts <- colorRampPalette(c("blue","dark green","light green","orange","white")) (100) #c creazione di un vettore o array(argomento) che racchiude i nuovi colori scelti (elementi)
 plot(Ys_1987beforefire, col=cts)
 Ys_1988fireR<-raster("Yellowstone_19880823.jpg")
 plot(Ys_1988fire,col=cts)
@@ -84,10 +62,10 @@ plot(Ys_2018R,col=cts)
 
 #Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
 rlist <- list.files(pattern="Yellowstone_")
-rlist
+#rlist
 
 import <- lapply(rlist,raster) #alla funzione "lapply" viene applicata la funzione "raster"
-import
+#import
 
 timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una lista o un dataframe a cui associamo un nome
 levelplot(timesYs) 
