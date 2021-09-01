@@ -4,23 +4,6 @@
 #La primavera era stata umida e l'erba era abbondante. L'estate fu caratterizzata da un caldo secco e quando i temporali senza pioggia attraversarono il parco, i fulmini incendiarono la vegetazione secca. 
 #Entro la fine dell'estate, 50 incendi (alcuni iniziati da persone) avevano bruciato 793.000 dei 2.221.800 acri del parco.
 
-#Le quattro immagini(1987,1988,1989,2008) descrivono un incendio nella parte occidentale di Yellowstone e il graduale recupero del paesaggio per un periodo di vent'anni.
-#Il satellite Landsat-5 ha acquisito questa serie di immagini tra il 1987 e il 2008. 
-#Le immagini sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte (SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
-
-#immagine del 1987--> fitti alberi di pino ricoprono l'altopiano vulcanico. La vecchia foresta è verde scuro, la foresta estiva è verde brillante, prati erbosi ripari, boscaglia occasionale e erba di pianura verde chiaro e marrone chiaro. 
-#I campi di geyser ricchi di minerali sono blu pallido e bianco, i laghi sono blu scuro. Sotto la vegetazione verde, una tinta rosata indica vecchie cicatrici bruciate o semplicemente erbe dormienti in estate e piante.
-
-#immagine del 1988--> acquisita il 23 agosto. I fuochi sono rosa brillante e una pallida coltre di fumo incombe sulla scena. Se l'immagine fosse stata fatta con luce visibile, per assomigliare a ciò che una persona vedrebbe dall'aria, il fumo sarebbe più denso di quanto lo sia in questa immagine infrarossa. Il fumo è blu nella luce infrarossa.
-
-#immagine del 1989--> alberi carbonizzati e erbe sono stati sostituiti da foreste e prati. La terra appena bruciata è di colore rosso scuro. Viene rivelata la piena estensione dell'incendio. 
-#La terra bruciata circonda l'Old Faithful e si estende in tutta la parte occidentale di Yellowstone. Questa vista satellitare rivela che l'area bruciata è irregolare e la gravità della bruciatura varia da luogo a luogo. Le aree rosse=gravità maggiore, le aree rosse=gravità minore.
-
-#Negli anni che seguono, la cicatrice si affievolisce progressivamente. Erbe e fiori selvatici spuntano dalle ceneri. Piccoli alberi di pino crescono più rapidamente (fotosintetizzare ad un tasso più veloce) rispetto a vecchi, foreste mature.
- 
-#immagine del 2008--> Vent'anni dopo l'incendio, la cicatrice dell'incendio era ancora evidente, anche se sbiadita fino ad un marroncino pallido e rosato. A questo punto, nuovi pini avevano messo radici, e la foresta aveva iniziato a ricomporsi. 
-Poiché usano e riflettono la luce del sole in modo diverso rispetto alle foreste più vecchie, i nuovi alberi sono di colore più chiaro nell'immagine del 2008.
-
 
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
 #1. confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
