@@ -118,16 +118,16 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
-Ys_1987beforefire
-class      : RasterBrick 
-dimensions : 3274, 3274, 10719076, 3  (nrow, ncol, ncell, nlayers)
-resolution : 1, 1  (x, y)
-extent     : 0, 3274, 0, 3274  (xmin, xmax, ymin, ymax)
-crs        : NA 
-source     : Yellowstone_19870805.jpg 
-names      : Yellowstone_19870805.1, Yellowstone_19870805.2, Yellowstone_19870805.3 
-min values :                      0,                      0,                      0 
-max values :                    255,                    255,                    255
+#Ys_1987beforefire
+#class      : RasterBrick 
+#dimensions : 3274, 3274, 10719076, 3  (nrow, ncol, ncell, nlayers)
+#resolution : 1, 1  (x, y)
+#extent     : 0, 3274, 0, 3274  (xmin, xmax, ymin, ymax)
+#crs        : NA 
+#source     : Yellowstone_19870805.jpg 
+#names      : Yellowstone_19870805.1, Yellowstone_19870805.2, Yellowstone_19870805.3 
+#min values :                      0,                      0,                      0 
+#max values :                    255,                    255,                    255
 
 Ys_1988fire<-brick("Yellowstone_19880823.jpg")
 Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
