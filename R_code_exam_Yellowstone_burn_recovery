@@ -4,7 +4,6 @@
 #La primavera era stata umida e l'erba era abbondante. L'estate fu caratterizzata da un caldo secco e quando i temporali senza pioggia attraversarono il parco, i fulmini incendiarono la vegetazione secca. 
 #Entro la fine dell'estate, 50 incendi (alcuni iniziati da persone) avevano bruciato 793.000 dei 2.221.800 acri del parco.
 
-
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
 #1. confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
 #2. verrà poi calcolato l'indice NBR  #library(raster) #library(rasterVis) per levelplot
@@ -25,10 +24,13 @@ library(gridExtra)
 library(viridis)
 setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiegare ad R da che cartella andare a caricare il nostro dataset di immagini
 
-#1. Times series 1987-2018
+#scelta delle immagini
+#Le immagini utilizzate per l'analisi derivano dal dal satellite Landsat- 5  e sono state scaricate dal sito NASA Earth Observatory 
+#Sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte (SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
+#In questo modo il fumo denso che non avrebbe permesso di vedere quasi nulla risulta in infrarosso una leggera patina blu.
 
-#le immagini scaricate e processate dal sito Earth Observatory NASA sono state realizzate con una combinazione di luce visibile e infrarossa (verde, infrarossi a onde corte(SWIR) e vicino all'infrarosso(NIR)) per evidenziare l'area bruciata e i cambiamenti nella vegetazione.
-#se l'immagine fosse stata fatta con luce visibile, il fumo sarebbe così denso nell'immagine del 1988 denso da non permettere di vedere quasi nulla. Nell'immagine in infrarosso il fumo diventa invece una patina blu.
+
+#1. Times series 1987-2018
 
 #Utilizzando la funzione "raster" carico le singole immagini e le plotto
 Ys_1987beforefireR <- raster("Yellowstone_19870805.jpg") 
