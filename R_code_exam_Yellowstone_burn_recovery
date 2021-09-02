@@ -13,8 +13,9 @@
 #5. variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
 #6. firme spettrali
 
+#richiamo i pacchetti necessari al codice, le librerie per le analisi e definisco la working directory
+
 install.packages("raster") #scarica e installa dal CRAN o da files locali
-#richiamo le librerie necessarie per le analisi
 library(raster) #richiamo questa libreria che carica\allega i files su R
 library(rgdal) #importa file raster e TIF e firme spettrali
 library(rasterVis)
@@ -124,6 +125,9 @@ plot(nbr_1989, col=cln, main="NBR 1989")
 #NBR 2008
 nbr_2008<-(Ys_2008$Yellowstone_20080915.3  - Ys_2008$Yellowstone_20080915.1)/(Ys_2008$Yellowstone_20080915.3+Ys_2008$Yellowstone_20080915.1) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_2008, col=cln, main="NBR 2008")
+
+#differenza NBR pre e post incendio
+
 
 par(mfrow=c(2,2))
 plot(nbr_1987, col=cln, main="NBR 1987")
