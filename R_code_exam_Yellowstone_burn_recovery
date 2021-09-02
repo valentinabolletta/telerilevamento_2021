@@ -185,6 +185,7 @@ Ys1c
 #plot(class1989$map,col=cl)
 #plot(class2018$map,col=cl)??????
 
+par(mfrow=c(2,1))
 plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
 
 Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
@@ -193,29 +194,29 @@ plot(Ys2c$map)
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Andiamo a calcolare la frequenza dei pixel di una certa classe
 #frequencies
 freq(Ys1c$map)
-     value   count
-[1,]     1 4377087
-[2,]     2  681566
-[3,]     3 5660423
+#     value   count
+#[1,]     1 4377087
+#[2,]     2  681566
+#[3,]     3 5660423
 
 
 #calcoliamo la proporzione di pixel e sommiamo i valori
 s1<-4377087+681566+5660423
 s1
-[1] 10719076
+#[1] 10719076
 
 prop1<- freq(Ys1c$map)/s1
-            value     count
-[1,] 9.329162e-08 0.4083456   #prop. 40%    #40.83
-[2,] 1.865832e-07 0.0635844   #prop. 0.06%  #06.35
-[3,] 2.798749e-07 0.5280701   #prop. 52%    #52.80
+#          value     count
+#[1,] 9.329162e-08 0.4083456   #prop. 40%    #40.83
+#[2,] 1.865832e-07 0.0635844   #prop. 0.06%  #06.35
+#[3,] 2.798749e-07 0.5280701   #prop. 52%    #52.80
 
 s2<- 10719076
 prop2<- freq(Ys2c$map)/s2
-            value     count
-[1,] 9.329162e-08 0.4371661   #43.71
-[2,] 1.865832e-07 0.2003741   #20.03
-[3,] 2.798749e-07 0.3624598   #36.24
+#            value     count
+#[1,] 9.329162e-08 0.4371661   #43.71
+#[2,] 1.865832e-07 0.2003741   #20.03
+#[3,] 2.798749e-07 0.3624598   #36.24
 
 #build a dataframe
 cover<- c("prateria", "parte incendiata", "foresta")
@@ -224,21 +225,20 @@ percent_1989<- c(43.71,20.03,36.24)
           
 percentages<- data.frame (cover, percent_1987, percent_1989)
 percentages  
-       cover percent_1987 percent_1989
-1         prateria        40.83        43.71
-2 parte incendiata         6.35        20.03
-3          foresta        52.80        36.24
+#       cover percent_1987 percent_1989
+#1         prateria        40.83        43.71
+#2 parte incendiata         6.35        20.03
+#3          foresta        52.80        36.24
 
 #Usando ggplot2 generiamo un dataframe
 cover1<-ggplot(percentages, aes(x=cover, y=percent_1987, color=cover)) + geom_bar(stat="identity", fill="white")   
 cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   + #creiamo il grafico a istogramma con le etichette delle percentuali in alto
-  geom_text(aes(label = Percent01),position=position_dodge(width=0.7), vjust=-0.25, size = 6)
+  geom_text(aes(label = cover),position=position_dodge(width=0.7), vjust=-0.25, size = 6)
           
 grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra     
 
 #5. Moving window
-Ys_2018<-brick("yellowstone_20180222.jpg")
-plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
+
 clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
 
 ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
@@ -264,10 +264,10 @@ plot(Ys_2018_pca$map) #la prima componente principale è quella che mantiene l'i
 summary(Ys_2018_pca$model)
 #the first PC contains  0.8228578  of the original information (proporzione della varianza che spiega quanta variabilità iniziale è presente nelle singole bande).
 #Importance of components:
-                           Comp.1     Comp.2     Comp.3
-Standard deviation     50.3337498 22.1948987 7.26548308
-Proportion of Variance  0.8228578  0.1599973 0.01714491
-Cumulative Proportion   0.8228578  0.9828551 1.00000000
+#                           Comp.1     Comp.2     Comp.3
+#Standard deviation     50.3337498 22.1948987 7.26548308
+#Proportion of Variance  0.8228578  0.1599973 0.01714491
+#Cumulative Proportion   0.8228578  0.9828551 1.00000000
 
 pc1 <- Ys_2018_pca$map$PC1
 plot(pc1)
