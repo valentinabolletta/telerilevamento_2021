@@ -58,7 +58,7 @@ plot(Ys_1998R,col=cts)
 plot(Ys_2008R,col=cts)
 
 #Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
-rlist <- list.files(pattern="ellowstone_")
+rlist <- list.files(pattern="Yellowstone_")
 #rlist
 
 import <- lapply(rlist,raster) #alla funzione "lapply" viene applicata la funzione "raster"
@@ -67,8 +67,8 @@ import <- lapply(rlist,raster) #alla funzione "lapply" viene applicata la funzio
 timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una lista o un dataframe a cui associamo un nome
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
-par(mfrow=c(2,4))
-levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1998","2008"))
+par(mfrow=c(2,3))
+levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988","1989","1993","1998","2008"))
 
 #.................................................................................
 
