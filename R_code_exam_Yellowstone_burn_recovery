@@ -30,7 +30,7 @@ setwd ("C:/lab/yellowstone/") #Windows  #setto la R Working Directory per spiega
 #In questo modo il fumo denso che non avrebbe permesso di vedere quasi nulla risulta in infrarosso una leggera patina blu.
 
 
-#1. Times series 1987-2018
+#1. Times series 1987-2008
 
 #Utilizzando la funzione "raster" carico le singole immagini e le plotto
 Ys_1987beforefireR <- raster("Yellowstone_19870805.jpg") 
@@ -50,8 +50,6 @@ Ys_1998R<-raster("Yellowstone_19980718.jpg")
 plot(Ys_1998R,col=cts)
 Ys_2008R<-raster("Yellowstone_20080915.jpg")
 plot(Ys_2008R,col=cts)
-Ys_2018R<-raster("Yellowstone_20180222.jpg")
-plot(Ys_2018R,col=cts)
 
 par(mfrow=c(2,4))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe
 plot(Ys_1987beforefireR, col=cts)
@@ -61,7 +59,6 @@ plot(Ys_1993R,col=cts)
 plot(Ys_1996R,col=cts)
 plot(Ys_1998R,col=cts)
 plot(Ys_2008R,col=cts)
-plot(Ys_2018R,col=cts)
 
 #Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
 rlist <- list.files(pattern="ellowstone_")
@@ -74,7 +71,7 @@ timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una l
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 par(mfrow=c(2,4))
-levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008","2018"))
+levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008"))
 
 #.................................................................................
 
