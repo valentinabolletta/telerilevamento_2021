@@ -44,19 +44,16 @@ Ys_1989afterfireR<-raster("Yellowstone_19890802.jpg")
 plot(Ys_1989afterfireR,col=cts)
 Ys_1993R<-raster("Yellowstone_19930922.jpg")
 plot(Ys_1993R,col=cts)
-Ys_1996R<-raster("Yellowstone_19960712.jpg")
-plot(Ys_1996R,col=cts)
 Ys_1998R<-raster("Yellowstone_19980718.jpg")
 plot(Ys_1998R,col=cts)
 Ys_2008R<-raster("Yellowstone_20080915.jpg")
 plot(Ys_2008R,col=cts)
 
-par(mfrow=c(2,4))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe
+par(mfrow=c(2,3))  #funzione generica che permette il settaggio dei parametri grafici creando un multiframe
 plot(Ys_1987beforefireR, col=cts)
 plot(Ys_1988fireR,col=cts)
 plot(Ys_1989afterfireR,col=cts)
 plot(Ys_1993R,col=cts)
-plot(Ys_1996R,col=cts)
 plot(Ys_1998R,col=cts)
 plot(Ys_2008R,col=cts)
 
@@ -71,7 +68,7 @@ timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una l
 
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 par(mfrow=c(2,4))
-levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1996","1998","2008"))
+levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988", "1989", "1993","1998","2008"))
 
 #.................................................................................
 
