@@ -110,32 +110,32 @@ Ys_2008<-brick("Yellowstone_20080915.jpg")
 
 #NBR 1987
 nbr_1987<-(Ys_1987beforefire$Yellowstone_19870805.3 - Ys_1987beforefire$Yellowstone_19870805.1)/(Ys_1987beforefire$Yellowstone_19870805.3 +Ys_1987beforefire$Yellowstone_19870805.1) # si esegue il calcolo per ricavare il valore di NBR
-cl <- colorRampPalette(c('red','orange','green','yellow'))(100)# specifico la palette di colori desiderata
-plot(nbr_1987, col=cl, main="NBR 1987")
+cln <- colorRampPalette(c('red','orange','green','yellow'))(100)# specifico la palette di colori desiderata
+plot(nbr_1987, col=cln, main="NBR 1987")
 
 #NBR 1988
 nbr_1988<-(Ys_1988fire$Yellowstone_19880823.3  - Ys_1988fire$Yellowstone_19880823.1)/(Ys_1988fire$Yellowstone_19880823.3 +Ys_1988fire$Yellowstone_19880823.1) # si esegue il calcolo per ricavare il valore di NBR
-plot(nbr_1988, col=cl, main="NBR 1988") 
+plot(nbr_1988, col=cln, main="NBR 1988") 
 
 #NBR 1989
 nbr_1989<-(Ys_1989afterfire$Yellowstone_19890802.3  - Ys_1989afterfire$Yellowstone_19890802.1)/(Ys_1989afterfire$Yellowstone_19890802.3 +Ys_1989afterfire$Yellowstone_19890802.1) # si esegue il calcolo per ricavare il valore di NBR
-plot(nbr_1989, col=cl, main="NBR 1989") 
+plot(nbr_1989, col=cln, main="NBR 1989") 
 
 #NBR 2008
 nbr_2008<-(Ys_2008$Yellowstone_20080915.3  - Ys_2008$Yellowstone_20080915.1)/(Ys_2008$Yellowstone_20080915.3+Ys_2008$Yellowstone_20080915.1) # si esegue il calcolo per ricavare il valore di NBR
-plot(nbr_2008, col=cl, main="NBR 2008")
+plot(nbr_2008, col=cln, main="NBR 2008")
 
 par(mfrow=c(2,2))
-plot(nbr_1987, col=cl, main="NBR 1987")
-plot(nbr_1988, col=cl, main="NBR 1988")
-plot(nbr_1989, col=cl, main="NBR 1989") 
-plot(nbr_2008, col=cl, main="NBR 2008")
+plot(nbr_1987, col=cln, main="NBR 1987")
+plot(nbr_1988, col=cln, main="NBR 1988")
+plot(nbr_1989, col=cln, main="NBR 1989") 
+plot(nbr_2008, col=cln, main="NBR 2008")
 #oppure
 
-levelplot(nbr_1987,col.regions=cl,main="NBR 1987")
-levelplot(nbr_1988,col.regions=cl,main="NBR 1988")
-levelplot(nbr_1989,col.regions=cl,main="NBR 1989")
-levelplot(nbr_2008,col.regions=cl,main="NBR 2008")
+levelplot(nbr_1987,col.regions=cln,main="NBR 1987")
+levelplot(nbr_1988,col.regions=cln,main="NBR 1988")
+levelplot(nbr_1989,col.regions=cln,main="NBR 1989")
+levelplot(nbr_2008,col.regions=cln,main="NBR 2008")
 
 #.................................................................
 
@@ -168,9 +168,9 @@ grid.arrange(p1, p2, p3, p4, nrow = 2)
 #siamo così in grado di capire qual è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
 
 #ora classifichiamo le immagini in 3 CLASSI
-1a CLASSE = prateria (bianco)
-2a CLASSE = nuvole/parte incencendiata (giallo)
-3a CLASSE = foresta (verde)
+#1a CLASSE = prateria (bianco)
+#2a CLASSE = nuvole/parte incencendiata (giallo)
+#3a CLASSE = foresta (verde)
 
 #set.seed(42) #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
 Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3)
