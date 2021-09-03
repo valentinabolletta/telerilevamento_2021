@@ -82,8 +82,8 @@ plot(Ys_1987beforefireR, col=clburn)
 plot(Ys_1989afterfireR, col=clburn)
 
 par(mfrow=c(1,2))
-plot(Ys_1987beforefireR, col=clburn)
-plot(Ys_1989afterfireR, col=clburn)
+plot(Ys_1987beforefireR, col=clburn, main="1987")
+plot(Ys_1989afterfireR, col=clburn, main="1989")
 
 
 #Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate e quelle risparmiate dall'incendio in cui la veg. è ancora sana. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
@@ -136,6 +136,8 @@ nbr_2008<-(Ys_2008$Yellowstone_20080915.3  - Ys_2008$Yellowstone_20080915.1)/(Ys
 plot(nbr_2008, col=cln, main="NBR 2008")
 
 #differenza NBR pre e post incendio
+diff_1989_1987<-(nbr_1989-nbr_1987)
+plot(diff_1989_1987, col=clburn, main="differenza 1989-1987")
 
 
 par(mfrow=c(2,2))
@@ -143,12 +145,6 @@ plot(nbr_1987, col=cln, main="NBR 1987")
 plot(nbr_1988, col=cln, main="NBR 1988")
 plot(nbr_1989, col=cln, main="NBR 1989") 
 plot(nbr_2008, col=cln, main="NBR 2008")
-#oppure
-
-levelplot(nbr_1987,col.regions=cln,main="NBR 1987")
-levelplot(nbr_1988,col.regions=cln,main="NBR 1988")
-levelplot(nbr_1989,col.regions=cln,main="NBR 1989")
-levelplot(nbr_2008,col.regions=cln,main="NBR 2008")
 
 #.................................................................
 
