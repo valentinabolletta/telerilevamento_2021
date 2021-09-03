@@ -195,6 +195,7 @@ plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo sol
 Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
 plot(Ys2c$map)
 
+#Ottenuta la classificazione è possibile calcolare le percentuali di area che rientrano nelle diverse classi
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Andiamo a calcolare la frequenza dei pixel di una certa classe
 #frequencies
 freq(Ys1c$map)
