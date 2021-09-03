@@ -134,21 +134,22 @@ plot(nbr_1989, col=cln, main="NBR 1989")
 #NBR 2008
 nbr_2008<-(Ys_2008$Yellowstone_20080915.1  - Ys_2008$Yellowstone_20080915.3)/(Ys_2008$Yellowstone_20080915.1+Ys_2008$Yellowstone_20080915.3) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_2008, col=cln, main="NBR 2008")
-
-#differenza NBR pre e post incendio
-diff_1989_1987<-(nbr_1989-nbr_1987)
-plot(diff_1989_1987, col=clburn, main="differenza 1989-1987")
-
-
 par(mfrow=c(2,2))
 plot(nbr_1987, col=cln, main="NBR 1987")
 plot(nbr_1988, col=cln, main="NBR 1988")
 plot(nbr_1989, col=cln, main="NBR 1989") 
 plot(nbr_2008, col=cln, main="NBR 2008")
 
-par(mfrow=c(1,2))
-levelplot((nbr_1987, col=cln, main="NBR 1987")
-levelplot((nbr_1989, col=cln, main="NBR 1989")
+cl <- colorRampPalette(c('red','orange','green','yellow'))(100)
+a <- levelplot(nbr_1987, main="NBR_1987", col.regions=cl)
+b <- levelplot(nbr_1988, main="NBR_1988", col.regions=cl)
+grid.arrange(a,b,nrow=1)
+
+delta <- nbr_1987-nbr_1988
+delta2 <- nbr_1987-nbr_1989
+c <- levelplot(delta, main="deltaNBR_87-88")
+d <- levelplot(delta2, main="deltaNBR_87-89")
+grid.arrange(c,d,nrow=1)
 
 #.................................................................
 
