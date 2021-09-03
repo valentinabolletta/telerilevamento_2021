@@ -57,7 +57,8 @@ plot(Ys_1993R,col=cts)
 plot(Ys_1998R,col=cts)
 plot(Ys_2008R,col=cts)
 
-#Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
+#Creiamo una lista con la funzione "list.files" e utilizziamo un "pattern" che accomuna tutti i files, in questo caso "Yellowstone_" 
+#Per importare tutte queste immagini insieme usiamo la funzione "lapply" applicabile ad una lista di file o un vettore
 rlist <- list.files(pattern="Yellowstone_")
 #rlist
 
@@ -68,6 +69,7 @@ timesYs<-stack(import) #la funzione "stack" crea un unico file partendo da una l
 
 cl <- colorRampPalette(c("blue","light blue","red","pink"))(100)
 par(mfrow=c(2,3))
+# la funzione levelplot permette di arricchire il grafico con la color palette scelta
 levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.attr=c("1987","1988","1989","1993","1998","2008"))
 
 #.................................................................................
@@ -152,6 +154,7 @@ plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
 
+#con ggRGB monto le bande in RGB in veri colori e applico uno stretch lineare per migliorare il contrasto
 p1<-ggRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #con questa funzione vengono visualizzate anche le coordinate spaziali del nostro oggetto(conta dei pixel sulla x e sulla y, non è un vero S.R.!)
 p2<-ggRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 p3<-ggRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
@@ -230,7 +233,7 @@ percentages
 #2 parte incendiata         6.35        20.03
 #3          foresta        52.80        36.24
 
-#Usando ggplot2 generiamo un dataframe
+#Usando ggplot2 generiamo un dataframe 
 cover1<-ggplot(percentages, aes(x=cover, y=percent_1987, color=cover)) + geom_bar(stat="identity", fill="white")   
 cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   + #creiamo il grafico a istogramma con le etichette delle percentuali in alto
   geom_text(aes(label = cover),position=position_dodge(width=0.7), vjust=-0.25, size = 6)
