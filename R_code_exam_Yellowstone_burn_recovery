@@ -97,9 +97,9 @@ plot(Ys_1989afterfireR, col=clburn, main="1989")
 
 #Seleziono in questo caso le 4 immagini 1987,1988,1989 e 2008 e calcolo l'indice per ognuna
 #bande 
-#1 =SWIR
+#1 =NIR
 #2 =verde
-#3 =NIR
+#3 =SWIR
 
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
@@ -119,20 +119,20 @@ Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
 Ys_2008<-brick("Yellowstone_20080915.jpg")
 
 #NBR 1987
-nbr_1987<-(Ys_1987beforefire$Yellowstone_19870805.3 - Ys_1987beforefire$Yellowstone_19870805.1)/(Ys_1987beforefire$Yellowstone_19870805.3 +Ys_1987beforefire$Yellowstone_19870805.1) # si esegue il calcolo per ricavare il valore di NBR
+nbr_1987<-(Ys_1987beforefire$Yellowstone_19870805.1 - Ys_1987beforefire$Yellowstone_19870805.3)/(Ys_1987beforefire$Yellowstone_19870805.1 +Ys_1987beforefire$Yellowstone_19870805.3) # si esegue il calcolo per ricavare il valore di NBR
 cln <- colorRampPalette(c('red','orange','green','yellow'))(100)# specifico la palette di colori desiderata
 plot(nbr_1987, col=cln, main="NBR 1987")
 
 #NBR 1988
-nbr_1988<-(Ys_1988fire$Yellowstone_19880823.3  - Ys_1988fire$Yellowstone_19880823.1)/(Ys_1988fire$Yellowstone_19880823.3 +Ys_1988fire$Yellowstone_19880823.1) # si esegue il calcolo per ricavare il valore di NBR
+nbr_1988<-(Ys_1988fire$Yellowstone_19880823.1  - Ys_1988fire$Yellowstone_19880823.3)/(Ys_1988fire$Yellowstone_19880823.1 +Ys_1988fire$Yellowstone_19880823.3) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_1988, col=cln, main="NBR 1988") 
 
 #NBR 1989
-nbr_1989<-(Ys_1989afterfire$Yellowstone_19890802.3  - Ys_1989afterfire$Yellowstone_19890802.1)/(Ys_1989afterfire$Yellowstone_19890802.3 +Ys_1989afterfire$Yellowstone_19890802.1) # si esegue il calcolo per ricavare il valore di NBR
+nbr_1989<-(Ys_1989afterfire$Yellowstone_19890802.1  - Ys_1989afterfire$Yellowstone_19890802.3)/(Ys_1989afterfire$Yellowstone_19890802.1 +Ys_1989afterfire$Yellowstone_19890802.3) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_1989, col=cln, main="NBR 1989") 
 
 #NBR 2008
-nbr_2008<-(Ys_2008$Yellowstone_20080915.3  - Ys_2008$Yellowstone_20080915.1)/(Ys_2008$Yellowstone_20080915.3+Ys_2008$Yellowstone_20080915.1) # si esegue il calcolo per ricavare il valore di NBR
+nbr_2008<-(Ys_2008$Yellowstone_20080915.1  - Ys_2008$Yellowstone_20080915.3)/(Ys_2008$Yellowstone_20080915.1+Ys_2008$Yellowstone_20080915.3) # si esegue il calcolo per ricavare il valore di NBR
 plot(nbr_2008, col=cln, main="NBR 2008")
 
 #differenza NBR pre e post incendio
@@ -145,6 +145,10 @@ plot(nbr_1987, col=cln, main="NBR 1987")
 plot(nbr_1988, col=cln, main="NBR 1988")
 plot(nbr_1989, col=cln, main="NBR 1989") 
 plot(nbr_2008, col=cln, main="NBR 2008")
+
+par(mfrow=c(1,2))
+levelplot((nbr_1987, col=cln, main="NBR 1987")
+levelplot((nbr_1989, col=cln, main="NBR 1989")
 
 #.................................................................
 
