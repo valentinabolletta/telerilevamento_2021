@@ -156,21 +156,16 @@ grid.arrange(c,d,nrow=1)
 #3. Land cover
 #per plottare in modo migliore le immagini richiamo la library ggplot2 e gridExtra
 
-Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
-Ys_1988fire<-brick("Yellowstone_19880823.jpg")
-Ys_1989afterfire<-brick("Yellowstone_19890802.jpg")
-Ys_2018<-brick("yellowstone_20180222.jpg")
-
 plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 plotRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
-plotRGB(Ys_2018,1, 2, 3, stretch="Lin")
+plotRGB(Ys_2008,1, 2, 3, stretch="Lin")
 
 #con ggRGB monto le bande in RGB in veri colori e applico uno stretch lineare per migliorare il contrasto
 p1<-ggRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin") #con questa funzione vengono visualizzate anche le coordinate spaziali del nostro oggetto(conta dei pixel sulla x e sulla y, non è un vero S.R.!)
 p2<-ggRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
 p3<-ggRGB(Ys_1989afterfire,1, 2, 3, stretch="Lin")
-p4<-ggRGB(Ys_2018,1, 2, 3, stretch="Lin")
+p4<-ggRGB(Ys_2008,1, 2, 3, stretch="Lin")
 
 #per unire i plot generati in questo caso utiliazziamo la funzione "grid.arrange" dalla library gridExtra. Questa funzione compone il nostro multiframe unendo varie parti in un grafico.
 
@@ -187,22 +182,16 @@ grid.arrange(p1, p2, p3, p4, nrow = 2)
 #2a CLASSE = nuvole/parte incencendiata (giallo)
 #3a CLASSE = foresta (verde)
 
+#funzione set.seed(): fissa i valori da attribuire ai pixel  
+set.seed(1)
+#funzione rnorm(): normalizza i valori dei pixel fissando la classe scelta
+rnorm(1)
 #set.seed(42) #questa funzione fa in modo che vengano utilizzate sempre le stesse repliche per il modello e che i colori rimangano gli stessi.
-Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3)
-Ys1c
+Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3) #unsuperClass è una funzione che permette di discriminare i pixel dell'immagine dividendoli in 2 o più classi in base alla riflettanza
+#Ys1c
 
-#??????mettere una colorRamp, e fare il plot(class2018$map,col=cl)??
-
-#set.seed(1)
-#par(mfrow=c(2,2))
-#plot(class1987$map,col=cl)
-#plot(class1988$map,col=cl)
-#plot(class1989$map,col=cl)
-#plot(class2018$map,col=cl)??????
-
-par(mfrow=c(2,1))
+par(mfrow=c(1,2))
 plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
-
 Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
 plot(Ys2c$map)
 
