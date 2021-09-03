@@ -341,3 +341,14 @@ labs(x="band", y="reflectance")
 
 #per fare una valutazione corretta è necessario che i punti, presi nei due anni per la stessa sezione, siano gli stessi
 #......................................
+
+
+###se voglio aggiungere titolo o altro
+p2<-ggRGB(july30, 4, 3, 2 , stretch="lin") +   # con ggRGB monto le bande in RGB in veri colori e applico uno stretch lineare per migliorare il contrasto
+    ggtitle("30 Luglio 2021") +   # titolo dell'immagine
+    xlab("Long") + ylab("Lat") +  # titoli degli assi
+    theme(panel.background = element_blank(), plot.title = element_text(size=11, face="bold", color="red"), 
+          axis.title=element_text(size=10), axis.text= element_text(size=8))    # con theme modifico gli elementi del grafico (sfondo, testo dei titoli e dei valori degli assi)
+
+grid.arrange(p1, p2, nrow = 2, top=grid.text("Immagini in veri colori", gp=gpar(fontsize=15,font=2)))     
+# con la funzione grid.arrange plotto le due immagini insieme in un unico grafico aggiungendo un titolo
