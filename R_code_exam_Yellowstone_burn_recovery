@@ -75,6 +75,17 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 #.................................................................................
 
 #2. NBR (normalized burn ratio)
+
+#Visualizzo le immagini del 1987 e del 1989 usando una color ramp palette che evidenzi le aree bruciate e quelle sane:
+clburn <- colorRampPalette(c('black','grey','red','blue'))(100) 
+plot(Ys_1987beforefireR, col=clburn)
+plot(Ys_1989afterfireR, col=clburn)
+
+par(mfrow=c(1,2))
+plot(Ys_1987beforefireR, col=clburn)
+plot(Ys_1989afterfireR, col=clburn)
+
+
 #Il Normalized Burn Ratio (NBR) è un indice che serve ad evidenziare le aree bruciate e quelle risparmiate dall'incendio in cui la veg. è ancora sana. La formula combina l'uso delle lunghezze d'onda dell'infrarosso vicino (NIR) e dell'infrarosso a onde corte (SWIR).
 #(NIR-SWIR)/(NIR+SWIR)
 #il range dell'NBR è [-1 , 1]
