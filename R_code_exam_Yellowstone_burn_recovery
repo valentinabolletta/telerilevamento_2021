@@ -329,20 +329,27 @@ ggplot(spectrals,aes(x=band)) +geom_line(aes(y=foresta_b,color="punto 1"))+geom_
 labs(x="band", y="reflectance")+theme(legend.position="top")
 
 #per fare una valutazione corretta è necessario che i punti, presi nei due anni per la stessa sezione, siano gli stessi
+#immagine 2008 in RGB
+plotRGB(Ys_2008,1, 2, 3, stretch="Lin")
+click(Ys_2008, id=T, xy=T, cell=T, type="p", pch=16, col="magenta")
+      x      y    cell Yellowstone_19880823.1 Yellowstone_19880823.2
+1 720.5 1524.5 5726947                    105                     55
+  Yellowstone_19880823.3
+1                     64
+       x     y    cell Yellowstone_19880823.1 Yellowstone_19880823.2
+1 1316.5 929.5 7675573                    138                    152
+  Yellowstone_19880823.3
+1                    101
 
+band<-c(1,2,3)
+foresta_b<-c(105,55,64)
+foresta_s<-c(138,152,101)  #i dati sono diversi a seconda dei risultati del click
 
+#Creiamo una tabella con i valori ricavati
+spectrals <- data.frame(band,foresta_b,foresta_s)
 
-
+#plottiamo tutto in un grafico in cui le firme spettrali sono identificate da due linee di diverso colore
+ggplot(spectrals,aes(x=band)) +geom_line(aes(y=foresta_b,color="punto 3"))+geom_line(aes(y=foresta_s,color="punto 4"))+
+labs(x="band", y="reflectance")+theme(legend.position="top")
 
 #......................................
-
-
-###se voglio aggiungere titolo o altro
-p2<-ggRGB(july30, 4, 3, 2 , stretch="lin") +   # con ggRGB monto le bande in RGB in veri colori e applico uno stretch lineare per migliorare il contrasto
-    ggtitle("30 Luglio 2021") +   # titolo dell'immagine
-    xlab("Long") + ylab("Lat") +  # titoli degli assi
-    theme(panel.background = element_blank(), plot.title = element_text(size=11, face="bold", color="red"), 
-          axis.title=element_text(size=10), axis.text= element_text(size=8))    # con theme modifico gli elementi del grafico (sfondo, testo dei titoli e dei valori degli assi)
-
-grid.arrange(p1, p2, nrow = 2, top=grid.text("Immagini in veri colori", gp=gpar(fontsize=15,font=2)))     
-# con la funzione grid.arrange plotto le due immagini insieme in un unico grafico aggiungendo un titolo
