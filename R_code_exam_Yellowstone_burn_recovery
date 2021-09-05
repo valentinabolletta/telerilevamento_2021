@@ -179,21 +179,6 @@ grid.arrange(p1, p2, p3, p4, nrow = 2)
 #in questo processo vengono accorpati pixel di un'immagine con valori simili a rappresentare una CLASSE. Ogni classe ha quindi dei pixel che corrispondono ad un determinato valore di riflettanza.
 #siamo così in grado di capire qual è la percentuale di territorio che ha subito incendi, quella rivegetata e quella che non ha subito cambiamenti.
 
-## Visualizzo la mappa di classificazione pre-incendio:
-
-pre_incendio<-ggplot(Ys1c$map, aes(x,y)) +   # con ggplot creo il grafico che contiene la mappa (richiamata con $ all'interno dell'oggetto di output della classificazione)
-     geom_raster(aes(fill=factor(layer))) +  # geom_raster permette di plottare nel grafico un elemento raster
-     scale_fill_manual(values=c('green', 'dark green'),  # definisco i colori delle classi
-                       name=("Copertura"), labels=c("prateria", "vecchia foresta Pinus contorta")) +  # definisco nome della legenda ed etichette dei colori corrispondenti
-     ggtitle("Mappa di classificazione pre-incendio") +    # titolo dell'immagine
-     xlab("Long") + ylab("Lat") +    #titoli degli assi
-     theme(panel.background = element_blank(), plot.title = element_text(size=13, face="bold",  hjust=0.5), 
-           axis.title=element_text(size=10), axis.text= element_text(size=8),
-           legend.title = element_text(size=10, face="bold"),
-           legend.text = element_text(size = 10))  # con theme modifico gli elementi del grafico (sfondo, titolo, testo dei titoli e dei valori degli assi, 
-                                                                                                   # titolo ed etichette della legenda)
-pre_incendio
-# La mappa di classificazione mostra un'area prevalentemente boschiva al centro del'immagine e una con aree di prateria.
 
 #ora classifichiamo le immagini 1987,1988,1989,2008 in 3 CLASSI
 #1a CLASSE = prateria (bianco)
@@ -204,7 +189,7 @@ pre_incendio
 set.seed(1)
 #funzione rnorm(): normalizza i valori dei pixel fissando la classe scelta
 rnorm(1)
-Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=2) #unsuperClass è una funzione che permette di discriminare i pixel dell'immagine dividendoli in 2 o più classi in base alla riflettanza
+Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3) #unsuperClass è una funzione che permette di discriminare i pixel dell'immagine dividendoli in 2 o più classi in base alla riflettanza
 #Ys1c
 #unsuperClass results
 
@@ -217,23 +202,23 @@ Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=2) #unsuperClass è una funzion
 #crs        : NA 
 #source     : r_tmp_2021-09-04_213933_6328_16274.grd 
 #names      : layer 
-#values     : 1, 4  (min, max)
+#values     : 1, 3  (min, max)
 
 
 par(mfrow=c(2,2))
-plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
+plot(Ys1c$map,main="landcover_1987") #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
 set.seed(1)
 rnorm(1)
 Ys2c <- unsuperClass(Ys_1988fire, nClasses=3)
-plot(Ys2c$map)
+plot(Ys2c$map,main="landcover_1988")
 set.seed(1)
 rnorm(1)
 Ys3c <- unsuperClass(Ys_1989afterfire, nClasses=3)
-plot(Ys3c$map)
+plot(Ys3c$map,main="landcover_1989")
 set.seed(1)
 rnorm(1)
 Ys4c <- unsuperClass(Ys_2008, nClasses=3)
-plot(Ys4c$map)
+plot(Ys4c$map,main="landcover_2008")
 
 
 
@@ -264,6 +249,8 @@ prop2<- freq(Ys2c$map)/s2
 #[1,] 9.329162e-08 0.4371661   #43.71
 #[2,] 1.865832e-07 0.2003741   #20.03
 #[3,] 2.798749e-07 0.3624598   #36.24
+
+
 
 #build a dataframe
 cover<- c("prateria", "parte incendiata", "foresta")
