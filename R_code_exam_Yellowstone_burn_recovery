@@ -221,7 +221,6 @@ Ys4c <- unsuperClass(Ys_2008, nClasses=3)
 plot(Ys4c$map,main="landcover_2008")
 
 
-
 #Ottenuta la classificazione è possibile calcolare le percentuali di area che rientrano nelle diverse classi
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Quanta ne è stata recuperata dopo 20 anni? Andiamo a calcolare la frequenza dei pixel di una certa classe
 #frequencies
@@ -310,46 +309,26 @@ grid.arrange(cover3a, cover4a, nrow=1)
 #per ogni immagine sono stati presi due punti: uno su una porzione bruciata e uno su una porzione che è rimasta illesa dal fuoco
 #Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
 
-Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
-plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
-click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="magenta") # con la funzione "click" si selezionano i punti sull'immagine di cui ricaverà il valore di risposta spettrale per ogni immagine
-
-#x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
-1 304.5 2300.5 3185907                    117                    205
-  Yellowstone_19870805.3
-1                    101
-       x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
-1 1572.5 1524.5 5727799                    102                    111
-  Yellowstone_19870805.3
-1                     66
-
-       x     y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
-1 1464.5 647.5 8598989                    172                    193
-  Yellowstone_19870805.3
-1                    124
-       x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
-1 1291.5 2236.5 3396430                     95                    111
-  Yellowstone_19870805.3
-1                     66
-       x     y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
-1 3020.5 839.5 7971937                     76                    106
-  Yellowstone_19870805.3
-1                     72
-
-click(Ys_1987beforefire, id=T, xy=T, cell=T, type="p", pch=16, col="green")
- x      y    cell Yellowstone_19870805.1 Yellowstone_19870805.2
-1 1662.5 1505.5 5790095                     73                    119
-  Yellowstone_19870805.3
-1                     57
-
+#immagine 1988 in RGB
+plotRGB(Ys_1988fire,1, 2, 3, stretch="Lin")
+click(Ys_1988fire, id=T, xy=T, cell=T, type="p", pch=16, col="magenta") # con la funzione "click" si selezionano i punti sull'immagine di cui ricaverà il valore di risposta spettrale per ogni immagine
+      x      y    cell Yellowstone_19880823.1 Yellowstone_19880823.2 Yellowstone_19880823.3
+1 810.5 1640.5 5347253                    162                     80                     84  #foresta bruciata
+       x     y    cell Yellowstone_19880823.1 Yellowstone_19880823.2 Yellowstone_19880823.3
+1 1604.5 967.5 7551449                     69                    113                     62  #foresta sana
 
 # inseriamo i valori in un vettore e li salviamo in una variabile:
-band<- c(1,2,3)
-forest <- c(73,119,57)
-grassland <- c(117,205,101)  #i dati sono diversi a seconda dei risultati del click
+band<-c(1,2,3)
+foresta_b<-c(162,80,84)
+foresta_s<-c(69,113,62)  #i dati sono diversi a seconda dei risultati del click
 
 #Creiamo una tabella con i valori ricavati
-spectrals <- data.frame(band,forest,grassland)
+spectrals <- data.frame(band,foresta_b,foresta_s)
+
+
+
+#..........................................................
+
 
 #plottiamo tutto in un grafico in cui le firme spettrali sono identificate da due linee di diverso colore
 ggplot(spectrals,aes(x=band)) +geom_line(aes(y=forest), color="dark green")+geom_line(aes(y=grassland), color="light green") 
