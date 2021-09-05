@@ -242,7 +242,6 @@ prop1<- freq(Ys1c$map)/s1
 #[2,] 1.865832e-07 0.06317028   06.31
 #[3,] 2.798749e-07 0.54247138   54.24
 
-
 s2<- 10719076
 prop2<- freq(Ys2c$map)/s2
  prop2
@@ -325,16 +324,16 @@ foresta_s<-c(69,113,62)  #i dati sono diversi a seconda dei risultati del click
 #Creiamo una tabella con i valori ricavati
 spectrals <- data.frame(band,foresta_b,foresta_s)
 
-
-
-#..........................................................
-
-
 #plottiamo tutto in un grafico in cui le firme spettrali sono identificate da due linee di diverso colore
-ggplot(spectrals,aes(x=band)) +geom_line(aes(y=forest), color="dark green")+geom_line(aes(y=grassland), color="light green") 
-labs(x="band", y="reflectance")
+ggplot(spectrals,aes(x=band)) +geom_line(aes(y=foresta_b,color="punto 1"))+geom_line(aes(y=foresta_s,color="punto 2"))+
+labs(x="band", y="reflectance")+theme(legend.position="top")
 
 #per fare una valutazione corretta è necessario che i punti, presi nei due anni per la stessa sezione, siano gli stessi
+
+
+
+
+
 #......................................
 
 
