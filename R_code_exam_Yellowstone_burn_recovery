@@ -144,6 +144,7 @@ a <- levelplot(nbr_1987, main="NBR_1987", col.regions=cl)
 b <- levelplot(nbr_1988, main="NBR_1988", col.regions=cl)
 grid.arrange(a,b,nrow=1)
 
+#Calcolo la differenza(delta) tra l'NBR del 1987(pre-incendio) e 1989 (post-incendio) e tra il 1987 e il 2008
 delta <- nbr_1987-nbr_1988
 delta2 <- nbr_1987-nbr_1989
 c <- levelplot(delta, main="deltaNBR_87-88")
@@ -190,7 +191,7 @@ pre_incendio<-ggplot(Ys1c$map, aes(x,y)) +   # con ggplot creo il grafico che co
            legend.text = element_text(size = 10))  # con theme modifico gli elementi del grafico (sfondo, titolo, testo dei titoli e dei valori degli assi, 
                                                                                                    # titolo ed etichette della legenda)
 pre_incendio
-# La mappa di classificazione mostra un'area prevalentemente boschiva (C1) nella zona SE e una dominata da aree coltivate (C2)
+# La mappa di classificazione mostra un'area prevalentemente boschiva al centro del'immagine e una con aree di prateria.
 
 #ora classifichiamo le immagini 1987 e 1989 in 3 CLASSI
 #1a CLASSE = prateria (bianco)
