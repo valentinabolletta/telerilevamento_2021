@@ -295,10 +295,10 @@ grid.arrange(cover1, cover2, nrow=1)#library griExtra
 grid.arrange(cover3, cover4, nrow = 1)      
 
 #creo una seconda serie di grafici in cui vengono modificati colore della legenda e titolo
-cover1a <- ggplot(percentages, aes(x=cover, y=percent_1984, fill=cover))  + ggtitle("Cover percentage 1987") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
-cover2a <- ggplot(percentages, aes(x=cover, y=percent_1996, fill=cover))+ ggtitle("Cover percentage 1988") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
-cover3a <- ggplot(percentages, aes(x=cover, y=percent_2004, fill=cover)) + ggtitle("Cover percentage 1989") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
-cover4a<- ggplot(percentages, aes(x=cover, y=percent_2012, fill=cover)) + ggtitle("Cover percentage 2008") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
+cover1a <- ggplot(percentages, aes(x=cover, y=percent_1987, fill=cover))  + ggtitle("Cover percentage 1987") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "orange","wheat"))
+cover2a <- ggplot(percentages, aes(x=cover, y=percent_1988, fill=cover))+ ggtitle("Cover percentage 1988") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "orange","wheat"))
+cover3a <- ggplot(percentages, aes(x=cover, y=percent_1989, fill=cover)) + ggtitle("Cover percentage 1989") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "orange","wheat"))
+cover4a<- ggplot(percentages, aes(x=cover, y=percent_2008, fill=cover)) + ggtitle("Cover percentage 2008") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "orange","wheat"))
 grid.arrange(cover1a, cover2a,nrow=1)
 grid.arrange(cover3a, cover4a, nrow=1)
 #.........................................
