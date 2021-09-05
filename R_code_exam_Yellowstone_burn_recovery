@@ -195,7 +195,7 @@ pre_incendio<-ggplot(Ys1c$map, aes(x,y)) +   # con ggplot creo il grafico che co
 pre_incendio
 # La mappa di classificazione mostra un'area prevalentemente boschiva al centro del'immagine e una con aree di prateria.
 
-#ora classifichiamo le immagini 1987 e 1989 in 3 CLASSI
+#ora classifichiamo le immagini 1987,1988,1989,2008 in 3 CLASSI
 #1a CLASSE = prateria (bianco)
 #2a CLASSE = nuvole/parte incencendiata (giallo)
 #3a CLASSE = foresta (verde)
@@ -221,10 +221,16 @@ Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3) #unsuperClass è una funzion
 #values     : 1, 3  (min, max)
 
 
-par(mfrow=c(1,2))
+par(mfrow=c(2,2))
 plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
-Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
+Ys2c <- unsuperClass(Ys_1988fire, nClasses=3)
 plot(Ys2c$map)
+Ys3c <- unsuperClass(Ys_1989afterfire, nClasses=3)
+plot(Ys3c$map)
+Ys4c <- unsuperClass(Ys_2008, nClasses=3)
+plot(Ys4c$map)
+
+
 
 #Ottenuta la classificazione è possibile calcolare le percentuali di area che rientrano nelle diverse classi
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Quanta ne è stata recuperata dopo 20 anni? Andiamo a calcolare la frequenza dei pixel di una certa classe
