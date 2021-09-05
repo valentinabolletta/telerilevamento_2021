@@ -304,11 +304,11 @@ grid.arrange(cover3a, cover4a, nrow=1)
 #.........................................
 
 #5. Firme spettrali multitemporali
-#Le firme spettrali del pixel di una pianta ci permettono di distinguere piante diverse che riflettono la luce in modo diverso. Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
-# La firma spettrale è la riflettanza in funzione della lunghezza d'onda e ogni materiale è caratterizzato da una risposta univoca.
-#è stata effettuata la firma spettrale su due porzioni di area boschiva in ciascuna immagine per determinare se gli incendi abbiano provocato un cambiamento da parte della vegetazione
-#per ogni immagine sono stati presi due punti: uno su una porzione bruciata e uno su una porzione che è rimasta illesa dal fuoco
 
+#La firma spettrale è la riflettanza in funzione della lunghezza d'onda e ogni materiale è caratterizzato da una risposta univoca.
+#è stata effettuata la firma spettrale su due porzioni di area boschiva in ciascuna immagine per determinare se gli incendi abbiano provocato un cambiamento della vegetazione.
+#per ogni immagine sono stati presi due punti: uno su una porzione bruciata e uno su una porzione che è rimasta illesa dal fuoco
+#Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
 
 Ys_1987beforefire<-brick("Yellowstone_19870805.jpg")
 plotRGB(Ys_1987beforefire,1, 2, 3, stretch="Lin")
