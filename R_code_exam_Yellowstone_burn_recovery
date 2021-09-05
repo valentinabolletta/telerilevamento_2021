@@ -226,47 +226,47 @@ plot(Ys4c$map,main="landcover_2008")
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Quanta ne è stata recuperata dopo 20 anni? Andiamo a calcolare la frequenza dei pixel di una certa classe
 #frequencies
 freq(Ys1c$map)
- value   count
-[1,]     1 4227157
-[2,]     2  677127
-[3,]     3 5814792
+# value   count
+#[1,]     1 4227157
+#[2,]     2  677127
+#[3,]     3 5814792
 
 #calcoliamo la proporzione di pixel e sommiamo i valori
 s1<-4227157+677127+5814792
 s1
-[1] 10719076
+#[1] 10719076
 
 prop1<- freq(Ys1c$map)/s1
  prop1
-            value      count
-[1,] 9.329162e-08 0.39435834   39.43
-[2,] 1.865832e-07 0.06317028   06.31
-[3,] 2.798749e-07 0.54247138   54.24
+#            value      count
+#[1,] 9.329162e-08 0.39435834   39.43
+#[2,] 1.865832e-07 0.06317028   06.31
+#[3,] 2.798749e-07 0.54247138   54.24
 
 
 s2<- 10719076
 prop2<- freq(Ys2c$map)/s2
  prop2
-            value     count
-[1,] 9.329162e-08 0.5080470   50.80
-[2,] 1.865832e-07 0.3073444   30.73
-[3,] 2.798749e-07 0.1846086   18.46
+#            value     count
+#[1,] 9.329162e-08 0.5080470   50.80
+#[2,] 1.865832e-07 0.3073444   30.73
+#[3,] 2.798749e-07 0.1846086   18.46
 
 s3<- 10719076
 prop3<- freq(Ys3c$map)/s3
  prop3
-            value     count
-[1,] 9.329162e-08 0.3597436   35.97
-[2,] 1.865832e-07 0.1983567   19.83
-[3,] 2.798749e-07 0.4418997   44.18
+#            value     count
+#[1,] 9.329162e-08 0.3597436   35.97
+#[2,] 1.865832e-07 0.1983567   19.83
+#[3,] 2.798749e-07 0.4418997   44.18
 
 s4<- 10719076
 prop4<- freq(Ys4c$map)/s4
 prop4
-            value     count
-[1,] 9.329162e-08 0.0648888   06.48
-[2,] 1.865832e-07 0.3967952   39.67
-[3,] 2.798749e-07 0.5383160   53.83
+#            value     count
+#[1,] 9.329162e-08 0.0648888   06.48
+#[2,] 1.865832e-07 0.3967952   39.67
+#[3,] 2.798749e-07 0.5383160   53.83
 
 
 #build a dataframe
@@ -278,10 +278,10 @@ percent_2008<- c(06.48,39.67,53.83)
           
 percentages<- data.frame (cover, percent_1987, percent_1988,percent_1989,percent_2008 )
  percentages  
-             cover percent_1987 percent_1988 percent_1989 percent_2008
-1         prateria        39.43        50.80        35.97         6.48
-2 parte incendiata         6.31        30.73        19.83        39.67
-3          foresta        54.24        18.46        44.18        53.83
+#             cover percent_1987 percent_1988 percent_1989 percent_2008
+#1         prateria        39.43        50.80        35.97         6.48
+#2 parte incendiata         6.31        30.73        19.83        39.67
+#3          foresta        54.24        18.46        44.18        53.83
 
 
 #Usando ggplot2 generiamo un dataframe e associamo un nome ad ogni ggplot
