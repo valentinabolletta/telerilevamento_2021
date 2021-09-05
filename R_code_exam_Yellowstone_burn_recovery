@@ -226,29 +226,42 @@ plot(Ys4c$map,main="landcover_2008")
 #Quanta parte di foresta è andata persa durante l'incendio del 1988? Quanta ne è stata recuperata dopo 20 anni? Andiamo a calcolare la frequenza dei pixel di una certa classe
 #frequencies
 freq(Ys1c$map)
-#     value   count
-#[1,]     1 4377087
-#[2,]     2  681566
-#[3,]     3 5660423
-
+ value   count
+[1,]     1 4227157
+[2,]     2  677127
+[3,]     3 5814792
 
 #calcoliamo la proporzione di pixel e sommiamo i valori
-s1<-4377087+681566+5660423
+s1<-4227157+677127+5814792
 s1
-#[1] 10719076
+[1] 10719076
 
 prop1<- freq(Ys1c$map)/s1
-#          value     count
-#[1,] 9.329162e-08 0.4083456   #prop. 40%    #40.83
-#[2,] 1.865832e-07 0.0635844   #prop. 0.06%  #06.35
-#[3,] 2.798749e-07 0.5280701   #prop. 52%    #52.80
+ prop1
+            value      count
+[1,] 9.329162e-08 0.39435834
+[2,] 1.865832e-07 0.06317028
+[3,] 2.798749e-07 0.54247138
+
 
 s2<- 10719076
 prop2<- freq(Ys2c$map)/s2
-#            value     count
-#[1,] 9.329162e-08 0.4371661   #43.71
-#[2,] 1.865832e-07 0.2003741   #20.03
-#[3,] 2.798749e-07 0.3624598   #36.24
+ prop2
+            value     count
+[1,] 9.329162e-08 0.5080470
+[2,] 1.865832e-07 0.3073444
+[3,] 2.798749e-07 0.1846086
+
+s3<- 10719076
+prop3<- freq(Ys3c$map)/s3
+ prop3
+            value     count
+[1,] 9.329162e-08 0.3597436
+[2,] 1.865832e-07 0.1983567
+[3,] 2.798749e-07 0.4418997
+
+s4<- 10719076
+prop4<- freq(Ys4c$map)/s4
 
 
 
