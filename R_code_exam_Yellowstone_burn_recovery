@@ -144,7 +144,7 @@ a <- levelplot(nbr_1987, main="NBR_1987", col.regions=cl)
 b <- levelplot(nbr_1988, main="NBR_1988", col.regions=cl)
 grid.arrange(a,b,nrow=1)
 
-#Calcolo la differenza(delta) tra l'NBR del 1987(pre-incendio) e 1989 (post-incendio) e tra il 1987 e il 2008
+#Calcolo la differenza(delta) tra l'NBR del 1987(pre-incendio) e 1988(incendio), 1987-1989, 1987-2008
 delta <- nbr_1987-nbr_1988
 delta2 <- nbr_1987-nbr_1989
 c <- levelplot(delta, main="deltaNBR_87-88")
