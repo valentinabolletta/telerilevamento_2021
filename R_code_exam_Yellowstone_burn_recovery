@@ -277,19 +277,30 @@ percent_1989<- c(35.97,19.83,44.18)
 percent_2008<- c(06.48,39.67,53.83)
           
 percentages<- data.frame (cover, percent_1987, percent_1988,percent_1989,percent_2008 )
-percentages  
-#       cover percent_1987 percent_1989
-#1         prateria        40.83        43.71
-#2 parte incendiata         6.35        20.03
-#3          foresta        52.80        36.24
+ percentages  
+             cover percent_1987 percent_1988 percent_1989 percent_2008
+1         prateria        39.43        50.80        35.97         6.48
+2 parte incendiata         6.31        30.73        19.83        39.67
+3          foresta        54.24        18.46        44.18        53.83
 
-#Usando ggplot2 generiamo un dataframe 
+
+#Usando ggplot2 generiamo un dataframe e associamo un nome ad ogni ggplot
 cover1<-ggplot(percentages, aes(x=cover, y=percent_1987, color=cover)) + geom_bar(stat="identity", fill="white")   
-cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   + #creiamo il grafico a istogramma con le etichette delle percentuali in alto
-  geom_text(aes(label = cover),position=position_dodge(width=0.7), vjust=-0.25, size = 6)
-          
-grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra     
+cover2<-ggplot(percentages, aes(x=cover, y=percent_1988, color=cover)) + geom_bar(stat="identity", fill="white")
+cover3<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   
+cover4<-ggplot(percentages, aes(x=cover, y=percent_2008, color=cover)) + geom_bar(stat="identity", fill="white")
 
+#utilizziamo grid.arrange per unire i ggplot ottenuti, occorre avere la library gridExtra, otteniamo così i 4 grafici delle 4 annate per analizzare i cambiamenti percentuali nel tempo
+grid.arrange(cover1, cover2, nrow=1)#library griExtra
+grid.arrange(cover3, cover4, nrow = 1)      
+
+#creo una seconda serie di grafici in cui vengono modificati colore della legenda e titolo
+cover1a <- ggplot(percentages, aes(x=cover, y=percent_1984, fill=cover))  + ggtitle("Cover percentage 1987") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
+cover2a <- ggplot(percentages, aes(x=cover, y=percent_1996, fill=cover))+ ggtitle("Cover percentage 1988") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
+cover3a <- ggplot(percentages, aes(x=cover, y=percent_2004, fill=cover)) + ggtitle("Cover percentage 1989") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
+cover4a<- ggplot(percentages, aes(x=cover, y=percent_2012, fill=cover)) + ggtitle("Cover percentage 2008") + geom_bar(stat="identity", color= "black") + scale_fill_manual(values=c("seagreen", "wheat","orange"))
+grid.arrange(cover1a, cover2a,nrow=1)
+grid.arrange(cover3a, cover4a, nrow=1)
 #.........................................
 
 #5. Firme spettrali multitemporali
