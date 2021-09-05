@@ -9,8 +9,7 @@
 #2. verrà poi calcolato l'indice NBR  #library(raster) #library(rasterVis) per levelplot
 #3. valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio
 #4. verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
-#5. variabilità spaziale: calcolata con eterogeneità dell'area utilizzando la tecnica della MOVING WINDOW
-#6. firme spettrali
+#5. firme spettrali
 
 #richiamo i pacchetti necessari al codice, le librerie per le analisi e definisco la working directory
 
@@ -219,7 +218,6 @@ Ys1c <- unsuperClass(Ys_1987beforefire, nClasses=3) #unsuperClass è una funzion
 #values     : 1, 3  (min, max)
 
 
-#...........................
 par(mfrow=c(1,2))
 plot(Ys1c$map) #con la classificazione si generano diversi output, plottiamo solo la mappa e la richiamiamo con il simbolo $
 Ys2c <- unsuperClass(Ys_1989afterfire, nClasses=3)
@@ -272,54 +270,9 @@ cover2<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_ba
           
 grid.arrange(cover1, cover2, nrow = 1) # this needs griExtra     
 
-#5. Moving window
-
-clndvi <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
-
-ndvi2 <- (Ys_2018$yellowstone_20180222.1-Ys_2018$yellowstone_20180222.2) / (Ys_2018$yellowstone_20180222.1+Ys_2018$yellowstone_20180222.2)
-plot(ndvi2, col=clndvi, main="NDVI time 2")
-
-
-#calcolo la variabilità di questa immagine con la funzione focal. La moving window, in questo caso, è una finestra mobile di 3x3 pixel che si muove nei primi 9 pixel dell'immagine e così via.
-#Il pixel centrale raccoglie la dev.standard dei 9 pixel. Alla fine otterrò una nuova mappa con pixel colorati diversamente a seconda della dev.standard calcolata in una certa finestra(più la finestra è grande più mi aspetto una certa variabilità).
-ndvi2_focal <- focal(ndvi2, w=matrix(1/9,nrow=3,ncol=3), fun=sd)
-plot(ndvi2_focal)
-clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100)
-plot(ndvi2_focal, col=clsd) #il blu dà una copertura omogenea di quelle che sono le rocce e le bruciature degli incendi. In blu anche i laghi. La dev. standard aumenta, quindi diventa più verde nelle zone di confine. Veg. e roccia nuda hanno una diversità più alta a livello spettrale, poi ridiminuisce nelle zone di prateria d'alta quota
- 
-#mean ndvi with focal
-ndvimean <- focal(ndvi2, w=matrix(1/9, nrow=3, ncol=3), fun=mean)
-clsd <- colorRampPalette(c('blue','green','pink','magenta','orange','brown','red','yellow'))(100) # 
-plot(ndvimean, col=clsd) #valori molto alti nelle praterie d'alta quota, boschi latifoglie e arbusti. Valori più alti per la roccia nuda.
-
-#PCA #la moving window passa sulla PC1 fino a creare una mappa di dev.standard derivante dalla 1a componente principale. Prendendo un sistema multibande ne calcoliamo una PCA e utilizziamo solo la 1a componente principale
-Ys_2018_pca<- rasterPCA(Ys_2018)
-plot(Ys_2018_pca$map) #la prima componente principale è quella che mantiene l'info originale, man mano che passiamo alle altre bande l'info si perde.
-
-summary(Ys_2018_pca$model)
-#the first PC contains  0.8228578  of the original information (proporzione della varianza che spiega quanta variabilità iniziale è presente nelle singole bande).
-#Importance of components:
-#                           Comp.1     Comp.2     Comp.3
-#Standard deviation     50.3337498 22.1948987 7.26548308
-#Proportion of Variance  0.8228578  0.1599973 0.01714491
-#Cumulative Proportion   0.8228578  0.9828551 1.00000000
-
-pc1 <- Ys_2018_pca$map$PC1
-plot(pc1)
-
-
-#proviamo a plottare i nostri dati con ggplot
-p1 <- ggplot() + geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) + scale_fill_viridis()  +ggtitle("Standard deviation of PC1 by viridis colour scale")
- 
-p2 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) +scale_fill_viridis(option = "magma")  +ggtitle("Standard deviation of PC1 by magma colour scale")
-
-p3 <- ggplot() +geom_raster(pc1, mapping = aes(x = x, y = y, fill=PC1)) +scale_fill_viridis(option = "turbo")  +ggtitle("Standard deviation of PC1 by turbo colour scale")
-
-grid.arrange(p1, p2, p3, nrow = 1)  #questo è il metodo migliore per individuare a livello geografico qualsiasi tipo di discontinuità, a livello ecologico gli ecotoni(passaggio da un paesaggio all'altro)
-
 #.........................................
 
-#6. Firme spettrali multitemporali
+#5. Firme spettrali multitemporali
 #Le firme spettrali del pixel di una pianta ci permettono di distinguere piante diverse che riflettono la luce in modo diverso. Vediamo se nelle firme spettrali effettivamente ciò che vediamo in termini di colori corrisponde ad una variazione di riflettanza.
 # La firma spettrale è la riflettanza in funzione della lunghezza d'onda e ogni materiale è caratterizzato da una risposta univoca.
 #è stata effettuata la firma spettrale su due porzioni di area boschiva in ciascuna immagine per determinare se gli incendi abbiano provocato un cambiamento da parte della vegetazione
