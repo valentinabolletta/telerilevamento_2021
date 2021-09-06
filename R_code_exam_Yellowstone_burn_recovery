@@ -147,6 +147,9 @@ grid.arrange(a,b,c,nrow=1)
 
 #La differenza tra la NBR pre-incendio e quella post-incendio ottenuta dalle immagini viene utilizzata per calcolare il delta NBR (dNBR o NBR), che può quindi essere utilizzato per stimare la gravità dell’incendio. 
 #Un valore più alto di dNBR indica danni più gravi, mentre le aree con valori di dNBR negativi possono indicare la ricrescita dopo un incendio.
+#I dati e le mappe di gravità d’incendio possono aiutare a sviluppare piani di riabilitazione e ripristino di emergenza post-incendio. 
+#Possono essere utilizzati per stimare la gravità dell'ustione del suolo, la probabilità di impatti futuri a valle dovuti a inondazioni, frane ed erosione.
+
 #Calcolo la differenza(delta) tra l'NBR del 1987(pre-incendio) e 1989(post-incendio) e 1987-2008
 delta <- nbr_1987-nbr_1989
 delta2<-nbr_1987-nbr_2008
