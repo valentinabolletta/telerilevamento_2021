@@ -77,8 +77,8 @@ levelplot(timesYs,col.regions=cl,main="Yellostone Park's burn recovery",names.at
 
 #Visualizzo le immagini del 1987 e del 1989 usando una color ramp palette che evidenzi le aree bruciate e quelle sane:
 clburn <- colorRampPalette(c('black','grey','red','blue'))(100) 
-plot(Ys_1987beforefireR, col=clburn)
-plot(Ys_1989afterfireR, col=clburn)
+#plot(Ys_1987beforefireR, col=clburn)
+#plot(Ys_1989afterfireR, col=clburn)
 
 par(mfrow=c(1,2))
 plot(Ys_1987beforefireR, col=clburn, main="1987")
