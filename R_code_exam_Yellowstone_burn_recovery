@@ -145,13 +145,14 @@ b <- levelplot(nbr_1988, main="NBR_1988", col.regions=cl)
 c <- levelplot(nbr_1989, main="NBR_1989", col.regions=cl)
 grid.arrange(a,b,c,nrow=1)
 
-#Calcolo la differenza(delta) tra l'NBR del 1987(pre-incendio) e 1988(incendio), 1987-1989, 1987-2008
-delta <- nbr_1987-nbr_1988
-delta2 <- nbr_1987-nbr_1989
-delta3<-nbr_1987-nbr_2008
-d <- levelplot(delta, main="deltaNBR_87-88")
-e <- levelplot(delta2, main="deltaNBR_87-89")
-grid.arrange(d,e,,nrow=1)
+#La differenza tra la NBR pre-incendio e quella post-incendio ottenuta dalle immagini viene utilizzata per calcolare il delta NBR (dNBR o NBR), che può quindi essere utilizzato per stimare la gravità dell’incendio. 
+#Un valore più alto di dNBR indica danni più gravi, mentre le aree con valori di dNBR negativi possono indicare la ricrescita dopo un incendio.
+#Calcolo la differenza(delta) tra l'NBR del 1987(pre-incendio) e 1989(post-incendio) e 1987-2008
+delta <- nbr_1987-nbr_1989
+delta2<-nbr_1987-nbr_2008
+d <- levelplot(delta, main="deltaNBR_87-89")
+e <- levelplot(delta2, main="deltaNBR_87-08")
+grid.arrange(d,e,nrow=1)
 
 #.................................................................
 
