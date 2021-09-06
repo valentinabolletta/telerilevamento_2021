@@ -9,13 +9,13 @@
 #2. verrà poi calcolato l'indice NBR  #library(raster) #library(rasterVis) per levelplot
 #3. valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio
 #4. verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
-#5. firme spettrali
+#5. firme spettrali # library(rgdal) importa file raster e TIF e firme spettrali
 
 #richiamo i pacchetti necessari al codice, le librerie per le analisi e definisco la working directory
 
 install.packages("raster") #scarica e installa dal CRAN o da files locali
 library(raster) #richiamo questa libreria che carica\allega i files su R
-library(rgdal) #importa file raster e TIF e firme spettrali
+library(rgdal) 
 library(rasterVis)
 library(RStoolbox)
 library(ggplot2)
