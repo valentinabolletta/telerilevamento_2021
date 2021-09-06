@@ -186,7 +186,7 @@ grid.arrange(p1, p2, p3, p4, nrow = 2)
 
 #ora classifichiamo le immagini 1987,1988,1989,2008 in 3 CLASSI
 #1a CLASSE = prateria (bianco)
-#2a CLASSE = nuvole/parte incencendiata (giallo)
+#2a CLASSE = nuvole/parte incendiata (giallo)
 #3a CLASSE = foresta (verde)
 
 #funzione set.seed(): fissa i valori da attribuire ai pixel, vengono utilizzate sempre le stesse repliche per il modello e i colori rimangono gli stessi
