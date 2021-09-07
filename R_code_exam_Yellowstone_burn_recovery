@@ -271,7 +271,7 @@ prop4
 #[3,] 2.798749e-07 0.5383160   53.83
 
 
-#build a dataframe
+#costruisco il dataframe
 cover<- c("prateria", "parte incendiata", "foresta")
 percent_1987<- c(39.43,06.31,54.24)
 percent_1988<- c(50.80,30.73,18.46)
