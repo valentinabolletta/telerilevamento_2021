@@ -271,7 +271,7 @@ prop4
 #[3,] 2.798749e-07 0.5383160   53.83
 
 
-#costruisco il dataframe
+#costruisco il dataframe con le frequenze
 cover<- c("prateria", "parte incendiata", "foresta")
 percent_1987<- c(39.43,06.31,54.24)
 percent_1988<- c(50.80,30.73,18.46)
@@ -292,7 +292,7 @@ cover2<-ggplot(percentages, aes(x=cover, y=percent_1988, color=cover)) + geom_ba
 cover3<-ggplot(percentages, aes(x=cover, y=percent_1989, color=cover)) + geom_bar(stat="identity", fill="white")   
 cover4<-ggplot(percentages, aes(x=cover, y=percent_2008, color=cover)) + geom_bar(stat="identity", fill="white")
 
-#utilizziamo grid.arrange per unire i ggplot ottenuti, occorre avere la library gridExtra, otteniamo così i 4 grafici delle 4 annate per analizzare i cambiamenti percentuali nel tempo
+#utilizziamo grid.arrange per unire i ggplot ottenuti, (library gridExtra), otteniamo così i 4 grafici delle 4 annate per analizzare i cambiamenti percentuali nel tempo
 grid.arrange(cover1, cover2, nrow=1)#library griExtra
 grid.arrange(cover3, cover4, nrow = 1)      
 
