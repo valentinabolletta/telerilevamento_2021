@@ -240,7 +240,7 @@ s1
 #[1] 10719076
 
 prop1<- freq(Ys1c$map)/s1
- prop1
+# prop1
 #            value      count
 #[1,] 9.329162e-08 0.39435834   39.43
 #[2,] 1.865832e-07 0.06317028   06.31
@@ -248,7 +248,7 @@ prop1<- freq(Ys1c$map)/s1
 
 s2<- 10719076
 prop2<- freq(Ys2c$map)/s2
- prop2
+ #prop2
 #            value     count
 #[1,] 9.329162e-08 0.5080470   50.80
 #[2,] 1.865832e-07 0.3073444   30.73
@@ -256,7 +256,7 @@ prop2<- freq(Ys2c$map)/s2
 
 s3<- 10719076
 prop3<- freq(Ys3c$map)/s3
- prop3
+ #prop3
 #            value     count
 #[1,] 9.329162e-08 0.3597436   35.97
 #[2,] 1.865832e-07 0.1983567   19.83
@@ -264,7 +264,7 @@ prop3<- freq(Ys3c$map)/s3
 
 s4<- 10719076
 prop4<- freq(Ys4c$map)/s4
-prop4
+#prop4
 #            value     count
 #[1,] 9.329162e-08 0.0648888   06.48
 #[2,] 1.865832e-07 0.3967952   39.67
@@ -279,7 +279,7 @@ percent_1989<- c(35.97,19.83,44.18)
 percent_2008<- c(06.48,39.67,53.83)
           
 percentages<- data.frame (cover, percent_1987, percent_1988,percent_1989,percent_2008 )
- percentages  
+# percentages  
 #             cover percent_1987 percent_1988 percent_1989 percent_2008
 #1         prateria        39.43        50.80        35.97         6.48
 #2 parte incendiata         6.31        30.73        19.83        39.67
