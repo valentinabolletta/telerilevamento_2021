@@ -5,7 +5,7 @@
 #Entro la fine dell'estate, 50 incendi (alcuni iniziati da persone) avevano bruciato 793.000 dei 2.221.800 acri del parco.
 
 #In questo codice sul recupero delle zone colpite dall'incendio nel parco di Yellowstone nel 1988:
-#1. confronteremo le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
+#1. confronto tra le varie immagini scaricate dal sito NASA Earth Observatory https://earthobservatory.nasa.gov/world-of-change/Yellowstone e salvate nella cartella "yellowstone" nel disco locale C in una Times series 1987-2018,
 #2. verrà poi calcolato l'indice NBR  #library(raster) #library(rasterVis) per levelplot
 #3. valutazione della LAND COVER #library (ggplot2) e (gridExtra) per il plottaggio
 #4. verrà operata una CLASSIFICAZIONE delle immagini #library(RStoolbox)
